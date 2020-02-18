@@ -1,5 +1,5 @@
 #include "SDL_macros.h"
-#include "PingPong.h"
+#include "Asteroids.h"
 #include <assert.h>
 
 #include "BallMoveBehaviour.h"
@@ -15,29 +15,30 @@
 #include "SimpleMoveBahviour.h"
 #include "Transform.h"
 #include "SDLGame.h"
+#include "FighterViewer.h"
 
 #include "SDL_macros.h"
 
 using namespace std;
 
-PingPong::PingPong() :
+Asteroids::Asteroids() :
 		game_(nullptr), //
 		entityManager_(nullptr), //
 		exit_(false) {
 	initGame();
 }
 
-PingPong::~PingPong() {
+Asteroids::~Asteroids() {
 	closeGame();
 }
 
-void PingPong::initGame() {
+void Asteroids::initGame() {
 
-	game_ = SDLGame::init("Ping Pong", _WINDOW_WIDTH_, _WINDOW_HEIGHT_);
+	game_ = SDLGame::init("Asteroids", _WINDOW_WIDTH_, _WINDOW_HEIGHT_);
 
 	entityManager_ = new EntityManager(game_);
 
-	Entity *leftPaddle = entityManager_->addEntity();
+	/*Entity *leftPaddle = entityManager_->addEntity();
 	Transform *leftPaddleTR = leftPaddle->addComponent<Transform>();
 	leftPaddle->addComponent<PaddleKBCtrl>();
 	leftPaddle->addComponent<PaddleMoveBehaviour>();
@@ -66,14 +67,24 @@ void PingPong::initGame() {
 	gameManager->addComponent<ScoreManager>(1);
 	gameManager->addComponent<GameLogic>(ballTR, leftPaddleTR, rightPaddleTR);
 	gameManager->addComponent<ScoreViewer>();
-	gameManager->addComponent<GameCtrl>(GETCMP2(ball, Transform));
+	gameManager->addComponent<GameCtrl>(GETCMP2(ball, Transform));*/
+
+	Entity* caza = entityManager_->addEntity();
+	Transform* cazaTR = caza->addComponent<Transform>();
+	cazaTR->setPos(game_->getWindowWidth() / 2,	game_->getWindowHeight() / 2);
+	caza->addComponent<FighterViewer>();
+	
+
+	//crea el game manager pero no lo mete a ningun lado xq ya se mete en una lista de entities en el entitymanager
+	Entity* gameManager = entityManager_->addEntity();
+	gameManager->addComponent<GameLogic>(); 
 }
 
-void PingPong::closeGame() {
+void Asteroids::closeGame() {
 	delete entityManager_;
 }
 
-void PingPong::start() {
+void Asteroids::start() {
 	exit_ = false;
 
 	while (!exit_) {
@@ -89,11 +100,11 @@ void PingPong::start() {
 	}
 }
 
-void PingPong::stop() {
+void Asteroids::stop() {
 	exit_ = true;
 }
 
-void PingPong::handleInput() {
+void Asteroids::handleInput() {
 
 	InputHandler *ih = InputHandler::instance();
 
@@ -117,11 +128,11 @@ void PingPong::handleInput() {
 
 }
 
-void PingPong::update() {
+void Asteroids::update() {
 	entityManager_->update();
 }
 
-void PingPong::render() {
+void Asteroids::render() {
 	SDL_SetRenderDrawColor(game_->getRenderer(), COLOR(0x00AAAAFF));
 	SDL_RenderClear(game_->getRenderer());
 

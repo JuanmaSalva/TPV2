@@ -6,6 +6,7 @@
 
 class GameLogic: public Component {
 public:
+	GameLogic();
 	GameLogic(Transform* ballTR, Transform* leftPaddleTR, Transform* rightPaddleTR);
 	virtual ~GameLogic();
 	void init() override;
