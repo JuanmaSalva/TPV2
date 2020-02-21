@@ -14,6 +14,5 @@ public:
 	void draw() override;
 private:
 	Texture* texture;
-	Transform* transform;
 };
 
