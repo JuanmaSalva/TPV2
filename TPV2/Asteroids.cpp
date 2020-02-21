@@ -16,6 +16,7 @@
 #include "Transform.h"
 #include "SDLGame.h"
 #include "FighterViewer.h"
+#include "Health.h"
 
 #include "SDL_macros.h"
 
@@ -73,8 +74,11 @@ void Asteroids::initGame() {
 	Transform* cazaTR = caza->addComponent<Transform>();
 	cazaTR->setPos(game_->getWindowWidth() / 2,	game_->getWindowHeight() / 2);
 	caza->addComponent<FighterViewer>();
+	caza->addComponent<Health>();
+	caza->getComponent<Health>(ecs::Health)->loseLife(); //ES UN EJEMPLO DE COMO SE DEBERIA ELIMINAR UNA VIDA
 	
-
+	
+		
 	//crea el game manager pero no lo mete a ningun lado xq ya se mete en una lista de entities en el entitymanager
 	Entity* gameManager = entityManager_->addEntity();
 	gameManager->addComponent<GameLogic>(); 
