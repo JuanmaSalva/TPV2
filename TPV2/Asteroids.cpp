@@ -17,6 +17,9 @@
 #include "SDLGame.h"
 #include "FighterViewer.h"
 #include "Health.h"
+#include "Bullet.h"
+#include "BulletsPool.h"
+#include "BulletsMotion.h"
 
 #include "SDL_macros.h"
 
@@ -77,6 +80,10 @@ void Asteroids::initGame() {
 	caza->addComponent<Health>();
 	caza->getComponent<Health>(ecs::Health)->loseLife(); //ES UN EJEMPLO DE COMO SE DEBERIA ELIMINAR UNA VIDA
 	
+	Entity* bullets = entityManager_->addEntity();
+	bullets->addComponent<BulletsPool>();
+	//le da referencia al BulletsPool para luego mover todas las balas
+	bullets->addComponent<BulletsMotion>(bullets->getComponent<BulletsPool>(ecs::BulletsPool)); 
 	
 		
 	//crea el game manager pero no lo mete a ningun lado xq ya se mete en una lista de entities en el entitymanager

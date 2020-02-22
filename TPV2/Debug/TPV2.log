@@ -1,4 +1,6 @@
-﻿  Asteroids.cpp
-  Health.cpp
+﻿  BulletsMotion.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\BulletsMotion.cpp(21,25): warning C4018: '<': no coinciden signed/unsigned
+  Asteroids.cpp
   Generando código...
+     Creando biblioteca C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\bin\TPV2Debug.lib y objeto C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\bin\TPV2Debug.exp
   TPV2.vcxproj -> C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\bin\TPV2Debug.exe

@@ -20,6 +20,9 @@ enum CmpId : CmpIdType {
 	GameLogic,
 	Fighter,
 	Health,
+	BulletsPool,
+	BulletsMotion,
+	BulletsViewer,
 	//
 	// don't touch the rest of this enum, it is to identify the max
 	// number of components
