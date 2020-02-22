@@ -1,7 +1,7 @@
 #include "FighterViewer.h"
 
 FighterViewer::FighterViewer() :
-	Component(ecs::Fighter)
+	Component(ecs::FighterViewer)
 {
 	texture = nullptr;
 	transform = nullptr;
@@ -19,6 +19,6 @@ void FighterViewer::init()
 
 void FighterViewer::draw()
 {
-	texture->render( SDL_Rect{ (int)transform->getPos().getX(), (int)transform->getPos().getY(), (int)transform->getH(), (int)transform->getW() },
+	texture->render( SDL_Rect{ (int)transform->getPos().getX(), (int)transform->getPos().getY(), (int)transform->getW(), (int)transform->getH() },
 					transform->getRot(), SDL_Rect{47, 90, 207, 250});
 }
