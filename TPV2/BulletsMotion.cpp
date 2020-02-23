@@ -1,18 +1,24 @@
 #include "BulletsMotion.h"
 
-BulletsMotion::BulletsMotion(BulletsPool* b): Component(ecs::BulletsMotion)
+
+BulletsMotion::BulletsMotion():Component(ecs::BulletsMotion)
 {
-	bulletsPool_ = b;
 }
 
 BulletsMotion::~BulletsMotion()
 {
 }
 
+void BulletsMotion::init()
+{
+	bulletsPool_ = GETCMP1_(BulletsPool);
+}
+
 void BulletsMotion::update()
 {
+
 	//esto no se si es realmente el pool del otro componente o es una copia, hay q probar
-	objPool_ = &bulletsPool_->getPool(); //coge referencia al puntero de pool en si
+	objPool_ = bulletsPool_->getPool(); //coge referencia al puntero de pool en si
 	vector<Bullet*> pool = objPool_->getPool(); //este es el vector de objetos como tal
 
 	bool terminado = false;

@@ -1,17 +1,25 @@
 #include "BulletsViewer.h"
 
-BulletsViewer::BulletsViewer(BulletsPool* b) : Component(ecs::BulletsViewer)
+BulletsViewer::BulletsViewer() : Component(ecs::BulletsViewer)
 {
-	bulletsPool_ = b;
+
+	
 }
 
 BulletsViewer::~BulletsViewer()
 {
 }
 
+
+void BulletsViewer::init()
+{
+	bulletsPool_ = GETCMP1_(BulletsPool);
+	texture = game_->getTextureMngr()->getTexture(11);
+}
+
 void BulletsViewer::draw()
 {
-	objPool_ = &bulletsPool_->getPool(); //coge referencia al puntero de pool en si
+	objPool_ = bulletsPool_->getPool(); //coge referencia al puntero de pool en si
 	vector<Bullet*> pool = objPool_->getPool(); //este es el vector de objetos como tal
 
 	bool terminado = false;
@@ -19,9 +27,12 @@ void BulletsViewer::draw()
 
 	while (!terminado && i < pool.size()) {
 		if (pool[i]->inUse_) {
+
 			//aqui se dibujan
+			texture->render(SDL_Rect{(int)pool[i]->getPos().getX(),(int)pool[i]->getPos().getY(),10,10});
 		}
 		else terminado = true;
 		i++;
 	}
 }
+

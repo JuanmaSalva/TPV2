@@ -2,7 +2,6 @@
 
 BulletsPool::BulletsPool() : Component(ecs::BulletsPool), bulletsPool_([](Bullet* o) { return o->inUse_; })
 {
-	
 }
 
 BulletsPool::~BulletsPool()
@@ -15,6 +14,7 @@ void BulletsPool::shoot(Vector2D pos, Vector2D vel, double w, double h)
 	b->setPos(pos);
 	b->setVelocity(vel);
 	b->setSize(w, h);
+	b->inUse_ = true;
 }
 
 void BulletsPool::disablAll()
@@ -49,7 +49,7 @@ void BulletsPool::onCollision(Bullet* b, Asteroid* a)
 	}
 }
 
-ObjectPool<Bullet, 10> BulletsPool::getPool()
+ObjectPool<Bullet, 10>* BulletsPool::getPool()
 {
-	return bulletsPool_;
+	return &bulletsPool_; //devuelve un puntero al objectpool
 }

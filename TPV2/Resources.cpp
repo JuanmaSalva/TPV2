@@ -19,7 +19,8 @@ vector<Resources::ImageInfo> Resources::images_{
 			{ Star, "resources/images/star.png" }, //
 			{ Asteroid, "resources/images/asteroid.png"}, //
 			{ Fighter, "resources/images/airplanes.png"}, //
-			{ Health, "resources/images/heart.png"}
+			{ Health, "resources/images/heart.png"}, //
+			{ Bullet, "resources/images/whiterect.png"}, //
 };
 
 vector<Resources::TextMsgInfo> Resources::messages_{

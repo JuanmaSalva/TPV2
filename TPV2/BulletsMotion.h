@@ -1,13 +1,15 @@
 #pragma once
 #include "Component.h"
 #include "BulletsPool.h"
+#include "Entity.h"
 
 class BulletsMotion : public Component
 {
 public:
-	BulletsMotion(BulletsPool* b);
+	BulletsMotion();
 	~BulletsMotion();
 
+	void init() override;
 	virtual void update() override;
 
 private:

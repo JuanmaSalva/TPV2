@@ -22,6 +22,7 @@ public:
 		Asteroid,
 		Fighter,
 		Health,
+		Bullet,
 
 		// text
 		HelloWorld,

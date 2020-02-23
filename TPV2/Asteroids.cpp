@@ -21,6 +21,8 @@
 #include "Bullet.h"
 #include "BulletsPool.h"
 #include "BulletsMotion.h"
+#include "BulletsViewer.h"
+#include "Gun.h"
 
 #include "SDL_macros.h"
 
@@ -77,18 +79,15 @@ void Asteroids::initGame() {
 	Entity* caza = entityManager_->addEntity();
 	Transform* cazaTR = caza->addComponent<Transform>();
 	cazaTR->setPos(game_->getWindowWidth() / 2,	game_->getWindowHeight() / 2);
-	cazaTR->setW(100);
-	cazaTR->setH(100);
+	cazaTR->setWH(100, 100);
 	caza->addComponent<FighterViewer>();
 	caza->addComponent<Health>();
 	caza->getComponent<Health>(ecs::Health)->loseLife(); //ES UN EJEMPLO DE COMO SE DEBERIA ELIMINAR UNA VIDA
 	caza->addComponent<FighterCtrl>();
-	
-	Entity* bullets = entityManager_->addEntity();
-	bullets->addComponent<BulletsPool>();
-	//le da referencia al BulletsPool para luego mover todas las balas
-	bullets->addComponent<BulletsMotion>(bullets->getComponent<BulletsPool>(ecs::BulletsPool)); 
-	
+	caza->addComponent<BulletsPool>();
+	caza->addComponent<BulletsMotion>();
+	caza->addComponent<BulletsViewer>();
+	caza->addComponent<Gun>();
 		
 	//crea el game manager pero no lo mete a ningun lado xq ya se mete en una lista de entities en el entitymanager
 	Entity* gameManager = entityManager_->addEntity();
