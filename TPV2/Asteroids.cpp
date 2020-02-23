@@ -16,6 +16,7 @@
 #include "Transform.h"
 #include "SDLGame.h"
 #include "FighterViewer.h"
+#include "FighterCtrl.h"
 #include "Health.h"
 
 #include "SDL_macros.h"
@@ -73,9 +74,12 @@ void Asteroids::initGame() {
 	Entity* caza = entityManager_->addEntity();
 	Transform* cazaTR = caza->addComponent<Transform>();
 	cazaTR->setPos(game_->getWindowWidth() / 2,	game_->getWindowHeight() / 2);
+	cazaTR->setW(100);
+	cazaTR->setH(100);
 	caza->addComponent<FighterViewer>();
 	caza->addComponent<Health>();
 	caza->getComponent<Health>(ecs::Health)->loseLife(); //ES UN EJEMPLO DE COMO SE DEBERIA ELIMINAR UNA VIDA
+	caza->addComponent<FighterCtrl>();
 	
 	
 		

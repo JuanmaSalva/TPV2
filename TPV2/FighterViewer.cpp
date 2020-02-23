@@ -4,6 +4,7 @@ FighterViewer::FighterViewer() :
 	Component(ecs::FighterViewer)
 {
 	texture = nullptr;
+	transform = nullptr;
 }
 
 FighterViewer::~FighterViewer()
@@ -13,6 +14,7 @@ FighterViewer::~FighterViewer()
 void FighterViewer::init()
 {
 	texture = game_->getTextureMngr()->getTexture(9);
+	transform = GETCMP1_(Transform);
 }
 
 void FighterViewer::draw()
