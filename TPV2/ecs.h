@@ -18,7 +18,8 @@ enum CmpId : CmpIdType {
 	PaddleMouseCtrl,
 	GameCtrl,
 	GameLogic,
-	Fighter,
+	FighterViewer,
+	FighterCtrl,
 	Health,
 	//
 	// don't touch the rest of this enum, it is to identify the max
@@ -39,4 +40,3 @@ constexpr std::size_t maxComponents = _LastCmptId_;
 #define GETCMP3(e,id,type) e->getComponent<type>(id)
 
 }
-
