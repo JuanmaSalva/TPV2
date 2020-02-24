@@ -11,10 +11,14 @@ BulletsPool::~BulletsPool()
 void BulletsPool::shoot(Vector2D pos, Vector2D vel, double w, double h)
 {
 	Bullet* b = bulletsPool_.getObj(); //devuelve la primera bala que no se esté usando
-	b->setPos(pos);
-	b->setVelocity(vel);
-	b->setSize(w, h);
-	b->inUse_ = true;
+
+	if (b != nullptr) { //si quedan balas
+		b->setPos(pos);
+		b->setVelocity(vel);
+		b->setSize(w, h);
+		b->inUse_ = true;
+	}
+
 }
 
 void BulletsPool::disablAll()

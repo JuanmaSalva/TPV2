@@ -22,16 +22,12 @@ void BulletsViewer::draw()
 	objPool_ = bulletsPool_->getPool(); //coge referencia al puntero de pool en si
 	vector<Bullet*> pool = objPool_->getPool(); //este es el vector de objetos como tal
 
-	bool terminado = false;
 	int i = 0;
 
-	while (!terminado && i < pool.size()) {
+	while (i < pool.size()) {
 		if (pool[i]->inUse_) {
-
-			//aqui se dibujan
 			texture->render(SDL_Rect{(int)pool[i]->getPos().getX(),(int)pool[i]->getPos().getY(),10,10});
 		}
-		else terminado = true;
 		i++;
 	}
 }

@@ -21,10 +21,9 @@ void BulletsMotion::update()
 	objPool_ = bulletsPool_->getPool(); //coge referencia al puntero de pool en si
 	vector<Bullet*> pool = objPool_->getPool(); //este es el vector de objetos como tal
 
-	bool terminado = false;
 	int i = 0;
 
-	while (!terminado && i < pool.size()) {
+	while (i < pool.size()) {
 		if (pool[i]->inUse_) {
 			Vector2D pos = pool[i]->getPos();
 			Vector2D vel = pool[i]->getVel();
@@ -37,7 +36,6 @@ void BulletsMotion::update()
 			else pool[i]->setPos(posFin);
 
 		}
-		else terminado = true;
 		i++;
 	}
 }

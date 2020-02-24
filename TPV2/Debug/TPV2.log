@@ -1,2 +1,3 @@
 ﻿  Gun.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\Gun.cpp(42,26): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
   TPV2.vcxproj -> C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\bin\TPV2Debug.exe

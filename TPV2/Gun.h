@@ -15,7 +15,9 @@ public:
 	void update() override;
 private:
 	SDL_Keycode shoot_;
-	BulletsPool* bulletsPool_;
-	Transform* tr_;
+	BulletsPool* bulletsPool_ = nullptr;
+	Transform* tr_ = nullptr;
+
+	float time_ = 0;
 };
 

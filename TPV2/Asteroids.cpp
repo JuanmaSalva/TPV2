@@ -45,44 +45,12 @@ void Asteroids::initGame() {
 
 	entityManager_ = new EntityManager(game_);
 
-	/*Entity *leftPaddle = entityManager_->addEntity();
-	Transform *leftPaddleTR = leftPaddle->addComponent<Transform>();
-	leftPaddle->addComponent<PaddleKBCtrl>();
-	leftPaddle->addComponent<PaddleMoveBehaviour>();
-	leftPaddle->addComponent<Rectangle,SDL_Color>({COLOR(0xAA0000FF)});
-	leftPaddleTR->setPos(5, game_->getWindowHeight() / 2 - 25);
-	leftPaddleTR->setWH(10, 50);
-
-	Entity *rightPaddle = entityManager_->addEntity();
-	Transform *rightPaddleTR = rightPaddle->addComponent<Transform>();
-	rightPaddle->addComponent<PaddleMouseCtrl>();
-	rightPaddle->addComponent<PaddleMoveBehaviour>();
-	rightPaddle->addComponent<Rectangle,SDL_Color>({COLOR(0x0000AAFF)});
-	rightPaddleTR->setPos(game_->getWindowWidth() - 15,
-			game_->getWindowHeight() / 2 - 25);
-	rightPaddleTR->setWH(10, 50);
-
-	Entity *ball = entityManager_->addEntity();
-	Transform *ballTR = ball->addComponent<Transform>();
-	ball->addComponent<BallMoveBehaviour>();
-	ball->addComponent<Rectangle>();
-	ballTR->setPos(game_->getWindowWidth() / 2 - 6,
-			game_->getWindowHeight() / 2 - 6);
-	ballTR->setWH(11, 11);
-
-	Entity *gameManager = entityManager_->addEntity();
-	gameManager->addComponent<ScoreManager>(1);
-	gameManager->addComponent<GameLogic>(ballTR, leftPaddleTR, rightPaddleTR);
-	gameManager->addComponent<ScoreViewer>();
-	gameManager->addComponent<GameCtrl>(GETCMP2(ball, Transform));*/
-
 	Entity* caza = entityManager_->addEntity();
 	Transform* cazaTR = caza->addComponent<Transform>();
 	cazaTR->setPos(game_->getWindowWidth() / 2,	game_->getWindowHeight() / 2);
 	cazaTR->setWH(100, 100);
 	caza->addComponent<FighterViewer>();
 	caza->addComponent<Health>();
-	caza->getComponent<Health>(ecs::Health)->loseLife(); //ES UN EJEMPLO DE COMO SE DEBERIA ELIMINAR UNA VIDA
 	caza->addComponent<FighterCtrl>();
 	caza->addComponent<BulletsPool>();
 	caza->addComponent<BulletsMotion>();
