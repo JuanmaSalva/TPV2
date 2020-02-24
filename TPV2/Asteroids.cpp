@@ -18,6 +18,7 @@
 #include "FighterViewer.h"
 #include "FighterCtrl.h"
 #include "Health.h"
+#include "FighterMotion.h"
 
 #include "SDL_macros.h"
 
@@ -76,12 +77,13 @@ void Asteroids::initGame() {
 	cazaTR->setPos(game_->getWindowWidth() / 2,	game_->getWindowHeight() / 2);
 	cazaTR->setW(100);
 	cazaTR->setH(100);
+	cazaTR->setSpeeddLimit(4);
+	cazaTR->setThrust(0.5);
 	caza->addComponent<FighterViewer>();
 	caza->addComponent<Health>();
 	caza->getComponent<Health>(ecs::Health)->loseLife(); //ES UN EJEMPLO DE COMO SE DEBERIA ELIMINAR UNA VIDA
-	caza->addComponent<FighterCtrl>();
-	
-	
+	caza->addComponent<FighterCtrl>();	
+	caza->addComponent<FighterMotion>(0.98);
 		
 	//crea el game manager pero no lo mete a ningun lado xq ya se mete en una lista de entities en el entitymanager
 	Entity* gameManager = entityManager_->addEntity();

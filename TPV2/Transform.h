@@ -5,7 +5,7 @@
 
 class Transform: public Component {
 public:
-	Transform(Vector2D pos, Vector2D vel, double width, double height, double rotation);
+	Transform(Vector2D pos, Vector2D vel, double width, double height, double rotation, double speedLimit_);
 	Transform();
 	virtual ~Transform();
 
@@ -71,11 +71,33 @@ public:
 		height_ = height;
 	}
 
+	//speedLimit
+
+	double getSpeedLimit() const {
+		return speedLimit_;
+	}
+
+	void setSpeeddLimit(double speedLimit) {
+		speedLimit_ = speedLimit;
+	}
+
+	//thrust
+
+	double getThrust() const {
+		return thrust_;
+	}
+
+	void setThrust(double thrust) {
+		thrust_ = thrust;
+	}
+
 private:
 	Vector2D position_;
 	Vector2D velocity_;
 	double width_;
 	double height_;
 	double rotation_;
+	double speedLimit_;
+	double thrust_;
 };
 
