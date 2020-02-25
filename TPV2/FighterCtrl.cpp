@@ -31,7 +31,6 @@ void FighterCtrl::update()
 
 	if (ih->keyDownEvent()) {
 		if (ih->isKeyDown(up_)) {
-			cout << "impulso";
 			tr_->setVel(tr_->getVel() + Vector2D(0, -1).rotate(tr_->getRot()) * tr_->getThrust());
 			if (tr_->getVel().magnitude() > tr_->getSpeedLimit()) {
 				tr_->setVel(tr_->getVel().normalize() * tr_->getSpeedLimit());
