@@ -49,7 +49,7 @@ void Asteroids::initGame() {
 	Entity* caza = entityManager_->addEntity();
 	Transform* cazaTR = caza->addComponent<Transform>();
 	cazaTR->setPos(game_->getWindowWidth() / 2,	game_->getWindowHeight() / 2);
-	cazaTR->setWH(100, 100);
+	cazaTR->setWH(50, 50);
 	cazaTR->setSpeeddLimit(4);
 	cazaTR->setThrust(0.5);
 	caza->addComponent<FighterViewer>();

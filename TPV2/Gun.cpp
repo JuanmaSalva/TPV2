@@ -33,10 +33,11 @@ void Gun::update()
 			Vector2D posFin = tr_->getPos();
 			double rotacion = -(tr_->getRot()) + 90;
 
-			posFin = Vector2D(posFin.getX() - 5 + (tr_->getW() / 2), posFin.getY() - 5 + (tr_->getH() / 2)); //de aqui sale la posicion del medio del caza
+			posFin = Vector2D(posFin.getX() - 2 + (tr_->getW() / 2), posFin.getY() - 2 + (tr_->getH() / 2)); //de aqui sale la posicion del medio del caza
 			posFin = Vector2D(posFin.getX() + cos((M_PI * rotacion) / 180) * (tr_->getW() / 2), posFin.getY() - sin((M_PI * rotacion) / 180) * (tr_->getH() / 2)); //calcula el offset
 
-			Vector2D velFin = Vector2D(1 * cos((M_PI * rotacion) / 180), -1 * sin((M_PI * rotacion) / 180));
+			Vector2D velFin = Vector2D(5 * cos((M_PI * rotacion) / 180), -5 * sin((M_PI * rotacion) / 180));
+			velFin = velFin + tr_->getVel();
 
 			bulletsPool_->shoot(posFin, velFin, 100, 100);
 			time_ = game_->getTime(); //guarda el tiempo para no poder disparar mas de una bala cada 0.25s

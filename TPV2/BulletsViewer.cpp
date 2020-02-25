@@ -26,7 +26,7 @@ void BulletsViewer::draw()
 
 	while (i < pool.size()) {
 		if (pool[i]->inUse_) {
-			texture->render(SDL_Rect{(int)pool[i]->getPos().getX(),(int)pool[i]->getPos().getY(),10,10});
+			texture->render(SDL_Rect{(int)pool[i]->getPos().getX(),(int)pool[i]->getPos().getY(),4,4});
 		}
 		i++;
 	}
