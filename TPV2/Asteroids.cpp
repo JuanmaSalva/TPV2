@@ -18,6 +18,7 @@
 #include "FighterViewer.h"
 #include "FighterCtrl.h"
 #include "Health.h"
+#include "FighterMotion.h"
 #include "Bullet.h"
 #include "BulletsPool.h"
 #include "BulletsMotion.h"
@@ -49,9 +50,12 @@ void Asteroids::initGame() {
 	Transform* cazaTR = caza->addComponent<Transform>();
 	cazaTR->setPos(game_->getWindowWidth() / 2,	game_->getWindowHeight() / 2);
 	cazaTR->setWH(100, 100);
+	cazaTR->setSpeeddLimit(4);
+	cazaTR->setThrust(0.5);
 	caza->addComponent<FighterViewer>();
 	caza->addComponent<Health>();
-	caza->addComponent<FighterCtrl>();
+	caza->addComponent<FighterCtrl>();	
+	caza->addComponent<FighterMotion>(0.98);
 	caza->addComponent<BulletsPool>();
 	caza->addComponent<BulletsMotion>();
 	caza->addComponent<BulletsViewer>();
