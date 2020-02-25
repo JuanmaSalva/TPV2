@@ -9,6 +9,7 @@ public:
 	FighterCtrl();
 	FighterCtrl(SDL_Keycode left, SDL_Keycode right, SDL_Keycode up);
 	~FighterCtrl();
+
 	void init() override;
 	void update() override;
 private:

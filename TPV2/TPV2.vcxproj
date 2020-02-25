@@ -21,6 +21,10 @@
   <ItemGroup>
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="BallMoveBehaviour.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletsMotion.h" />
+    <ClInclude Include="BulletsPool.h" />
+    <ClInclude Include="BulletsViewer.h" />
     <ClInclude Include="checkML.h" />
     <ClInclude Include="Collisions.h" />
     <ClInclude Include="Component.h" />
@@ -33,6 +37,7 @@
     <ClInclude Include="FontsManager.h" />
     <ClInclude Include="GameCtrl.h" />
     <ClInclude Include="GameLogic.h" />
+    <ClInclude Include="Gun.h" />
     <ClInclude Include="Health.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="jute.h" />
@@ -62,6 +67,10 @@
   <ItemGroup>
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="BallMoveBehaviour.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletsMotion.cpp" />
+    <ClCompile Include="BulletsPool.cpp" />
+    <ClCompile Include="BulletsViewer.cpp" />
     <ClCompile Include="Collisions.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -72,6 +81,7 @@
     <ClCompile Include="FontsManager.cpp" />
     <ClCompile Include="GameCtrl.cpp" />
     <ClCompile Include="GameLogic.cpp" />
+    <ClCompile Include="Gun.cpp" />
     <ClCompile Include="Health.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="jute.cpp" />

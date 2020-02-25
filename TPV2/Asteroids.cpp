@@ -19,6 +19,11 @@
 #include "FighterCtrl.h"
 #include "Health.h"
 #include "FighterMotion.h"
+#include "Bullet.h"
+#include "BulletsPool.h"
+#include "BulletsMotion.h"
+#include "BulletsViewer.h"
+#include "Gun.h"
 
 #include "SDL_macros.h"
 
@@ -41,49 +46,20 @@ void Asteroids::initGame() {
 
 	entityManager_ = new EntityManager(game_);
 
-	/*Entity *leftPaddle = entityManager_->addEntity();
-	Transform *leftPaddleTR = leftPaddle->addComponent<Transform>();
-	leftPaddle->addComponent<PaddleKBCtrl>();
-	leftPaddle->addComponent<PaddleMoveBehaviour>();
-	leftPaddle->addComponent<Rectangle,SDL_Color>({COLOR(0xAA0000FF)});
-	leftPaddleTR->setPos(5, game_->getWindowHeight() / 2 - 25);
-	leftPaddleTR->setWH(10, 50);
-
-	Entity *rightPaddle = entityManager_->addEntity();
-	Transform *rightPaddleTR = rightPaddle->addComponent<Transform>();
-	rightPaddle->addComponent<PaddleMouseCtrl>();
-	rightPaddle->addComponent<PaddleMoveBehaviour>();
-	rightPaddle->addComponent<Rectangle,SDL_Color>({COLOR(0x0000AAFF)});
-	rightPaddleTR->setPos(game_->getWindowWidth() - 15,
-			game_->getWindowHeight() / 2 - 25);
-	rightPaddleTR->setWH(10, 50);
-
-	Entity *ball = entityManager_->addEntity();
-	Transform *ballTR = ball->addComponent<Transform>();
-	ball->addComponent<BallMoveBehaviour>();
-	ball->addComponent<Rectangle>();
-	ballTR->setPos(game_->getWindowWidth() / 2 - 6,
-			game_->getWindowHeight() / 2 - 6);
-	ballTR->setWH(11, 11);
-
-	Entity *gameManager = entityManager_->addEntity();
-	gameManager->addComponent<ScoreManager>(1);
-	gameManager->addComponent<GameLogic>(ballTR, leftPaddleTR, rightPaddleTR);
-	gameManager->addComponent<ScoreViewer>();
-	gameManager->addComponent<GameCtrl>(GETCMP2(ball, Transform));*/
-
 	Entity* caza = entityManager_->addEntity();
 	Transform* cazaTR = caza->addComponent<Transform>();
 	cazaTR->setPos(game_->getWindowWidth() / 2,	game_->getWindowHeight() / 2);
-	cazaTR->setW(100);
-	cazaTR->setH(100);
+	cazaTR->setWH(100, 100);
 	cazaTR->setSpeeddLimit(4);
 	cazaTR->setThrust(0.5);
 	caza->addComponent<FighterViewer>();
 	caza->addComponent<Health>();
-	caza->getComponent<Health>(ecs::Health)->loseLife(); //ES UN EJEMPLO DE COMO SE DEBERIA ELIMINAR UNA VIDA
 	caza->addComponent<FighterCtrl>();	
 	caza->addComponent<FighterMotion>(0.98);
+	caza->addComponent<BulletsPool>();
+	caza->addComponent<BulletsMotion>();
+	caza->addComponent<BulletsViewer>();
+	caza->addComponent<Gun>();
 		
 	//crea el game manager pero no lo mete a ningun lado xq ya se mete en una lista de entities en el entitymanager
 	Entity* gameManager = entityManager_->addEntity();
