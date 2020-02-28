@@ -63,7 +63,7 @@ void Asteroids::initGame() {
 		
 	//crea el game manager pero no lo mete a ningun lado xq ya se mete en una lista de entities en el entitymanager
 	Entity* gameManager = entityManager_->addEntity();
-	gameManager->addComponent<GameLogic>(); 
+	gameManager->addComponent<ScoreManager>(); 
 }
 
 void Asteroids::closeGame() {

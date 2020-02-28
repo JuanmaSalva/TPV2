@@ -31,10 +31,10 @@ void GameCtrl::update() {
 			ballTR_->setVel(v.normalize() * 5);
 
 			// rest the score if the game is over
-			if (scoreManager_->isGameOver()) {
+			/*if (scoreManager_->isGameOver()) {
 				scoreManager_->setLeftScore(0);
 				scoreManager_->setRightScore(0);
-			}
+			}*/
 		}
 	}
 }
@@ -50,10 +50,10 @@ void GameCtrl::draw() {
 	}
 
 	// game over message when game is over
-	if (scoreManager_->isGameOver()) {
+	/*if (scoreManager_->isGameOver()) {
 		Texture *gameOver = game_->getTextureMngr()->getTexture(
 				Resources::GameOver);
 		gameOver->render(game_->getWindowWidth() / 2 - gameOver->getWidth() / 2,
 				game_->getWindowHeight() - gameOver->getHeight() - 150);
-	}
+	}*/
 }

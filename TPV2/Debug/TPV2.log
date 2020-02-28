@@ -1,3 +1,90 @@
-﻿  BulletsViewer.cpp
-C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\BulletsViewer.cpp(27,11): warning C4018: '<': no coinciden signed/unsigned
-  TPV2.vcxproj -> C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\bin\TPV2Debug.exe
+﻿  GameCtrl.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\Transform.h(6,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\Transform.h(6,16): error C2059: error de sintaxis: ':'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\Transform.h(6,18): error C2059: error de sintaxis: 'public'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\Transform.h(6,35): error C2143: error de sintaxis: falta ';' delante de '{'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\Transform.h(6,35): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.h(9,29): error C2061: error de sintaxis: identificador 'Transform'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.h(15,12): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.h(15,12): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.h(15,20): error C2238: símbolos (token) inesperados delante de ';'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.cpp(6,20): error C2065: 'Transform': identificador no declarado
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.cpp(6,31): error C2065: 'ballTR': identificador no declarado
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.cpp(6,11): error C7550: "GameCtrl::{ctor}": el nombre completo en este contexto denomina un constructor, no un tipo.
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.cpp(6,39): error C2448: 'GameCtrl::{ctor}': el inicializador de estilo de función parece ser una definición de función
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.cpp(6,39): error C2059: error de sintaxis: ':'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.cpp(7,27): error C2365: 'ecs::GameCtrl': nueva definición; la definición anterior era 'enumerador'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ecs.h(19): message : vea la declaración de 'ecs::GameCtrl'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.cpp(7,27): error C2244: 'ecs::GameCtrl': no se puede hacer coincidir la definición de función con una declaración existente
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.cpp(7): message : vea la declaración de 'ecs::GameCtrl'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.cpp(8,11): error C2065: 'ballTR': identificador no declarado
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.cpp(10,1): error C2448: 'scoreManager_': el inicializador de estilo de función parece ser una definición de función
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.cpp(31,11): error C2819: el tipo 'Component' no tiene un miembro sobrecargado 'operator ->'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\Component.h(11): message : vea la declaración de 'Component'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.cpp(31,11): message : ¿deseaba utilizar '.' en su lugar?
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.cpp(31,19): error C2039: 'setVel': no es un miembro de 'Component'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\Component.h(11): message : vea la declaración de 'Component'
+  GameLogic.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\Transform.h(6,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\Transform.h(6,16): error C2059: error de sintaxis: ':'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\Transform.h(6,18): error C2059: error de sintaxis: 'public'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\Transform.h(6,35): error C2143: error de sintaxis: falta ';' delante de '{'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\Transform.h(6,35): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.h(10,81): error C2061: error de sintaxis: identificador 'Transform'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.h(10,81): error C2535: 'GameLogic::GameLogic(void)': función miembro ya definida o declarada
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.h(9): message : vea la declaración de 'GameLogic::GameLogic'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.h(15,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.h(15,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.h(15,20): error C2238: símbolos (token) inesperados delante de ';'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.h(16,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.h(16,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.h(16,26): error C2238: símbolos (token) inesperados delante de ';'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.h(17,11): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.h(17,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.h(17,27): error C2238: símbolos (token) inesperados delante de ';'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(10,22): error C2065: 'Transform': identificador no declarado
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(10,33): error C2065: 'ballTR': identificador no declarado
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(10,41): error C2065: 'Transform': identificador no declarado
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(10,52): error C2065: 'leftPaddleTR': identificador no declarado
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(11,2): error C2065: 'Transform': identificador no declarado
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(11,13): error C2065: 'rightPaddleTR': identificador no declarado
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(10,12): error C7550: "GameLogic::{ctor}": el nombre completo en este contexto denomina un constructor, no un tipo.
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(11,28): error C2448: 'GameLogic::{ctor}': el inicializador de estilo de función parece ser una definición de función
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(11,28): error C2059: error de sintaxis: ':'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(12,27): error C2365: 'ecs::GameLogic': nueva definición; la definición anterior era 'enumerador'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ecs.h(20): message : vea la declaración de 'ecs::GameLogic'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(12,27): error C2244: 'ecs::GameLogic': no se puede hacer coincidir la definición de función con una declaración existente
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(12): message : vea la declaración de 'ecs::GameLogic'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(13,10): error C2065: 'ballTR': identificador no declarado
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(14,16): error C2065: 'leftPaddleTR': identificador no declarado
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(15,17): error C2065: 'rightPaddleTR': identificador no declarado
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(17,1): error C2448: 'scoreManager_': el inicializador de estilo de función parece ser una definición de función
+  Asteroids.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.h(7,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.h(7,15): error C2059: error de sintaxis: ':'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.h(7,17): error C2059: error de sintaxis: 'public'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.h(7,34): error C2143: error de sintaxis: falta ';' delante de '{'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameCtrl.h(7,34): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
+  ScoreManager.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreManager.cpp(3,30): error C2533: 'ScoreManager::{ctor}': los constructores no permiten un tipo de valor devuelto
+  ScoreViewer.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.h(6,1): error C2236: token inesperado 'class'. Compruebe si olvidó un ';'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.h(6,18): error C2059: error de sintaxis: ':'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.h(6,20): error C2059: error de sintaxis: 'public'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.h(6,37): error C2143: error de sintaxis: falta ';' delante de '{'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.h(6,37): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.cpp(7,25): error C2653: 'ScoreViewer': no es un nombre de clase o espacio de nombres
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.cpp(7,28): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.cpp(9,26): error C2550: 'ScoreViewer': las listas de inicializadores de constructor solo se permiten en las definiciones de constructor
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.cpp(10,1): warning C4508: 'ScoreViewer': la función debe devolver un valor; se supone que el tipo de valor devuelto es 'void'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.cpp(12,26): error C2653: 'ScoreViewer': no es un nombre de clase o espacio de nombres
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.cpp(12,26): error C2523: '<Desconocido>::~ScoreViewer': etiqueta de destructor sin correspondencia
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.cpp(12,29): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.cpp(12,29): error C2084: la función 'int ScoreViewer(void)' ya tiene un cuerpo
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.cpp(7): message : vea la definición anterior de 'ScoreViewer'
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.cpp(15,23): error C2653: 'ScoreViewer': no es un nombre de clase o espacio de nombres
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.cpp(16,2): error C2065: 'scoreManager_': identificador no declarado
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.cpp(16,18): error C2065: 'entity_': identificador no declarado
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\ScoreViewer.cpp(19,23): error C2653: 'ScoreViewer': no es un nombre de clase o espacio de nombres
+  Transform.cpp
+  Generando código...
