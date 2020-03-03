@@ -3,39 +3,42 @@
 
 namespace ecs {
 
-using CmpIdType = std::size_t;
+	using CmpIdType = std::size_t;
 
-enum CmpId : CmpIdType {
-	Transform = 0,
-	SimpleMoveBehavior,
-	BallMoveBehaviour,
-	PaddleMoveBehaviour,
-	StopOnBorders,
-	Rectangle,
-	ScoreManager,
-	ScoreViewer,
-	PaddleKBCtrl,
-	PaddleMouseCtrl,
-	GameCtrl,
-	GameLogic,
-	FighterViewer,
-	FighterCtrl,
-	Health,
-	FighterMotion,
-	BulletsPool,
-	BulletsMotion,
-	BulletsViewer,
-	Gun,
-	//
-	// don't touch the rest of this enum, it is to identify the max
-	// number of components
-	_LastCmptId_
-};
+	enum CmpId : CmpIdType {
+		Transform = 0,
+		SimpleMoveBehavior,
+		BallMoveBehaviour,
+		PaddleMoveBehaviour,
+		StopOnBorders,
+		Rectangle,
+		ScoreManager,
+		ScoreViewer,
+		PaddleKBCtrl,
+		PaddleMouseCtrl,
+		GameCtrl,
+		GameLogic,
+		FighterViewer,
+		FighterCtrl,
+		Health,
+		FighterMotion,
+		BulletsPool,
+		BulletsMotion,
+		BulletsViewer,
+		Gun,
+		AsteroidPool,
+		AsteroidsMotion,
+		AsteroidsViewer,
+		//
+		// don't touch the rest of this enum, it is to identify the max
+		// number of components
+		_LastCmptId_
+	};
 
-constexpr std::size_t maxComponents = _LastCmptId_;
+	constexpr std::size_t maxComponents = _LastCmptId_;
 
-// these two should be used to get a component via the field
-// entity_
+	// these two should be used to get a component via the field
+	// entity_
 #define GETCMP2_(id,type)  GETCMP3(entity_,id,type)
 #define GETCMP1_(type)     GETCMP3(entity_,ecs::type,type)
 

@@ -3,15 +3,11 @@
 #include <assert.h>
 
 #include "BallMoveBehaviour.h"
-#include "GameCtrl.h"
-#include "GameLogic.h"
 #include "InputHandler.h"
 #include "PaddleKBCtrl.h"
 #include "PaddleMouseCtrl.h"
 #include "PaddleMoveBehaviour.h"
 #include "Rectangle.h"
-#include "ScoreManager.h"
-#include "ScoreViewer.h"
 #include "SimpleMoveBahviour.h"
 #include "Transform.h"
 #include "SDLGame.h"
@@ -24,6 +20,12 @@
 #include "BulletsMotion.h"
 #include "BulletsViewer.h"
 #include "Gun.h"
+#include "AsteroidPool.h"
+#include "AsteroidsMotion.h"
+#include "AsteroidsViewer.h"
+#include "GameCtrl.h"
+#include "ScoreManager.h"
+#include "GameLogic.h"
 
 #include "SDL_macros.h"
 
@@ -48,22 +50,30 @@ void Asteroids::initGame() {
 
 	Entity* caza = entityManager_->addEntity();
 	Transform* cazaTR = caza->addComponent<Transform>();
-	cazaTR->setPos(game_->getWindowWidth() / 2,	game_->getWindowHeight() / 2);
 	cazaTR->setWH(50, 50);
+	cazaTR->setPos(game_->getWindowWidth() / 2 -cazaTR->getW()/2,	game_->getWindowHeight() / 2 - cazaTR->getH() / 2);
 	cazaTR->setSpeeddLimit(4);
 	cazaTR->setThrust(0.5);
 	caza->addComponent<FighterViewer>();
 	caza->addComponent<Health>();
 	caza->addComponent<FighterCtrl>();	
 	caza->addComponent<FighterMotion>(0.98);
+
 	caza->addComponent<BulletsPool>();
 	caza->addComponent<BulletsMotion>();
 	caza->addComponent<BulletsViewer>();
 	caza->addComponent<Gun>();
+
+	caza->addComponent<AsteroidPool>();
+	caza->addComponent<AsteroidsMotion>();
+	caza->addComponent<AsteroidsViewer>();
 		
 	//crea el game manager pero no lo mete a ningun lado xq ya se mete en una lista de entities en el entitymanager
 	Entity* gameManager = entityManager_->addEntity();
-	gameManager->addComponent<GameLogic>(); 
+	gameManager->addComponent<ScoreManager>();
+	gameManager->addComponent<GameCtrl>(caza->getComponent<AsteroidPool>(ecs::AsteroidPool), caza->getComponent<Health>(ecs::Health));
+	gameManager->addComponent<GameLogic>(caza->getComponent<AsteroidPool>(ecs::AsteroidPool), caza->getComponent<BulletsPool>(ecs::BulletsPool),
+		caza->getComponent<Health>(ecs::Health), cazaTR);
 }
 
 void Asteroids::closeGame() {

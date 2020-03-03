@@ -12,6 +12,7 @@ public:
 
 	void loseLife();
 	void resetLife();
+	int getLife() { return lifes; }
 
 private:
 	Texture* texture;

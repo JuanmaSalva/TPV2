@@ -1,18 +1,25 @@
 #pragma once
-
 #include "Component.h"
+#include "AsteroidPool.h"
+#include "Health.h"
 #include "ScoreManager.h"
-#include "Transform.h"
+#include "Entity.h"
+#include "Texture.h"
 
-class GameCtrl: public Component {
+class GameCtrl :public Component
+{
 public:
-	GameCtrl(Transform *ballTR);
-	virtual ~GameCtrl();
-	void init() override;
-	void update() override;
+	GameCtrl(AsteroidPool* a, Health* h);
+	~GameCtrl() {}
+
+	void init()override;
+	void update()override;
 	void draw() override;
+
+
 private:
-	Transform *ballTR_;
-	ScoreManager *scoreManager_;
+	AsteroidPool* asterPool_;
+	Health* healthCaza_;
+	ScoreManager* scoreManager;
 };
 

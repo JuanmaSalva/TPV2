@@ -37,19 +37,19 @@ void BulletsPool::disablAll()
 }
 
 
-//no se si aqui tenemos que mirar si hay colision o no
-void BulletsPool::onCollision(Bullet* b, Asteroid* a)
+void BulletsPool::onCollision(Bullet* b)
 {
 	bool encontrado = false;
 	int i = 0;
 	vector<Bullet*> pool = bulletsPool_.getPool();
 
-	while (!encontrado)
+	while (!encontrado && i<pool.size())
 	{
 		if (b == pool[i]) {
 			b->inUse_ = false;
 			encontrado = true;
 		}
+		i++;
 	}
 }
 

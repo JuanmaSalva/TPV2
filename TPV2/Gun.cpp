@@ -39,7 +39,7 @@ void Gun::update()
 			Vector2D velFin = Vector2D(5 * cos((M_PI * rotacion) / 180), -5 * sin((M_PI * rotacion) / 180));
 			velFin = velFin + tr_->getVel();
 
-			bulletsPool_->shoot(posFin, velFin, 100, 100);
+			bulletsPool_->shoot(posFin, velFin, 5, 5);
 			time_ = game_->getTime(); //guarda el tiempo para no poder disparar mas de una bala cada 0.25s
 		}
 	}

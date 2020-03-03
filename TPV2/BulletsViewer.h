@@ -15,5 +15,6 @@ private:
 	BulletsPool* bulletsPool_;
 	ObjectPool<Bullet, 10>* objPool_;
 	Texture* texture;
+	vector<Bullet*> pool;
 };
 
