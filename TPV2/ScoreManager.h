@@ -1,36 +1,23 @@
 #pragma once
-
 #include "Component.h"
 
-class ScoreManager: public Component {
+class ScoreManager: public Component
+{
 public:
-	ScoreManager();
-	virtual ~ScoreManager();
+	ScoreManager():Component(ecs::ScoreManager), puntuacion_(0), parado_(true),terminado_(false){}
+	~ScoreManager(){}
 
-	bool isRunning() const {
-		return running_;
-	}
-	void setRunning(bool running) {
-		running_ = running;
-	}
-	bool isFinished() const {
-		return finished_;
-	}
-	void setFinished(bool fin) {
-		finished_ = fin;
-	}
-	void setScore(int i) {
-		score_ = i;
-	}
-	void addScore(int i) {
-		score_ += i;
-	}
-	int getScore() const {
-		return score_;
-	}
+	void sumPoints(int p) { puntuacion_ += p; }
+	int getPoints() { return puntuacion_; }
+	void resetPoints() { puntuacion_ = 0; }
+	void setParado(bool p) { parado_ = p; }
+	bool getParado() { return parado_; }
+	void setTerminado(bool t) { terminado_ = t; }
+	bool getTerminado() { return terminado_; }
 
 private:
-	bool running_;
-	bool finished_;
-	int score_;
-}
+	int puntuacion_;
+	bool parado_;
+	bool terminado_;
+};
+

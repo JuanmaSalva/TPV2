@@ -14,7 +14,5 @@ public:
 
 private:
 	vector<Bullet*> pool;
-	BulletsPool* bulletsPool_;
-	ObjectPool<Bullet, 10>* objPool_;
 };
 

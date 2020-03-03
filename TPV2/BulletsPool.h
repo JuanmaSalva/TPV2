@@ -14,7 +14,7 @@ public:
 
 	void shoot(Vector2D pos, Vector2D vel, double w, double h);
 	void disablAll();
-	void  onCollision(Bullet* b, Asteroid* a);
+	void  onCollision(Bullet* b);
 	ObjectPool<Bullet, 10>* getPool();
 
 private:

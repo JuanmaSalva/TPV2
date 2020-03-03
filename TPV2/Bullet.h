@@ -15,6 +15,9 @@ public:
 
 	Vector2D getPos();
 	Vector2D getVel();
+	double getW() { return width_; }
+	double getH() { return height_; }
+	double getRot() { return rotation_; }
 
 private:
 	Vector2D position_;

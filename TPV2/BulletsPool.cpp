@@ -37,8 +37,7 @@ void BulletsPool::disablAll()
 }
 
 
-//no se si aqui tenemos que mirar si hay colision o no
-void BulletsPool::onCollision(Bullet* b, Asteroid* a)
+void BulletsPool::onCollision(Bullet* b)
 {
 	bool encontrado = false;
 	int i = 0;

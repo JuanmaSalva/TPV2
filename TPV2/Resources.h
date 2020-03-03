@@ -23,7 +23,6 @@ public:
 		Fighter,
 		Health,
 		Bullet,
-
 		// text
 		HelloWorld,
 		PressAnyKey,

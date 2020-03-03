@@ -11,10 +11,7 @@ BulletsMotion::~BulletsMotion()
 
 void BulletsMotion::init()
 {
-	bulletsPool_ = GETCMP1_(BulletsPool);
-	//esto no se si es realmente el pool del otro componente o es una copia, hay q probar
-	objPool_ = bulletsPool_->getPool(); //coge referencia al puntero de pool en si
-	pool = objPool_->getPool(); //este es el vector de objetos como tal
+	pool = GETCMP1_(BulletsPool)->getPool()->getPool(); //este es el vector de objetos como tal
 }
 
 void BulletsMotion::update()

@@ -19,6 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Asteroid.h" />
+    <ClInclude Include="AsteroidPool.h" />
+    <ClInclude Include="AsteroidsMotion.h" />
+    <ClInclude Include="AsteroidsViewer.h" />
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="BallMoveBehaviour.h" />
     <ClInclude Include="Bullet.h" />
@@ -51,7 +55,6 @@
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Resources.h" />
     <ClInclude Include="ScoreManager.h" />
-    <ClInclude Include="ScoreViewer.h" />
     <ClInclude Include="SDLAudioManager.h" />
     <ClInclude Include="SDLFontsManager.h" />
     <ClInclude Include="SDLGame.h" />
@@ -65,6 +68,10 @@
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Asteroid.cpp" />
+    <ClCompile Include="AsteroidPool.cpp" />
+    <ClCompile Include="AsteroidsMotion.cpp" />
+    <ClCompile Include="AsteroidsViewer.cpp" />
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="BallMoveBehaviour.cpp" />
     <ClCompile Include="Bullet.cpp" />
@@ -96,7 +103,6 @@
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Resources.cpp" />
     <ClCompile Include="ScoreManager.cpp" />
-    <ClCompile Include="ScoreViewer.cpp" />
     <ClCompile Include="SDLAudioManager.cpp" />
     <ClCompile Include="SDLFontsManager.cpp" />
     <ClCompile Include="SDLGame.cpp" />

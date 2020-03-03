@@ -2,8 +2,10 @@
 
 #include "Vector2D.h"
 #include "Component.h"
+#include "Entity.h"
 
-class Transform: public Component {
+class Transform : public Component 
+{
 public:
 	Transform(Vector2D pos, Vector2D vel, double width, double height, double rotation, double speedLimit_);
 	Transform();
