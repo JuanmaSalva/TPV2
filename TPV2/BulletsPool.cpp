@@ -43,12 +43,13 @@ void BulletsPool::onCollision(Bullet* b)
 	int i = 0;
 	vector<Bullet*> pool = bulletsPool_.getPool();
 
-	while (!encontrado)
+	while (!encontrado && i<pool.size())
 	{
 		if (b == pool[i]) {
 			b->inUse_ = false;
 			encontrado = true;
 		}
+		i++;
 	}
 }
 
