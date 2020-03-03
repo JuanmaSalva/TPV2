@@ -16,8 +16,8 @@ void AsteroidsViewer::draw()
 {
 	for (int i = 0; i < pool.size(); i++) {
 		if (pool[i]->inUse_) {
-			texture_->render(SDL_Rect{ (int)pool[i]->getPos().getX(),(int)pool[i]->getPos().getY(),pool[i]->getScaleX(),pool[i]->getScaleY()}); //FALTA PONER EL SIZE DEL ASTEROIDE
+			texture_->render(SDL_Rect{ (int)pool[i]->getPos().getX(),(int)pool[i]->getPos().getY(),pool[i]->getScaleX(),pool[i]->getScaleY() }, pool[i]->getRotation());
 		}
-		i++;
 	}
 }
+

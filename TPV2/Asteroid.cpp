@@ -7,4 +7,5 @@ Asteroid::Asteroid()
 	width_ = 0;
 	height_ = 0;
 	rotation_ = 0;
+	inUse_ = false;
 }

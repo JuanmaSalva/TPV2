@@ -24,21 +24,23 @@ void GameLogic::update()
 void GameLogic::colisionAsteroidesCaza()
 {
 	for (int i = 0; i < poolAsteroid.capacity(); i++) {
-		if (poolAsteroid[i]->inUse_ &&
-			Collisions::collidesWithRotation(poolAsteroid[i]->getPos(), poolAsteroid[i]->getScaleX(), poolAsteroid[i]->getScaleY(), poolAsteroid[i]->getRotation(),
-				trCaza_->getPos(), trCaza_->getW(), trCaza_->getH(), trCaza_->getRot())) { //un asteroide ha colisionado con el caza
-			asterPool_->disableAll();
-			bulletsPool_->disablAll();
-			healtzCaza_->loseLife();
-			scoreMgr_->setParado(true);
+		if (poolAsteroid[i]->inUse_) {
+			if (Collisions::collidesWithRotation(poolAsteroid[i]->getPos(), poolAsteroid[i]->getScaleX(), poolAsteroid[i]->getScaleY(), poolAsteroid[i]->getRotation(),
+				trCaza_->getPos(), trCaza_->getH(), trCaza_->getW(), trCaza_->getRot())) { //un asteroide ha colisionado con el caza
 
-			if (healtzCaza_->getLife() == 0) { //ha muerto del todo
-				scoreMgr_->setTerminado(true);
+				asterPool_->disableAll();
+				bulletsPool_->disablAll();
+				healtzCaza_->loseLife();
+				scoreMgr_->setParado(true);
+
+				if (healtzCaza_->getLife() == 0) { //ha muerto del todo
+					scoreMgr_->setTerminado(true);
+				}
+
+				trCaza_->setPos(Vector2D(game_->getWindowWidth() / 2 - trCaza_->getW() / 2, game_->getWindowHeight() / 2 - trCaza_->getH() / 2));
+				trCaza_->setVel(Vector2D(0, 0));
+				trCaza_->setRot(0);
 			}
-
-			trCaza_->setPos(Vector2D(game_->getWindowWidth() / 2 - trCaza_->getW() / 2, game_->getWindowHeight() / 2 - trCaza_->getH() / 2));
-			trCaza_->setVel(Vector2D(0, 0));
-			trCaza_->setRot(0);
 		}
 	}
 }
@@ -51,7 +53,8 @@ void GameLogic::colisionBalasAsteroides()
 			for (int j = 0; j < poolAsteroid.capacity(); j++) {
 				if (poolAsteroid[j]->inUse_ &&
 					Collisions::collidesWithRotation(poolBullets[i]->getPos(), poolBullets[i]->getW(), poolBullets[i]->getH(), poolBullets[i]->getRot(),
-						poolAsteroid[j]->getPos(), poolAsteroid[j]->getScaleX(), poolAsteroid[j]->getScaleY(), poolAsteroid[j]->getRotation())) {
+						poolAsteroid[j]->getPos(), poolAsteroid[j]->getScaleX(), poolAsteroid[j]->getScaleY(), poolAsteroid[j]->getRotation()) &&
+					poolBullets[i]->inUse_) {
 					//ha colisionado una bala con un asteroide
 					bulletsPool_->onCollision(poolBullets[i]);
 					asterPool_->onCollision(poolAsteroid[j]);

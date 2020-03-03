@@ -43,7 +43,7 @@ void AsteroidPool::generateAsteroids(int n)
 
 		aster->setVelocity((c - p).normalize() * ((rand() % 10) / 10.0));
 		aster->setGeneracion(rand() % 2 + 1);
-		aster->setSize(10 + 3 * aster->getGeneracion(), 10 + 3 * aster->getGeneracion());
+		aster->setSize(8 + 13 * aster->getGeneracion(),8 + 13 * aster->getGeneracion());
 		aster->inUse_ = true;
 	}
 
@@ -64,7 +64,7 @@ void AsteroidPool::disableAll()
 void AsteroidPool::onCollision(Asteroid* a)
 {
 	a->inUse_ = false;
-
+	int proxgen = a->getGeneracion() - 1;
 	vector<Asteroid*> pool = asteroidsPool_.getPool();
 	
 	if (a->getGeneracion() > 0) { //si aun se puede dividir
@@ -76,8 +76,9 @@ void AsteroidPool::onCollision(Asteroid* a)
 
 			nuevo->setVelocity(v);
 			nuevo->setPos(p);
-			nuevo->setGeneracion(a->getGeneracion() - 1);
-			nuevo->setSize(10 + 3 * nuevo->getGeneracion(), 10 + 3 * nuevo->getGeneracion());
+			nuevo->setGeneracion(proxgen);
+			nuevo->setSize(8 + 13 * a->getGeneracion(), 8 + 13 * a->getGeneracion());
+			nuevo->inUse_ = true;
 		}
 		numAsteroids++;
 	}
