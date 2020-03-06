@@ -16,9 +16,10 @@ void GameCtrl::update()
 	if (InputHandler::instance()->keyDownEvent()) {
 		if (scoreManager->getParado()) { //si el estado estaba parado
 			//activar el juego
-			asterPool_->generateAsteroids(10);
+			asterPool_->generateAsteroids(1);
 			scoreManager->setParado(false);
 			scoreManager->setTerminado(false);
+			scoreManager->setGanado(false);
 		}
 	}
 
@@ -35,12 +36,5 @@ void GameCtrl::draw()
 
 		hitanykey->render(game_->getWindowWidth() / 2 - hitanykey->getWidth() / 2, //pone la posicion
 			game_->getWindowHeight() - hitanykey->getHeight() - 50);
-	}
-
-	if (scoreManager->getTerminado()) { //si ha terminado el juego
-		Texture* gameOver = game_->getTextureMngr()->getTexture(Resources::GameOver);
-
-		gameOver->render(game_->getWindowWidth() / 2 - gameOver->getWidth() / 2,
-			game_->getWindowHeight() - gameOver->getHeight() - 150);
 	}
 }

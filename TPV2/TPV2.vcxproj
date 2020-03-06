@@ -55,6 +55,7 @@
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Resources.h" />
     <ClInclude Include="ScoreManager.h" />
+    <ClInclude Include="ScoreViewer.h" />
     <ClInclude Include="SDLAudioManager.h" />
     <ClInclude Include="SDLFontsManager.h" />
     <ClInclude Include="SDLGame.h" />
@@ -103,6 +104,7 @@
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Resources.cpp" />
     <ClCompile Include="ScoreManager.cpp" />
+    <ClCompile Include="ScoreViewer.cpp" />
     <ClCompile Include="SDLAudioManager.cpp" />
     <ClCompile Include="SDLFontsManager.cpp" />
     <ClCompile Include="SDLGame.cpp" />

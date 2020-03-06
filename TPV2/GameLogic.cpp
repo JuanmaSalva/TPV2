@@ -45,7 +45,7 @@ void GameLogic::colisionAsteroidesCaza()
 	}
 }
 
-//NO VA BIEN
+
 void GameLogic::colisionBalasAsteroides()
 {
 	for (int i = 0; i < poolBullets.capacity(); i++) {
@@ -59,6 +59,20 @@ void GameLogic::colisionBalasAsteroides()
 					bulletsPool_->onCollision(poolBullets[i]);
 					asterPool_->onCollision(poolAsteroid[j]);
 					scoreMgr_->sumPoints(1);
+
+					if(asterPool_->getNumOfAsteroid() == 0){
+						scoreMgr_->setTerminado(true);
+						scoreMgr_->setGanado(true);
+						scoreMgr_->setParado(true);
+
+						asterPool_->disableAll();
+						bulletsPool_->disablAll();						
+
+						healtzCaza_->resetLife();
+						trCaza_->setPos(Vector2D(game_->getWindowWidth() / 2 - trCaza_->getW() / 2, game_->getWindowHeight() / 2 - trCaza_->getH() / 2));
+						trCaza_->setVel(Vector2D(0, 0));
+						trCaza_->setRot(0);
+					}
 				}
 			}
 		}
