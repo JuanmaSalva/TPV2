@@ -26,15 +26,16 @@
 #include "GameCtrl.h"
 #include "ScoreManager.h"
 #include "GameLogic.h"
+#include "ScoreViewer.h"
 
 #include "SDL_macros.h"
 
 using namespace std;
 
 Asteroids::Asteroids() :
-		game_(nullptr), //
-		entityManager_(nullptr), //
-		exit_(false) {
+	game_(nullptr), //
+	entityManager_(nullptr), //
+	exit_(false) {
 	initGame();
 }
 
@@ -51,12 +52,12 @@ void Asteroids::initGame() {
 	Entity* caza = entityManager_->addEntity();
 	Transform* cazaTR = caza->addComponent<Transform>();
 	cazaTR->setWH(50, 50);
-	cazaTR->setPos(game_->getWindowWidth() / 2 -cazaTR->getW()/2,	game_->getWindowHeight() / 2 - cazaTR->getH() / 2);
+	cazaTR->setPos(game_->getWindowWidth() / 2 - cazaTR->getW() / 2, game_->getWindowHeight() / 2 - cazaTR->getH() / 2);
 	cazaTR->setSpeeddLimit(4);
 	cazaTR->setThrust(0.5);
 	caza->addComponent<FighterViewer>();
 	caza->addComponent<Health>();
-	caza->addComponent<FighterCtrl>();	
+	caza->addComponent<FighterCtrl>();
 	caza->addComponent<FighterMotion>(0.98);
 
 	caza->addComponent<BulletsPool>();
@@ -67,13 +68,14 @@ void Asteroids::initGame() {
 	caza->addComponent<AsteroidPool>();
 	caza->addComponent<AsteroidsMotion>();
 	caza->addComponent<AsteroidsViewer>();
-		
+
 	//crea el game manager pero no lo mete a ningun lado xq ya se mete en una lista de entities en el entitymanager
 	Entity* gameManager = entityManager_->addEntity();
 	gameManager->addComponent<ScoreManager>();
 	gameManager->addComponent<GameCtrl>(caza->getComponent<AsteroidPool>(ecs::AsteroidPool), caza->getComponent<Health>(ecs::Health));
 	gameManager->addComponent<GameLogic>(caza->getComponent<AsteroidPool>(ecs::AsteroidPool), caza->getComponent<BulletsPool>(ecs::BulletsPool),
 		caza->getComponent<Health>(ecs::Health), cazaTR);
+	gameManager->addComponent<ScoreViewer>();
 }
 
 void Asteroids::closeGame() {
@@ -102,7 +104,7 @@ void Asteroids::stop() {
 
 void Asteroids::handleInput() {
 
-	InputHandler *ih = InputHandler::instance();
+	InputHandler* ih = InputHandler::instance();
 
 	ih->update();
 
@@ -115,9 +117,10 @@ void Asteroids::handleInput() {
 			int flags = SDL_GetWindowFlags(game_->getWindow());
 			if (flags & SDL_WINDOW_FULLSCREEN) {
 				SDL_SetWindowFullscreen(game_->getWindow(), 0);
-			} else {
+			}
+			else {
 				SDL_SetWindowFullscreen(game_->getWindow(),
-						SDL_WINDOW_FULLSCREEN);
+					SDL_WINDOW_FULLSCREEN);
 			}
 		}
 	}
