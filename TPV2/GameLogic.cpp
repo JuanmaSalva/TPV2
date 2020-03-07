@@ -32,6 +32,9 @@ void GameLogic::colisionAsteroidesCaza()
 				bulletsPool_->disablAll();
 				healtzCaza_->loseLife();
 				scoreMgr_->setParado(true);
+				
+				game_->getAudioMngr()->playChannel(Resources::Explosion, 0);
+				game_->getAudioMngr()->pauseMusic();
 
 				if (healtzCaza_->getLife() == 0) { //ha muerto del todo
 					scoreMgr_->setTerminado(true);
@@ -59,6 +62,7 @@ void GameLogic::colisionBalasAsteroides()
 					bulletsPool_->onCollision(poolBullets[i]);
 					asterPool_->onCollision(poolAsteroid[j]);
 					scoreMgr_->sumPoints(1);
+					game_->getAudioMngr()->playChannel(Resources::Explosion, 0);
 
 					if(asterPool_->getNumOfAsteroid() == 0){
 						scoreMgr_->setTerminado(true);
@@ -72,6 +76,7 @@ void GameLogic::colisionBalasAsteroides()
 						trCaza_->setPos(Vector2D(game_->getWindowWidth() / 2 - trCaza_->getW() / 2, game_->getWindowHeight() / 2 - trCaza_->getH() / 2));
 						trCaza_->setVel(Vector2D(0, 0));
 						trCaza_->setRot(0);
+						game_->getAudioMngr()->pauseMusic();
 					}
 				}
 			}

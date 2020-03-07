@@ -24,7 +24,6 @@
     <ClInclude Include="AsteroidsMotion.h" />
     <ClInclude Include="AsteroidsViewer.h" />
     <ClInclude Include="AudioManager.h" />
-    <ClInclude Include="BallMoveBehaviour.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletsMotion.h" />
     <ClInclude Include="BulletsPool.h" />
@@ -74,7 +73,6 @@
     <ClCompile Include="AsteroidsMotion.cpp" />
     <ClCompile Include="AsteroidsViewer.cpp" />
     <ClCompile Include="AudioManager.cpp" />
-    <ClCompile Include="BallMoveBehaviour.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletsMotion.cpp" />
     <ClCompile Include="BulletsPool.cpp" />

@@ -42,6 +42,5 @@ void FighterCtrl::update()
 		else if (ih->isKeyDown(left_)) {
 			tr_->setRot(tr_->getRot() - 5);
 		}
-
 	}
 }

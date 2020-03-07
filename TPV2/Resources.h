@@ -34,10 +34,13 @@ public:
 		Beat,
 		Cheer,
 		Boooo,
+		imperial_march,
 
 		// sound effects
 		Wall_Hit,
-		Paddle_Hit
+		Paddle_Hit,
+		Gun_Shot,
+		Explosion,
 	};
 
 	enum FontId : std::size_t {

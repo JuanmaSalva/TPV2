@@ -1,4 +1,7 @@
-﻿  BulletsPool.cpp
-C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\BulletsPool.cpp(31,25): warning C4018: '<': no coinciden signed/unsigned
-C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\BulletsPool.cpp(46,25): warning C4018: '<': no coinciden signed/unsigned
+﻿  GameLogic.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\Asteroid.h(21,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\Asteroid.h(22,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(26,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(54,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\TPV2\GameLogic.cpp(56,22): warning C4018: '<': no coinciden signed/unsigned
   TPV2.vcxproj -> C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\bin\TPV2Debug.exe
