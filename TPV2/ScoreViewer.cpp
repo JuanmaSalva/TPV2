@@ -20,7 +20,7 @@ void ScoreViewer::init()
 void ScoreViewer::draw()
 {
 		Texture score(game_->getRenderer(), "Points: " + to_string(scoreManager_->getPoints()), game_->getFontMngr()->getFont(Resources::ARIAL24), SDL_Color{ 230,230,230,255 });
-		score.render(game_->getWindowWidth() / 2-30, 20); 
+		score.render(game_->getWindowWidth() / 2- score.getWidth()/2, 20); 
 
 		if (scoreManager_->getTerminado()) { //si ha terminado el juego
 			Texture* gameOver = game_->getTextureMngr()->getTexture(Resources::GameOver);
@@ -30,12 +30,11 @@ void ScoreViewer::draw()
 
 			if (scoreManager_->getGanado()) {
 				Texture win(game_->getRenderer(), "You win", game_->getFontMngr()->getFont(Resources::ARIAL24), SDL_Color{ 230,230,230,255 });
-				win.render(game_->getWindowWidth() / 2 - 35, 360);
+				win.render(game_->getWindowWidth() / 2 - win.getWidth() /2, 360);
 			}
 			else {
 				Texture lose(game_->getRenderer(), "You lose", game_->getFontMngr()->getFont(Resources::ARIAL24), SDL_Color{ 230,230,230,255 });
-				lose.render(game_->getWindowWidth() / 2 - 35, 360);
+				lose.render(game_->getWindowWidth() / 2 - lose.getWidth() / 2, 360);
 			}
-
 		}
 }

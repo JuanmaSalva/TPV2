@@ -2,7 +2,6 @@
 #include "Asteroids.h"
 #include <assert.h>
 
-#include "BallMoveBehaviour.h"
 #include "InputHandler.h"
 #include "PaddleKBCtrl.h"
 #include "PaddleMouseCtrl.h"

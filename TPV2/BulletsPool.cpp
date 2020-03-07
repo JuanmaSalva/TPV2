@@ -17,6 +17,8 @@ void BulletsPool::shoot(Vector2D pos, Vector2D vel, double w, double h)
 		b->setVelocity(vel);
 		b->setSize(w, h);
 		b->inUse_ = true;
+
+		game_->getAudioMngr()->playChannel(Resources::Gun_Shot, 0);
 	}
 
 }
