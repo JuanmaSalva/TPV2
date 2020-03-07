@@ -5,7 +5,6 @@
 #include "TexturesManager.h"
 #include "AudioManager.h"
 #include "FontsManager.h"
-#include "RandomNumberGenerator.h"
 
 #include <string>
 #include <memory>
@@ -60,10 +59,6 @@ public:
 		return audio_;
 	}
 
-	inline RandomNumberGenerator* getRandGen() const {
-		return random_;
-	}
-
 	inline InputHandler* getInputHandler() const {
 		return InputHandler::instance();
 	}
@@ -94,7 +89,6 @@ protected:
 	FontsManager *fonts_;
 	TexturesManager *textures_;
 	AudioManager *audio_;
-	RandomNumberGenerator *random_;
 
 	SDL_Window *window_; // the window
 	SDL_Renderer *renderer_;  // the renderer
