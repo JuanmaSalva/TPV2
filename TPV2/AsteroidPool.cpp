@@ -41,7 +41,7 @@ void AsteroidPool::generateAsteroids(int n)
 
 		Vector2D c = Vector2D(width / 2, height / 2) + Vector2D((rand() % 100) - 50, (rand() % 100) - 50);
 
-		aster->setVelocity((c - p).normalize() * ((rand() % 10) / 10.0));
+		aster->setVelocity((c - p).normalize() * ((rand() % 9 + 1) / 10.0));
 		aster->setGeneracion(rand() % 2 + 1);
 		aster->setSize(8 + 13 * aster->getGeneracion(),8 + 13 * aster->getGeneracion());
 		aster->inUse_ = true;

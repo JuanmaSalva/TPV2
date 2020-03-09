@@ -3,11 +3,7 @@
 #include <assert.h>
 
 #include "InputHandler.h"
-#include "PaddleKBCtrl.h"
-#include "PaddleMouseCtrl.h"
-#include "PaddleMoveBehaviour.h"
 #include "Rectangle.h"
-#include "SimpleMoveBahviour.h"
 #include "Transform.h"
 #include "SDLGame.h"
 #include "FighterViewer.h"
