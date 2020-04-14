@@ -1,0 +1,70 @@
+﻿  Asteroid.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\Asteroid.h(21,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\Asteroid.h(22,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+  AsteroidPool.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\Asteroid.h(21,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\Asteroid.h(22,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\AsteroidPool.cpp(57,20): warning C4018: '<': no coinciden signed/unsigned
+  AsteroidsMotion.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\Asteroid.h(21,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\Asteroid.h(22,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\AsteroidsMotion.cpp(15,20): warning C4018: '<': no coinciden signed/unsigned
+  AsteroidsViewer.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\Asteroid.h(21,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\Asteroid.h(22,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\AsteroidsViewer.cpp(17,20): warning C4018: '<': no coinciden signed/unsigned
+  AudioManager.cpp
+  Bullet.cpp
+  BulletsMotion.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\BulletsMotion.cpp(20,11): warning C4018: '<': no coinciden signed/unsigned
+  BulletsPool.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\BulletsPool.cpp(33,25): warning C4018: '<': no coinciden signed/unsigned
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\BulletsPool.cpp(48,25): warning C4018: '<': no coinciden signed/unsigned
+  BulletsViewer.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\BulletsViewer.cpp(27,11): warning C4018: '<': no coinciden signed/unsigned
+  Collisions.cpp
+  Component.cpp
+  Entity.cpp
+  FighterCtrl.cpp
+  FighterMotion.cpp
+  FighterViewer.cpp
+  Font.cpp
+  FontsManager.cpp
+  GameCtrl.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\Asteroid.h(21,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\Asteroid.h(22,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+  GameLogic.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\Asteroid.h(21,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\Asteroid.h(22,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\GameLogic.cpp(26,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\GameLogic.cpp(54,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\GameLogic.cpp(56,22): warning C4018: '<': no coinciden signed/unsigned
+  Gun.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\Gun.cpp(43,26): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+  Generando código...
+  Compilando...
+  Health.cpp
+  InputHandler.cpp
+  jute.cpp
+  main.cpp
+  Manager.cpp
+  ObjectPool.cpp
+  Asteroids.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\Asteroid.h(21,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\TPV2\Asteroid.h(22,27): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+  Rectangle.cpp
+  Resources.cpp
+  ScoreManager.cpp
+  ScoreViewer.cpp
+  SDLAudioManager.cpp
+  SDLFontsManager.cpp
+  SDLGame.cpp
+  SDLTexturesManager.cpp
+  sdl_macros.cpp
+  Texture.cpp
+  TexturesManager.cpp
+  Transform.cpp
+  Vector2D.cpp
+  Generando código...
+     Creando biblioteca C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\bin\TPV2Debug.lib y objeto C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\bin\TPV2Debug.exp
+  TPV2.vcxproj -> C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P1\TPV2\bin\TPV2Debug.exe

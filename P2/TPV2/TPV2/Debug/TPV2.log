@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Windows Kits\10\Include\10.0.18362.0\ucrt\crtdbg.h(303,1): warning C4005: '_malloca': macro redefinition
+C:\Windows Kits\10\Include\10.0.18362.0\ucrt\malloc.h(122): message : see previous definition of '_malloca'
+     Creating library C:\hlocal\TVP2\TPV2\bin\TPV2Debug.lib and object C:\hlocal\TVP2\TPV2\bin\TPV2Debug.exp
+  TPV2.vcxproj -> C:\hlocal\TVP2\TPV2\bin\TPV2Debug.exe
