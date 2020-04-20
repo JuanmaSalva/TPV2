@@ -14,13 +14,13 @@
 
 
 
-class StarsSystem: public System {
+class StarsSystem : public System {
 public:
 	StarsSystem() :
-			System(ecs::_sys_Stars) {
+		System(ecs::_sys_Stars) {
 	}
 
-	void onCollision(Entity *s) {
+	void onCollision(Entity* s) {
 		s->setActive(false);
 		auto sc = mngr_->getHandler(ecs::_hdlr_GameState)->getComponent<Score>(ecs::Score);
 		sc->points_++;
@@ -35,21 +35,21 @@ public:
 			int r = game_->getRandGen()->nextInt(1, 2);
 			Uint32 lt = game_->getRandGen()->nextInt(5, 10);
 
-			Entity *e = mngr_->addEntity<StarsPool>(x, y, w, h, r, lt);
+			Entity* e = mngr_->addEntity<StarsPool>(x, y, w, h, r, lt);
 			if (e != nullptr)
 				e->addToGroup(ecs::_grp_Star);
 		}
 	}
 
 	void update() override {
-		for (auto &e : mngr_->getGroupEntities(ecs::_grp_Star)) {
+		for (auto& e : mngr_->getGroupEntities(ecs::_grp_Star)) {
 
-			if ( !e->isActive() )
+			if (!e->isActive())
 				return;
 
-			Transform *tr = e->getComponent<Transform>(ecs::Transform);
-			LifeTime *st = e->getComponent<LifeTime>(ecs::LifeTime);
-			auto *rot = e->getComponent<Rotation>(ecs::Rotation);
+			Transform* tr = e->getComponent<Transform>(ecs::Transform);
+			LifeTime* st = e->getComponent<LifeTime>(ecs::LifeTime);
+			auto* rot = e->getComponent<Rotation>(ecs::Rotation);
 			tr->position_ = tr->position_ + tr->velocity_;
 			tr->rotation_ += rot->rotation_;
 
@@ -58,15 +58,15 @@ public:
 
 				for (int i = 0; i < 2; i++) {
 					int x = game_->getRandGen()->nextInt(0,
-							game_->getWindowWidth());
+						game_->getWindowWidth());
 					int y = game_->getRandGen()->nextInt(0,
-							game_->getWindowHeight());
+						game_->getWindowHeight());
 					int w = game_->getRandGen()->nextInt(25, 50);
 					int h = w;
 					int r = game_->getRandGen()->nextInt(1, 2);
 					Uint32 lt = game_->getRandGen()->nextInt(5, 10);
 
-					Entity *e = mngr_->addEntity<StarsPool>(x, y, w, h, r, lt);
+					Entity* e = mngr_->addEntity<StarsPool>(x, y, w, h, r, lt);
 					if (e != nullptr)
 						e->addToGroup(ecs::_grp_Star);
 				}
@@ -75,6 +75,21 @@ public:
 
 		}
 
+	}
+
+
+	virtual void recieve(const msg::Message& msg) override{
+		switch (msg.id)
+		{
+		case msg::_STARPACMAN_COLLISION_: {
+			static_cast<const msg::StarPacManCollisionMsg&>(msg).star->setActive(false);
+			auto sc = mngr_->getHandler(ecs::_hdlr_GameState)->getComponent<Score>(ecs::Score);
+			sc->points_++;
+			break;
+		}
+		default:
+			break;
+		}
 	}
 };
 

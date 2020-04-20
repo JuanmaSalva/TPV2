@@ -35,6 +35,7 @@
     <ClInclude Include="jute.h" />
     <ClInclude Include="LifeTime.h" />
     <ClInclude Include="Manager.h" />
+    <ClInclude Include="Messages.h" />
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="OFFacotry.h" />

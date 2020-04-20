@@ -6,6 +6,7 @@
 #include "ecs.h"
 #include "Entity.h"
 #include "System.h"
+#include "Messages.h"
 
 class Manager {
 	using uptr_ent = std::unique_ptr<Entity,std::function<void(Entity*)>>;
@@ -80,6 +81,11 @@ public:
 	// refresh lists of enteties (remove not active and modify groups)
 	void refresh();
 
+	void send(const msg::Message& msg) {
+		for (auto& s : systems_) {
+			s->recieve(msg);
+		}
+	}
 private:
 	SDLGame *game_;
 	std::vector<uptr_ent> ents_;
