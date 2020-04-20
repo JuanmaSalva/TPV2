@@ -13,20 +13,10 @@ public:
 		System(ecs::_sys_GameCtrl) {
 	}
 
-	void init() override {
-		Entity *e = mngr_->addEntity();
-		auto sc = e->addComponent<Score>();
-		sc->points_ = 0;
-		mngr_->setHandler(ecs::_hdlr_GameState,e);
-	}
+	void onFighterDeath();
+	void onAsteroidsExtenction();
 
-	void update() override {
-		auto ih = game_->getInputHandler();
-
-		if ( ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN)) {
-			mngr_->getSystem<StarsSystem>(ecs::_sys_Stars)->addStars(10);
-		}
-	}
-
+	void init() override;
+	void update() override;
 };
 

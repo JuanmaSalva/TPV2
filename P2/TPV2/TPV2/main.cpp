@@ -6,7 +6,7 @@ using namespace std;
 
 
 void start() {
-	PacMan g;
+	Asteroids g;
 	g.start();
 }
 

@@ -10,11 +10,11 @@
 #include "SDLGame.h"
 #include "StarsSystem.h"
 
-class PacMan {
+class Asteroids {
 
 public:
-	PacMan();
-	virtual ~PacMan();
+	Asteroids();
+	virtual ~Asteroids();
 
 	// from SDLGame
 	void start();

@@ -9,6 +9,7 @@ struct Score: Component {
 	{
 	}
 
+
 	unsigned int points_;
 };
 

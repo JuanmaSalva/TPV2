@@ -13,18 +13,18 @@
 
 using namespace std;
 
-PacMan::PacMan() :
+Asteroids::Asteroids() :
 		game_(nullptr), //
 		mngr_(nullptr), //
 		exit_(false) {
 	initGame();
 }
 
-PacMan::~PacMan() {
+Asteroids::~Asteroids() {
 	closeGame();
 }
 
-void PacMan::initGame() {
+void Asteroids::initGame() {
 
 	game_ = SDLGame::init("Stars", _WINDOW_WIDTH_, _WINDOW_HEIGHT_);
 
@@ -39,11 +39,11 @@ void PacMan::initGame() {
 	gameCtrlSystem_ = mngr_->addSystem<GameCtrlSystem>();
 }
 
-void PacMan::closeGame() {
+void Asteroids::closeGame() {
 	delete mngr_;
 }
 
-void PacMan::start() {
+void Asteroids::start() {
 	exit_ = false;
 	auto ih = InputHandler::instance();
 
@@ -53,20 +53,20 @@ void PacMan::start() {
 		SDL_RenderClear(game_->getRenderer());
 
 		ih->update();
-		if (ih->keyDownEvent()) {
+		/*if (ih->keyDownEvent()) {
 			if (ih->isKeyDown(SDLK_ESCAPE)) {
 				exit_ = true;
 				break;
 			}
-		}
+		}*/
 
 		mngr_->refresh();
 
 		gameCtrlSystem_->update();
-		starsSystem_->update();
+		/*starsSystem_->update();
 		pacmanSystem_->update();
-		collisionSystem_->update();
-		renderSystem_->update();
+		collisionSystem_->update();*/
+		renderSystem_->update(); //todos los renders de las enteties
 
 
 		SDL_RenderPresent(game_->getRenderer());
