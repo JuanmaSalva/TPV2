@@ -6,7 +6,7 @@
 class BulletsSystem :public System
 {
 public:
-	BulletsSystem():System(ecs::_sys_Bullets){}
+	//BulletsSystem():System(ecs::_sys_Bullets){}
 
 	void shoot(Vector2D pos, Vector2D vel, double width, double height);
 	void onCollisionWithAsteroid(Entity* bullet, Entity* asteroid);

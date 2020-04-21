@@ -7,14 +7,15 @@
 #include "Entity.h"
 #include "System.h"
 #include "Messages.h"
+#include "GameState.h"
 
 class Manager {
 	using uptr_ent = std::unique_ptr<Entity,std::function<void(Entity*)>>;
 	using EventType = std::function<void()>;
 
 public:
-	Manager(SDLGame *game) :
-			game_(game) {
+	Manager(SDLGame *game, GameState *gState) :
+			game_(game), gameState_(gState) {
 	}
 
 	virtual ~Manager() {
@@ -86,8 +87,13 @@ public:
 			s->recieve(msg);
 		}
 	}
+
+	inline GameState* getGameState() {
+		return gameState_;
+	}
 private:
 	SDLGame *game_;
+	GameState* gameState_;
 	std::vector<uptr_ent> ents_;
 	std::array<std::vector<Entity*>, ecs::maxGroups> entsGroups_;
 	std::array<Entity*, ecs::maxHandlers> handlers_;

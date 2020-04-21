@@ -15,9 +15,10 @@ vector<Resources::ImageInfo> Resources::images_ {
 		{ MouseIcon, "resources/images/mouse.png" }, //
 		{ AIIcon, "resources/images/ai.png" }, //
 		{ SpaceShips, "resources/images/spaceships.png" }, //
-		{ Airplanes, "resources/images/airplanes.png" }, //
+		{ Airplanes, "resources/images/airplanes.png"}, //
 		{ Star, "resources/images/star.png" }, //
-		{ PacMan, "resources/images/pacman.png" } //
+		{ PacMan, "resources/images/pacman.png" }, //
+		{ Asteroid, "resources/images/asteroid.png"}
 };
 
 vector<Resources::TextMsgInfo> Resources::messages_ {

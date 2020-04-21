@@ -27,6 +27,15 @@ public:
 		img->tex_->render(dest, tr->rotation_);
 	}
 
+	void draw(Entity* e, SDL_Rect clip) {
+		Transform* tr = e->getComponent<Transform>(ecs::Transform);
+		ImageComponent* img = e->getComponent<ImageComponent>(ecs::ImageComponent);
+		SDL_Rect dest =
+			RECT(tr->position_.getX(), tr->position_.getY(), tr->width_,
+				tr->height_);
+		img->tex_->render(dest, tr->rotation_, clip);
+	}
+
 	void drawScore() {
 		auto sc =
 				mngr_->getHandler(ecs::_hdlr_GameState)->getComponent<Score>(ecs::Score);
@@ -46,7 +55,11 @@ public:
 		}
 
 		// draw pacman
-		draw(mngr_->getHandler(ecs::_hdlr_PacMan));
+		//draw(mngr_->getHandler(ecs::_hdlr_PacMan));
+
+		//draw fighter
+		SDL_Rect dest =	RECT(790,100,379, 284);
+		draw(mngr_->getHandler(ecs::_hdlr_Fighter),dest);
 
 		// draw score
 		drawScore();

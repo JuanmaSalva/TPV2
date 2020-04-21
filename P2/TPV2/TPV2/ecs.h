@@ -50,10 +50,10 @@ enum SysId : SysIdType {
 	_sys_Stars,
 	_sys_Render,
 	_sys_Collisions,
-	_sys_Asteroids,
-	_sys_Bullets,
+	//_sys_Asteroids,
+	//_sys_Bullets,
 	_sys_Fighter,
-	_sys_FighterGun,
+	//_sys_FighterGun,
 	//
 	// don't touch the rest of this enum, it is to identify the max
 	// number of systems

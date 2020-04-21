@@ -10,9 +10,9 @@ void GameCtrlSystem::init(){
 void GameCtrlSystem::update(){
 	auto ih = game_->getInputHandler();
 
-	/*if ( ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN)) {
+	if ( ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN)) {
 		mngr_->getSystem<StarsSystem>(ecs::_sys_Stars)->addStars(10);
-	}*/
+	}
 }
 
 void GameCtrlSystem::onFighterDeath()

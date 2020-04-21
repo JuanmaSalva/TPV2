@@ -3,7 +3,7 @@
 class GameState:public Component
 {
 public:
-	GameState():Component(ecs::GameState), parado(false), terminado(false){}
+	GameState():Component(ecs::GameState), parado(true), terminado(false){}
 	~GameState(){}
 
 	void setParado(bool p) { parado = p; }

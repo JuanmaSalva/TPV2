@@ -5,7 +5,7 @@
 class AsteroidsSystem:public System
 {
 public:
-	AsteroidsSystem():System(ecs::_sys_Asteroids){}
+	//AsteroidsSystem():System(ecs::_sys_Asteroids){}
 
 	void addAsteroids(int n){}
 	void onCollisionWithBullet(Entity* asteroid, Entity* bullet);

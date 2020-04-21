@@ -31,7 +31,7 @@
     <ClInclude Include="DefFactory.h" />
     <ClInclude Include="ecs.h" />
     <ClInclude Include="Entity.h" />
-    <ClInclude Include="Fighter.h" />
+    <ClInclude Include="FighterSystem.h" />
     <ClInclude Include="FighterGun.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="FontsManager.h" />
@@ -47,7 +47,7 @@
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="OFFacotry.h" />
-    <ClInclude Include="PacMan.h" />
+    <ClInclude Include="Asteroids.h" />
     <ClInclude Include="PacManSystem.h" />
     <ClInclude Include="RandomNumberGenerator.h" />
     <ClInclude Include="RenderSystem.h" />
@@ -79,7 +79,7 @@
     <ClCompile Include="CollisionSystem.cpp" />
     <ClCompile Include="DefFactory.cpp" />
     <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="Fighter.cpp" />
+    <ClCompile Include="FighterSystem.cpp" />
     <ClCompile Include="FighterGun.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FontsManager.cpp" />
@@ -93,7 +93,7 @@
     <ClCompile Include="ObjectFactory.cpp" />
     <ClCompile Include="ObjectPool.cpp" />
     <ClCompile Include="OFFacotry.cpp" />
-    <ClCompile Include="PacMan.cpp" />
+    <ClCompile Include="Asteroids.cpp" />
     <ClCompile Include="PacManSystem.cpp" />
     <ClCompile Include="RandomNumberGenerator.cpp" />
     <ClCompile Include="RenderSystem.cpp" />

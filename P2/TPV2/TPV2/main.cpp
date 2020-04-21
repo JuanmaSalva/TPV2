@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "PacMan.h"
+#include "Asteroids.h"
 
 using namespace std;
 

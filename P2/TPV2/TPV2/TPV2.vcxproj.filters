@@ -72,9 +72,6 @@
     <ClInclude Include="OFFacotry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PacMan.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PacManSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -156,10 +153,13 @@
     <ClInclude Include="AsteroidsSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Fighter.h">
+    <ClInclude Include="FighterGun.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FighterGun.h">
+    <ClInclude Include="Asteroids.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FighterSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -207,9 +207,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OFFacotry.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PacMan.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PacManSystem.cpp">
@@ -287,10 +284,13 @@
     <ClCompile Include="AsteroidsSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Fighter.cpp">
+    <ClCompile Include="FighterGun.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FighterGun.cpp">
+    <ClCompile Include="Asteroids.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FighterSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

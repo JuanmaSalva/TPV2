@@ -5,7 +5,7 @@
 class FighterGun:public System
 {
 public:
-	FighterGun() :System(ecs::_sys_FighterGun){}
+	//FighterGun() :System(ecs::_sys_FighterGun){}
 
 	void update() override;
 };
