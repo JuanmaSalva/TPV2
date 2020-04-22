@@ -6,8 +6,7 @@ void FighterSystem::init()
 	tr_ = fighter_->addComponent<Transform>(Vector2D(200.0, 100), Vector2D(),50, 50, 0);
 	fighter_->addComponent<ImageComponent>(game_->getTextureMngr()->getTexture(Resources::Airplanes));
 	mngr_->setHandler(ecs::_hdlr_Fighter, fighter_);
-	fighter_->addComponent<Health>(3);
-}
+	fighter_->addComponent<Health>(3);}
 
 
 
