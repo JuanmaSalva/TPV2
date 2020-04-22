@@ -1,11 +1,59 @@
-﻿  Asteroids.cpp
-C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\PacManSystem.h(49,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\PacManSystem.h(50,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+﻿  AsteroidLifeTime.cpp
+  AsteroidsPool.cpp
+  AsteroidsSystem.cpp
+  AudioManager.cpp
+  BulletsSystem.cpp
+  Collisions.cpp
+  CollisionSystem.cpp
+  DefFactory.cpp
+  Entity.cpp
   FighterSystem.cpp
-C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\FighterSystem.cpp(36,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\FighterSystem.cpp(37,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\FighterSystem.cpp(34,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\FighterSystem.cpp(35,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+  FighterGun.cpp
+  Font.cpp
+  FontsManager.cpp
+  GameCtrlSystem.cpp
+  GameState.cpp
+  Health.cpp
+  InputHandler.cpp
+  jute.cpp
   main.cpp
 C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\PacManSystem.h(49,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\PacManSystem.h(50,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+  Manager.cpp
   Generando código...
+  Compilando...
+  ObjectFactory.cpp
+  ObjectPool.cpp
+  OFFacotry.cpp
+  Asteroids.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\PacManSystem.h(49,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\PacManSystem.h(50,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+  PacManSystem.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\PacManSystem.h(49,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\PacManSystem.h(50,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+  RandomNumberGenerator.cpp
+  RenderSystem.cpp
+  Resources.cpp
+  Score.cpp
+  SDLAudioManager.cpp
+  SDLFontsManager.cpp
+  SDLGame.cpp
+  SDLTexturesManager.cpp
+  sdl_macros.cpp
+  Singleton.cpp
+  SRandBasedGenerator.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\SRandBasedGenerator.cpp(11,8): warning C4244: 'inicializando': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  StarsPool.cpp
+  StarsSystem.cpp
+  System.cpp
+  Texture.cpp
+  Generando código...
+  Compilando...
+  TexturesManager.cpp
+  Transform.cpp
+  Vector2D.cpp
+  Generando código...
+     Creando biblioteca C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\bin\TPV2Debug.lib y objeto C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\bin\TPV2Debug.exp
   TPV2.vcxproj -> C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\bin\TPV2Debug.exe
