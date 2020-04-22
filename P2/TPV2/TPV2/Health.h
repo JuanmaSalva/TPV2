@@ -8,6 +8,8 @@ public:
 	void setHealth(int h) { lives = h; }
 
 	int getHealth() { return lives; }
+
+	
 private:
 	int lives;
 };

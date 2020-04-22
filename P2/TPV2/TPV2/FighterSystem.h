@@ -4,6 +4,7 @@
 #include "Transform.h"
 #include "Manager.h"
 #include "ImageComponent.h"
+#include "Health.h"
 
 class FighterSystem:public System
 {
