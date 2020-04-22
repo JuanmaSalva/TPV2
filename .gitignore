@@ -22,7 +22,7 @@ mono_crash.*
 [Rr]elease/
 [Rr]eleases/
 x64/
-#x86/
+x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
@@ -348,6 +348,3 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-
-# SDL Changes
-src/SDL2-2.0.10/docs
