@@ -1,0 +1,11 @@
+﻿  Asteroids.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\PacManSystem.h(49,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\PacManSystem.h(50,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+  FighterSystem.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\FighterSystem.cpp(36,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\FighterSystem.cpp(37,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+  main.cpp
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\PacManSystem.h(49,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\TPV2\PacManSystem.h(50,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+  Generando código...
+  TPV2.vcxproj -> C:\Uni\Segundo\Segundo cuatri\Progra\Repos\TPV2\P2\TPV2\bin\TPV2Debug.exe
