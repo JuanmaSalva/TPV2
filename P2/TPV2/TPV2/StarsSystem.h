@@ -12,7 +12,6 @@
 #include "Score.h"
 #include "SDLGame.h"
 
-
 /*
 class StarsSystem : public System {
 public:

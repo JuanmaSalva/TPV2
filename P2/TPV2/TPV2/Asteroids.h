@@ -10,6 +10,7 @@
 #include "SDLGame.h"
 #include "StarsSystem.h"
 #include "FighterSystem.h"
+#include "AsteroidsSystem.h"
 
 class Asteroids {
 
@@ -38,6 +39,7 @@ private:
 	CollisionSystem *collisionSystem_;
 	GameCtrlSystem *gameCtrlSystem_;
 	FighterSystem* fighterSystem_;
+	AsteroidsSystem* asteroidSystem_;
 
 	const static int _WINDOW_WIDTH_ = 640;
 	const static int _WINDOW_HEIGHT_ = 480;

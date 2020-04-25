@@ -29,7 +29,8 @@ void Asteroids::initGame() {
 	game_ = SDLGame::init("Stars", _WINDOW_WIDTH_, _WINDOW_HEIGHT_);
 	gameState_ = new GameState();
 
-	StarsPool::init(100);
+	//StarsPool::init(100);
+	AsteroidsPool::init(20);
 
 	mngr_ = new Manager(game_, gameState_);
 
@@ -39,6 +40,7 @@ void Asteroids::initGame() {
 	collisionSystem_ = mngr_->addSystem<CollisionSystem>();
 	gameCtrlSystem_ = mngr_->addSystem<GameCtrlSystem>();
 	fighterSystem_ = mngr_->addSystem<FighterSystem>(0.95);
+	asteroidSystem_ = mngr_->addSystem<AsteroidsSystem>();
 }
 
 void Asteroids::closeGame() {
@@ -70,6 +72,7 @@ void Asteroids::start() {
 		collisionSystem_->update();
 		renderSystem_->update(); //todos los renders de las enteties
 		fighterSystem_->update();
+		asteroidSystem_->update();
 
 
 		SDL_RenderPresent(game_->getRenderer());

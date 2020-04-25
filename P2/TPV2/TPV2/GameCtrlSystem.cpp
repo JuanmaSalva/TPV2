@@ -11,7 +11,8 @@ void GameCtrlSystem::update(){
 	auto ih = game_->getInputHandler();
 
 	if ( ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN)) {
-		//mngr_->getSystem<StarsSystem>(ecs::_sys_Stars)->addStars(10); //has pulsado enter jeje
+		
+		mngr_->getSystem<AsteroidsSystem>(ecs::_sys_Asteroids)->addAsteroids(1); //has pulsado enter jeje
 	}
 }
 

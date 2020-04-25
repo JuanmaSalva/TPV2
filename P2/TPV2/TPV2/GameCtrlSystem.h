@@ -4,6 +4,7 @@
 #include "StarsSystem.h"
 #include "System.h"
 #include "Score.h"
+#include "AsteroidsSystem.h"
 
 
 class GameCtrlSystem: public System {

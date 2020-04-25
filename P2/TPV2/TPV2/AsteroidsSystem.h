@@ -1,16 +1,19 @@
 #pragma once
 #include "System.h"
 #include "Entity.h"
+#include "AsteroidsPool.h"
+#include "Manager.h"
 
-class AsteroidsSystem:public System
+class AsteroidsSystem: public System
 {
 public:
-	//AsteroidsSystem():System(ecs::_sys_Asteroids){}
+	AsteroidsSystem():System(ecs::_sys_Asteroids){}
 
-	void addAsteroids(int n){}
+	void addAsteroids(int n);
 	void onCollisionWithBullet(Entity* asteroid, Entity* bullet);
 
-	void update() override;
+	virtual void update() override;
+	virtual void recieve(const msg::Message& msg);
 
 private:
 	std::size_t numOfAsteroids_;
