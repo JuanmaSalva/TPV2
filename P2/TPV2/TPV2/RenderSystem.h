@@ -11,11 +11,13 @@
 #include "Score.h"
 #include "SDLGame.h"
 #include "Texture.h"
+#include "Health.h"
 
 class RenderSystem: public System {
 public:
 	RenderSystem() :
-			System(ecs::_sys_Render) {
+			System(ecs::_sys_Render), heartTexture_(nullptr) {
+		
 	}
 
 	void draw(Entity *e) {
@@ -47,6 +49,10 @@ public:
 
 	}
 
+	void init() override {
+		heartTexture_ = game_->getTextureMngr()->getTexture(Resources::Heart);
+	}
+
 	void update() override {
 
 		// draw stars
@@ -65,8 +71,15 @@ public:
 		drawScore();
 
 		// info message
-		Texture msg(game_->getRenderer(),"Press ENTER to add More Stars", game_->getFontMngr()->getFont(Resources::ARIAL24),{COLOR(0xff0000ff)});
-		msg.render(game_->getWindowWidth()/2-msg.getWidth()/2,game_->getWindowHeight()-msg.getHeight()-10);
+		//Texture msg(game_->getRenderer(),"Press ENTER to add More Stars", game_->getFontMngr()->getFont(Resources::ARIAL24),{COLOR(0xff0000ff)});
+		//msg.render(game_->getWindowWidth()/2-msg.getWidth()/2,game_->getWindowHeight()-msg.getHeight()-10);
+
+		int playerHealth = mngr_->getHandler(ecs::_hdlr_Fighter)->getComponent<Health>(ecs::Health)->getHealth();
+		for (int i = 0; i < playerHealth; i++) {
+			heartTexture_->render(SDL_Rect{ 10 + (35 * i), 10, 30, 30 }); //el 35*i es una manera de espaciarlos horizontalmente
+		}
 	}
+private:
+	Texture* heartTexture_;
 };
 

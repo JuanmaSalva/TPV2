@@ -33,7 +33,7 @@ private:
 	bool exit_;
 
 	RenderSystem *renderSystem_;
-	StarsSystem *starsSystem_;
+	//StarsSystem *starsSystem_;
 	PacManSystem *pacmanSystem_;
 	CollisionSystem *collisionSystem_;
 	GameCtrlSystem *gameCtrlSystem_;

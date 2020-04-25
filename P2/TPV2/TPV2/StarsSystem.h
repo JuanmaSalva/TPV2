@@ -13,7 +13,7 @@
 #include "SDLGame.h"
 
 
-
+/*
 class StarsSystem : public System {
 public:
 	StarsSystem() :
@@ -93,3 +93,4 @@ public:
 	}
 };
 
+*/

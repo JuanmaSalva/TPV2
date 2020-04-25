@@ -34,7 +34,7 @@ void Asteroids::initGame() {
 	mngr_ = new Manager(game_, gameState_);
 
 	renderSystem_ = mngr_->addSystem<RenderSystem>();
-	starsSystem_ = mngr_->addSystem<StarsSystem>();
+	//starsSystem_ = mngr_->addSystem<StarsSystem>();
 	pacmanSystem_ = mngr_->addSystem<PacManSystem>();
 	collisionSystem_ = mngr_->addSystem<CollisionSystem>();
 	gameCtrlSystem_ = mngr_->addSystem<GameCtrlSystem>();
@@ -65,7 +65,7 @@ void Asteroids::start() {
 		mngr_->refresh();
 
 		gameCtrlSystem_->update();
-		starsSystem_->update();
+		//starsSystem_->update();
 		pacmanSystem_->update();
 		collisionSystem_->update();
 		renderSystem_->update(); //todos los renders de las enteties

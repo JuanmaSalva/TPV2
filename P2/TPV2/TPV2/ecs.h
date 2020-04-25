@@ -47,7 +47,7 @@ enum HdlrId : HdlrIdType {
 enum SysId : SysIdType {
 	_sys_GameCtrl,
 	_sys_PackMan,
-	_sys_Stars,
+	//_sys_Stars,
 	_sys_Render,
 	_sys_Collisions,
 	//_sys_Asteroids,
