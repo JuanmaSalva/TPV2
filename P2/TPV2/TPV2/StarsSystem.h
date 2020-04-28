@@ -69,11 +69,8 @@ public:
 					if (e != nullptr)
 						e->addToGroup(ecs::_grp_Star);
 				}
-
 			}
-
 		}
-
 	}
 
 

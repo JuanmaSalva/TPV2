@@ -36,11 +36,11 @@ void Asteroids::initGame() {
 
 	renderSystem_ = mngr_->addSystem<RenderSystem>();
 	//starsSystem_ = mngr_->addSystem<StarsSystem>();
+	asteroidSystem_ = mngr_->addSystem<AsteroidsSystem>();
 	pacmanSystem_ = mngr_->addSystem<PacManSystem>();
 	collisionSystem_ = mngr_->addSystem<CollisionSystem>();
 	gameCtrlSystem_ = mngr_->addSystem<GameCtrlSystem>();
-	fighterSystem_ = mngr_->addSystem<FighterSystem>(0.95);
-	asteroidSystem_ = mngr_->addSystem<AsteroidsSystem>();
+	fighterSystem_ = mngr_->addSystem<FighterSystem>(0.98);
 }
 
 void Asteroids::closeGame() {
@@ -70,8 +70,8 @@ void Asteroids::start() {
 		//starsSystem_->update();
 		pacmanSystem_->update();
 		collisionSystem_->update();
-		renderSystem_->update(); //todos los renders de las enteties
 		fighterSystem_->update();
+		renderSystem_->update(); //todos los renders de las enteties
 		asteroidSystem_->update();
 
 

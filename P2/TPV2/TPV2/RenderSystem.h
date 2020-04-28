@@ -60,6 +60,11 @@ public:
 			draw(e);
 		}
 
+		// draw asteroids
+		for (auto& e : mngr_->getGroupEntities(ecs::_grp_Asteroid)) {
+			draw(e);
+		}
+
 		// draw pacman
 		//draw(mngr_->getHandler(ecs::_hdlr_PacMan));
 
