@@ -4,6 +4,7 @@ class AsteroidLifeTime : public Component
 {
 public:
 	AsteroidLifeTime(int gen):Component(ecs::AsteroidLifeTime), generacion(gen){}
+	AsteroidLifeTime():AsteroidLifeTime(3){}
 	~AsteroidLifeTime(){}
 
 	void SetGen(int gen) { generacion = gen; }

@@ -3,20 +3,49 @@
 void AsteroidsSystem::addAsteroids(int n)
 {
 	for (auto i(0u); i < n; i++) {
-		int x = game_->getRandGen()->nextInt(0, game_->getWindowWidth());
-		int y = game_->getRandGen()->nextInt(0, game_->getWindowHeight());
-		int w = game_->getRandGen()->nextInt(25, 50);
-		int h = w;
+		int pared = game_->getRandGen()->nextInt(0, 3); //numero entre 0 y 3 ambos incluidos
+		Vector2D p;
+		int pos;
+
+		switch (pared)
+		{
+		case 0: //borde izquierdo
+			pos = rand() % windowHeight_;
+			p = Vector2D(0, pos);
+			break;
+		case 1: //borde derecho
+			pos = rand() % windowHeight_;
+			p = Vector2D(windowWidth_, pos);
+			break;
+		case 2: //borde arriba
+			pos = rand() % windowWidth_;
+			p = Vector2D(pos, 0);
+			break;
+		case 3: //borde abajo
+			pos = rand() % windowWidth_;
+			p = Vector2D(pos, windowHeight_);
+			break;
+		default:
+			break;
+		}
+
 		int r = game_->getRandGen()->nextInt(1, 2);
 
-		Entity* e = mngr_->addEntity<AsteroidsPool>(x, y, w, h, r);
+		Vector2D c = Vector2D(windowWidth_ / 2, windowHeight_ / 2) + Vector2D((game_->getRandGen()->nextInt(0, 100)) - 50,
+			(game_->getRandGen()->nextInt(0, 100) % 100) - 50);
+		Vector2D vel = (c - p).normalize() * ((game_->getRandGen()->nextInt(0, 9) + 1) / 10.0);
+
+		Entity* e = mngr_->addEntity<AsteroidsPool>(p.getX(), p.getY(), r, vel, game_->getRandGen()->nextInt(1, 3));
 		if (e != nullptr)
 			e->addToGroup(ecs::_grp_Asteroid);
+
 	}
 }
 
-void AsteroidsSystem::onCollisionWithBullet(Entity* asteroid, Entity* bullet)
+void AsteroidsSystem::init()
 {
+	windowWidth_ = game_->getWindowWidth();
+	windowHeight_ = game_->getWindowHeight();
 }
 
 void AsteroidsSystem::update()
@@ -35,4 +64,16 @@ void AsteroidsSystem::update()
 
 void AsteroidsSystem::recieve(const msg::Message& msg)
 {
+	switch (msg.id)
+	{
+	case msg::_FIGHTERASTEROID_COLLISION_: {
+		for (auto& e : mngr_->getGroupEntities(ecs::_grp_Asteroid)) {
+			if (!e->isActive()) return; //si no esta activa pasa a la siguiente
+			e->setActive(false); //desactiva el asteroide
+		}
+		break;
+	}
+	default:
+		break;
+	}
 }

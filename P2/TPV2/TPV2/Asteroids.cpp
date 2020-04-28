@@ -8,8 +8,6 @@
 #include "SDLGame.h"
 
 #include "SDL_macros.h"
-#include "StarsSystem.h"
-#include "StarsPool.h"
 
 using namespace std;
 
@@ -29,18 +27,15 @@ void Asteroids::initGame() {
 	game_ = SDLGame::init("Stars", _WINDOW_WIDTH_, _WINDOW_HEIGHT_);
 	gameState_ = new GameState();
 
-	//StarsPool::init(100);
 	AsteroidsPool::init(20);
 
 	mngr_ = new Manager(game_, gameState_);
 
 	renderSystem_ = mngr_->addSystem<RenderSystem>();
-	//starsSystem_ = mngr_->addSystem<StarsSystem>();
-	asteroidSystem_ = mngr_->addSystem<AsteroidsSystem>();
-	pacmanSystem_ = mngr_->addSystem<PacManSystem>();
 	collisionSystem_ = mngr_->addSystem<CollisionSystem>();
+	fighterSystem_ = mngr_->addSystem<FighterSystem>(0.98,50,50);
+	asteroidSystem_ = mngr_->addSystem<AsteroidsSystem>();
 	gameCtrlSystem_ = mngr_->addSystem<GameCtrlSystem>();
-	fighterSystem_ = mngr_->addSystem<FighterSystem>(0.98, _WINDOW_WIDTH_, _WINDOW_HEIGHT_,50,50);
 }
 
 void Asteroids::closeGame() {
@@ -67,8 +62,6 @@ void Asteroids::start() {
 		mngr_->refresh();
 
 		gameCtrlSystem_->update();
-		//starsSystem_->update();
-		pacmanSystem_->update();
 		collisionSystem_->update();
 		fighterSystem_->update();
 		renderSystem_->update(); //todos los renders de las enteties

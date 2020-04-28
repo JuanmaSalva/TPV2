@@ -2,6 +2,9 @@
 
 void FighterSystem::init()
 {
+	window_width = game_->getWindowWidth();
+	window_height = game_->getWindowHeight();
+
 	fighter_ = mngr_->addEntity();
 	tr_ = fighter_->addComponent<Transform>(Vector2D(window_width/2 - fighterWidth_/2, window_height/2 - fighterHeight_/2),
 		Vector2D(),fighterWidth_, fighterHeight_, 0); 
@@ -54,7 +57,7 @@ void FighterSystem::recieve(const msg::Message& msg)
 	case msg::_FIGHTERASTEROID_COLLISION_: {
 		Entity* fighter = static_cast<const msg::AsteroidFighterCollisionMsg&>(msg).fighter;
 		if (!fighter->getComponent<Health>(ecs::Health)->removeLife()) { //muerte total
-
+			mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->onFighterDeath();
 		}
 		else { //resetear al centro
 			Transform* tr = fighter->getComponent<Transform>(ecs::Transform);

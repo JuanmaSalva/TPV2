@@ -34,10 +34,8 @@ enum GrpId : GrpIdType {
 };
 
 enum HdlrId : HdlrIdType {
-	_hdlr_PacMan,
 	_hdlr_GameState,
 	_hdlr_Fighter,
-	_hdrl_GameState,
 	//
 	// don't touch the rest of this enum, it is to identify the max
 	// number of handlers
@@ -46,8 +44,6 @@ enum HdlrId : HdlrIdType {
 
 enum SysId : SysIdType {
 	_sys_GameCtrl,
-	_sys_PackMan,
-	//_sys_Stars,
 	_sys_Render,
 	_sys_Collisions,
 	_sys_Asteroids,

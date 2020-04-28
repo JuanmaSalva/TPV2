@@ -5,12 +5,14 @@
 #include "Manager.h"
 #include "ImageComponent.h"
 #include "Health.h"
+#include "GameCtrlSystem.h"
 
 class FighterSystem:public System
 {
 public:
-	FighterSystem(double drag, int ww, int wh, int fw, int fh):System(ecs::_sys_Fighter),fighter_(nullptr),tr_(nullptr), drag_(drag),
-	window_width(ww), window_height(wh), fighterWidth_(fw), fighterHeight_(fh){}
+	FighterSystem(double drag, int fw, int fh):System(ecs::_sys_Fighter),fighter_(nullptr),tr_(nullptr), drag_(drag),
+	fighterWidth_(fw), fighterHeight_(fh){
+	}
 
 	void init() override;
 	void update() override;

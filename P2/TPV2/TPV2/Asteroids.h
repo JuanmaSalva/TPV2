@@ -5,7 +5,6 @@
 #include "CollisionSystem.h"
 #include "GameCtrlSystem.h"
 #include "Manager.h"
-#include "PacManSystem.h"
 #include "RenderSystem.h"
 #include "SDLGame.h"
 #include "StarsSystem.h"
@@ -27,7 +26,6 @@ private:
 	void initGame();
 	void closeGame();
 
-	void addStars(std::size_t n);
 
 	SDLGame *game_;
 	Manager *mngr_;
@@ -35,8 +33,6 @@ private:
 	bool exit_;
 
 	RenderSystem *renderSystem_;
-	//StarsSystem *starsSystem_;
-	PacManSystem *pacmanSystem_;
 	CollisionSystem *collisionSystem_;
 	GameCtrlSystem *gameCtrlSystem_;
 	FighterSystem* fighterSystem_;

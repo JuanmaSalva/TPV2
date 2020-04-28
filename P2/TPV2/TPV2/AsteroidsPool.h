@@ -6,6 +6,7 @@
 #include "Singleton.h"
 #include "Transform.h"
 #include "Rotation.h"
+#include "AsteroidLifeTime.h"
 
 
 class AsteroidsPool : public Singleton<AsteroidsPool>
@@ -15,7 +16,7 @@ public:
 	~AsteroidsPool();
 
 	static void destroy(Entity* p);
-	Entity* construct_(double x, double y, double w, double h, double r);
+	Entity* construct_(double x, double y, double r, Vector2D velocity, int gen);
 	void destroy_(Entity* p);
 
 	template<typename ...Targs>

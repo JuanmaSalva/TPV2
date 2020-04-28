@@ -10,14 +10,32 @@ void GameCtrlSystem::init(){
 void GameCtrlSystem::update(){
 	auto ih = game_->getInputHandler();
 
-	if ( ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN)) {
+	if ( ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN) && mngr_->getGameState()->getParado()) {
 		
-		mngr_->getSystem<AsteroidsSystem>(ecs::_sys_Asteroids)->addAsteroids(1); //has pulsado enter jeje
+		mngr_->getSystem<AsteroidsSystem>(ecs::_sys_Asteroids)->addAsteroids(10);
+		mngr_->getGameState()->setParado(false);
+	}
+}
+
+void GameCtrlSystem::recieve(const msg::Message& msg)
+{
+	switch (msg.id)
+	{
+	case msg::_FIGHTERASTEROID_COLLISION_: {
+		mngr_->getGameState()->setParado(true);
+		break;
+	}
+	default:
+		break;
 	}
 }
 
 void GameCtrlSystem::onFighterDeath()
 {
+	//resertea todo
+	mngr_->getHandler(ecs::_hdlr_GameState)->getComponent<Score>(ecs::Score)->points_ = 0;
+	mngr_->getHandler(ecs::_hdlr_Fighter)->getComponent<Health>(ecs::Health)->setHealth(3);
+	mngr_->getGameState()->setTerminado(true);
 }
 
 void GameCtrlSystem::onAsteroidsExtenction()
