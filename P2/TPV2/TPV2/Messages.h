@@ -7,7 +7,7 @@ namespace msg {
 
 	using msgType = std::size_t;
 	enum MsgId : msgType {
-		_STARPACMAN_COLLISION_,
+		_FIGHTERASTEROID_COLLISION_,
 
 
 		_last_MsdId_
@@ -21,13 +21,13 @@ namespace msg {
 		MsgId id;
 	};
 
-	struct StarPacManCollisionMsg:Message
+	struct AsteroidFighterCollisionMsg:Message
 	{
-		Entity* pcman;
-		Entity* star;
+		Entity* fighter;
+		Entity* asteroid;
 
-		StarPacManCollisionMsg(Entity* p, Entity* s):Message(_STARPACMAN_COLLISION_),
-			pcman(p), star(s){
+		AsteroidFighterCollisionMsg(Entity* f, Entity* a):Message(_FIGHTERASTEROID_COLLISION_),
+			fighter(f), asteroid(a){
 		}
 	};
 }

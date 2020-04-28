@@ -40,7 +40,7 @@ void Asteroids::initGame() {
 	pacmanSystem_ = mngr_->addSystem<PacManSystem>();
 	collisionSystem_ = mngr_->addSystem<CollisionSystem>();
 	gameCtrlSystem_ = mngr_->addSystem<GameCtrlSystem>();
-	fighterSystem_ = mngr_->addSystem<FighterSystem>(0.98);
+	fighterSystem_ = mngr_->addSystem<FighterSystem>(0.98, _WINDOW_WIDTH_, _WINDOW_HEIGHT_,50,50);
 }
 
 void Asteroids::closeGame() {

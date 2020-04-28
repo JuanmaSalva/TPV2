@@ -3,7 +3,8 @@
 void FighterSystem::init()
 {
 	fighter_ = mngr_->addEntity();
-	tr_ = fighter_->addComponent<Transform>(Vector2D(200.0, 100), Vector2D(),50, 50, 0);
+	tr_ = fighter_->addComponent<Transform>(Vector2D(window_width/2 - fighterWidth_/2, window_height/2 - fighterHeight_/2),
+		Vector2D(),fighterWidth_, fighterHeight_, 0); 
 	fighter_->addComponent<ImageComponent>(game_->getTextureMngr()->getTexture(Resources::Airplanes));
 	mngr_->setHandler(ecs::_hdlr_Fighter, fighter_);
 	fighter_->addComponent<Health>(3);
@@ -46,6 +47,24 @@ void FighterSystem::update()
 
 }
 
-void FighterSystem::onCollisionWithAsteroid(Entity* asteroid)
+void FighterSystem::recieve(const msg::Message& msg)
 {
+	switch (msg.id)
+	{
+	case msg::_FIGHTERASTEROID_COLLISION_: {
+		Entity* fighter = static_cast<const msg::AsteroidFighterCollisionMsg&>(msg).fighter;
+		if (!fighter->getComponent<Health>(ecs::Health)->removeLife()) { //muerte total
+
+		}
+		else { //resetear al centro
+			Transform* tr = fighter->getComponent<Transform>(ecs::Transform);
+			tr->position_ = Vector2D(window_width / 2 - fighterWidth_ / 2, window_height / 2 - fighterHeight_ / 2);
+			tr->rotation_ = 0;
+			tr->velocity_ = Vector2D(0, 0);
+		}
+		break;
+	}
+	default:
+		break;
+	}
 }
