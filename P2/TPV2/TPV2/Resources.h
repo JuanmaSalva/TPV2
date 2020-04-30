@@ -22,6 +22,7 @@ public:
 		PacMan,
 		Asteroid,
 		Heart,
+		White,
 
 		// text
 		HelloWorld,

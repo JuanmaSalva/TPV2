@@ -19,7 +19,6 @@ public:
 	virtual void recieve(const msg::Message& msg);
 
 private:
-	std::size_t numOfAsteroids_;
 	int windowWidth_, windowHeight_;
 };
 

@@ -47,7 +47,7 @@ enum SysId : SysIdType {
 	_sys_Render,
 	_sys_Collisions,
 	_sys_Asteroids,
-	//_sys_Bullets,
+	_sys_Bullets,
 	_sys_Fighter,
 	//_sys_FighterGun,
 	//

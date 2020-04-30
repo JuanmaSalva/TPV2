@@ -1,5 +1,4 @@
 #pragma once
-#include "ecs.h"
 #include "Entity.h"
 #include "ImageComponent.h"
 #include "ObjectPool.h"

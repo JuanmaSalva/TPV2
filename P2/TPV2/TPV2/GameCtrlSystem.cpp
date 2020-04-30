@@ -14,6 +14,7 @@ void GameCtrlSystem::update(){
 		
 		mngr_->getSystem<AsteroidsSystem>(ecs::_sys_Asteroids)->addAsteroids(10);
 		mngr_->getGameState()->setParado(false);
+		mngr_->getGameState()->setTerminado(false);
 	}
 }
 
@@ -36,8 +37,10 @@ void GameCtrlSystem::onFighterDeath()
 	mngr_->getHandler(ecs::_hdlr_GameState)->getComponent<Score>(ecs::Score)->points_ = 0;
 	mngr_->getHandler(ecs::_hdlr_Fighter)->getComponent<Health>(ecs::Health)->setHealth(3);
 	mngr_->getGameState()->setTerminado(true);
+	mngr_->getGameState()->setParado(true);
 }
 
 void GameCtrlSystem::onAsteroidsExtenction()
 {
+
 }

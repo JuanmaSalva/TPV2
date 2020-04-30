@@ -23,6 +23,7 @@
     <ClInclude Include="AsteroidsPool.h" />
     <ClInclude Include="AsteroidsSystem.h" />
     <ClInclude Include="AudioManager.h" />
+    <ClInclude Include="BulletPool.h" />
     <ClInclude Include="BulletsSystem.h" />
     <ClInclude Include="checkML.h" />
     <ClInclude Include="Collisions.h" />
@@ -73,6 +74,7 @@
     <ClCompile Include="AsteroidsPool.cpp" />
     <ClCompile Include="AsteroidsSystem.cpp" />
     <ClCompile Include="AudioManager.cpp" />
+    <ClCompile Include="BulletPool.cpp" />
     <ClCompile Include="BulletsSystem.cpp" />
     <ClCompile Include="Collisions.cpp" />
     <ClCompile Include="CollisionSystem.cpp" />

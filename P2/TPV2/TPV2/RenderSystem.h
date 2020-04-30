@@ -52,17 +52,15 @@ public:
 	}
 
 	void update() override {
-
-		// draw stars
-		for (auto& e : mngr_->getGroupEntities(ecs::_grp_Star)) {
-			draw(e);
-		}
-
 		// draw asteroids
 		for (auto& e : mngr_->getGroupEntities(ecs::_grp_Asteroid)) {
 			draw(e);
 		}
 
+		//draw bullets
+		for (auto& e : mngr_->getGroupEntities(ecs::_grp_Bullet)) {
+			draw(e);
+		}
 
 		//draw fighter
 		SDL_Rect dest = RECT(790, 100, 379, 284);
@@ -72,16 +70,19 @@ public:
 		drawScore();
 
 		// info message
-
-		if (mngr_->getGameState()->getParado()) {
+		if (!mngr_->getGameState()->getTerminado() && mngr_->getGameState()->getParado()) {
 			Texture msg(game_->getRenderer(), "Press ENTER to play", game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0xff0000ff) });
 			msg.render(game_->getWindowWidth() / 2 - msg.getWidth() / 2, game_->getWindowHeight() - msg.getHeight() - 10);
 		}
-		else if (mngr_->getGameState()->getTerminado()) {
-			Texture msg(game_->getRenderer(), "Game over", game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0xff0000ff) });
+		else if (mngr_->getGameState()->getParado()){
+			Texture msgGO(game_->getRenderer(), "Game over", game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0xff0000ff) });
+			msgGO.render(game_->getWindowWidth() / 2 - msgGO.getWidth() / 2, game_->getWindowHeight() - msgGO.getHeight() - 100);
+
+			Texture msg(game_->getRenderer(), "Press ENTER to play", game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0xff0000ff) });
 			msg.render(game_->getWindowWidth() / 2 - msg.getWidth() / 2, game_->getWindowHeight() - msg.getHeight() - 10);
 		}
 
+		//draw health
 		int playerHealth = mngr_->getHandler(ecs::_hdlr_Fighter)->getComponent<Health>(ecs::Health)->getHealth();
 		for (int i = 0; i < playerHealth; i++) {
 			heartTexture_->render(SDL_Rect{ 10 + (35 * i), 10, 30, 30 }); //el 35*i es una manera de espaciarlos horizontalmente

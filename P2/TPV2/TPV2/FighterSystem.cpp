@@ -59,12 +59,10 @@ void FighterSystem::recieve(const msg::Message& msg)
 		if (!fighter->getComponent<Health>(ecs::Health)->removeLife()) { //muerte total
 			mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->onFighterDeath();
 		}
-		else { //resetear al centro
-			Transform* tr = fighter->getComponent<Transform>(ecs::Transform);
-			tr->position_ = Vector2D(window_width / 2 - fighterWidth_ / 2, window_height / 2 - fighterHeight_ / 2);
-			tr->rotation_ = 0;
-			tr->velocity_ = Vector2D(0, 0);
-		}
+		Transform* tr = fighter->getComponent<Transform>(ecs::Transform);
+		tr->position_ = Vector2D(window_width / 2 - fighterWidth_ / 2, window_height / 2 - fighterHeight_ / 2);
+		tr->rotation_ = 0;
+		tr->velocity_ = Vector2D(0, 0);
 		break;
 	}
 	default:
