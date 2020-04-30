@@ -14,27 +14,21 @@ public:
 
 	void update() { //HAY QUE CAMBIARLO MUCHO	
 
-		auto ptr = mngr_->getHandler(ecs::_hdlr_Fighter)->getComponent<Transform>(ecs::Transform);//puntero al componente transform del caza
-		for (auto& e : mngr_->getGroupEntities(ecs::_grp_Asteroid)) { //recorre todos los asteroides
-			auto etr = e->getComponent<Transform>(ecs::Transform);
-			if (Collisions::collides(ptr->position_, ptr->width_, ptr->height_, etr->position_, etr->width_, etr->height_)) { //hay una colisoin
-				mngr_->send(msg::AsteroidFighterCollisionMsg(mngr_->getHandler(ecs::_hdlr_Fighter), e));//envia el mensaje
+		auto fighterTr = mngr_->getHandler(ecs::_hdlr_Fighter)->getComponent<Transform>(ecs::Transform);//puntero al componente transform del caza
+		vector<Entity*> balas = mngr_->getGroupEntities(ecs::_grp_Bullet);
+
+		for (auto& asteroide : mngr_->getGroupEntities(ecs::_grp_Asteroid)) { //recorre todos los asteroides
+			auto asterTr = asteroide->getComponent<Transform>(ecs::Transform);
+			if (Collisions::collides(fighterTr->position_, fighterTr->width_, fighterTr->height_, asterTr->position_, asterTr->width_, asterTr->height_)) { //hay una colisoin
+				mngr_->send(msg::AsteroidFighterCollisionMsg(mngr_->getHandler(ecs::_hdlr_Fighter), asteroide));//envia el mensaje
+			}
+
+			for (auto& bala : balas) {
+				auto balaTr = bala->getComponent<Transform>(ecs::Transform);
+				if (Collisions::collides(asterTr->position_, asterTr->width_, asterTr->height_, balaTr->position_, balaTr->width_, balaTr->height_)) { //hay una colisoin
+					mngr_->send(msg::BulletAsteroidCollisionMsg(asteroide, bala));//envia el mensaje
+				}
 			}
 		}
 	}
-
 };
-
-
-/*void update() {
-	auto ptr = mngr_->getHandler(ecs::_hdlr_PacMan)->getComponent<Transform>(ecs::Transform);
-	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Star)) {
-		auto etr = e->getComponent<Transform>(ecs::Transform);
-		if (Collisions::collides(ptr->position_, ptr->width_, ptr->height_, etr->position_, etr->width_, etr->height_)) { //hay una colisoin
-			//mngr_->getSystem<StarsSystem>(ecs::_sys_Stars)->onCollision(e);
-
-			mngr_->send(msg::StarPacManCollisionMsg(nullptr, e));
-			//ENVIAR MENSAJE
-		}
-	}
-}*/

@@ -11,6 +11,7 @@
 #include "FighterSystem.h"
 #include "AsteroidsSystem.h"
 #include "BulletsSystem.h"
+#include "FighterGunSystem.h"
 
 
 class Asteroids {
@@ -39,6 +40,7 @@ private:
 	FighterSystem* fighterSystem_;
 	AsteroidsSystem* asteroidSystem_;
 	BulletsSystem* bulletSystem_;
+	FighterGunSystem* fighterGunSystem_;
 	
 	const static int _WINDOW_WIDTH_ = 640;
 	const static int _WINDOW_HEIGHT_ = 480;

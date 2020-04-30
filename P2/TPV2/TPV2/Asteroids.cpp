@@ -38,6 +38,7 @@ void Asteroids::initGame() {
 	asteroidSystem_ = mngr_->addSystem<AsteroidsSystem>();
 	gameCtrlSystem_ = mngr_->addSystem<GameCtrlSystem>();
 	bulletSystem_ = mngr_->addSystem<BulletsSystem>();
+	fighterGunSystem_ = mngr_->addSystem<FighterGunSystem>();
 }
 
 void Asteroids::closeGame() {
@@ -68,6 +69,7 @@ void Asteroids::start() {
 		fighterSystem_->update();
 		asteroidSystem_->update();
 		bulletSystem_->update();
+		fighterGunSystem_->update();
 		renderSystem_->update(); //todos los renders de las enteties
 
 
