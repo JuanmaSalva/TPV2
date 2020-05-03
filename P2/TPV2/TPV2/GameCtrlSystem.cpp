@@ -41,6 +41,8 @@ void GameCtrlSystem::onFighterDeath()
 	//resertea todo
 	mngr_->getHandler(ecs::_hdlr_GameState)->getComponent<Score>(ecs::Score)->points_ = 0;
 	mngr_->getHandler(ecs::_hdlr_Fighter)->getComponent<Health>(ecs::Health)->setHealth(3);
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Asteroid)) e->setActive(false);
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Bullet)) e->setActive(false);
 	mngr_->getGameState()->setTerminado(true);
 	mngr_->getGameState()->setParado(true);
 }
@@ -48,6 +50,7 @@ void GameCtrlSystem::onFighterDeath()
 void GameCtrlSystem::onAsteroidsExtenction()
 {
 	mngr_->getGameState()->setTerminado(true);
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Bullet)) e->setActive(false);
 	mngr_->getGameState()->setParado(true);
 	mngr_->getGameState()->setGanador(true);
 }

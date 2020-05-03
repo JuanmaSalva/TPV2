@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ecs.h"
-#include "StarsSystem.h"
 #include "System.h"
 #include "Score.h"
 #include "AsteroidsSystem.h"

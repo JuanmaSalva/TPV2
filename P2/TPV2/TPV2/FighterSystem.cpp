@@ -63,6 +63,7 @@ void FighterSystem::recieve(const msg::Message& msg)
 		tr->position_ = Vector2D(window_width / 2 - fighterWidth_ / 2, window_height / 2 - fighterHeight_ / 2);
 		tr->rotation_ = 0;
 		tr->velocity_ = Vector2D(0, 0);
+		for (auto& e : mngr_->getGroupEntities(ecs::_grp_Bullet)) e->setActive(false);
 		break;
 	}
 	default:

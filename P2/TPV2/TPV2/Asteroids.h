@@ -7,7 +7,6 @@
 #include "Manager.h"
 #include "RenderSystem.h"
 #include "SDLGame.h"
-#include "StarsSystem.h"
 #include "FighterSystem.h"
 #include "AsteroidsSystem.h"
 #include "BulletsSystem.h"

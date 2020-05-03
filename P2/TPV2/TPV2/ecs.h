@@ -24,7 +24,6 @@ enum CmpId : CmpIdType {
 };
 
 enum GrpId : GrpIdType {
-	_grp_Star,
 	_grp_Asteroid,
 	_grp_Bullet,
 	//
