@@ -71,6 +71,8 @@ void AsteroidsSystem::recieve(const msg::Message& msg)
 			if (!e->isActive()) return; //si no esta activa pasa a la siguiente
 			e->setActive(false); //desactiva el asteroide
 		}
+		game_->getAudioMngr()->playChannel(Resources::Explosion, 0);
+		game_->getAudioMngr()->pauseMusic();
 		break;
 	}
 	case msg::_BULLETASTEROID_COLLISION_: { //dividir en dos/desactivar entidad
@@ -89,6 +91,7 @@ void AsteroidsSystem::recieve(const msg::Message& msg)
 					e->addToGroup(ecs::_grp_Asteroid);
 			}
 		}
+		game_->getAudioMngr()->playChannel(Resources::Explosion, 0);
 		asteroid->setActive(false);
 
 		break;

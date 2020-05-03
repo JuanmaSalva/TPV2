@@ -5,6 +5,9 @@ void GameCtrlSystem::init(){
 	auto sc = e->addComponent<Score>();
 	sc->points_ = 0;
 	mngr_->setHandler(ecs::_hdlr_GameState, e);
+
+	game_->getAudioMngr()->playMusic(Resources::imperial_march,-1);
+	game_->getAudioMngr()->pauseMusic();
 }
 
 void GameCtrlSystem::update(){
@@ -15,6 +18,7 @@ void GameCtrlSystem::update(){
 		mngr_->getSystem<AsteroidsSystem>(ecs::_sys_Asteroids)->addAsteroids(10);
 		mngr_->getGameState()->setParado(false);
 		mngr_->getGameState()->setTerminado(false);
+		game_->getAudioMngr()->resumeMusic();
 	}
 }
 
