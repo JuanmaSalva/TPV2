@@ -1,4 +1,5 @@
 #include "AsteroidsSystem.h"
+#include "GameCtrlSystem.h"
 
 void AsteroidsSystem::addAsteroids(int n)
 {
@@ -40,6 +41,7 @@ void AsteroidsSystem::addAsteroids(int n)
 			e->addToGroup(ecs::_grp_Asteroid);
 
 	}
+	numAsteroid = n;
 }
 
 void AsteroidsSystem::init()
@@ -58,6 +60,11 @@ void AsteroidsSystem::update()
 		auto* rot = e->getComponent<Rotation>(ecs::Rotation);
 		tr->position_ = tr->position_ + tr->velocity_;
 		tr->rotation_ += rot->rotation_;
+
+		if (tr->position_.getX() < 0) tr->position_ = Vector2D(game_->getWindowWidth(), tr->position_.getY());
+		else if (tr->position_.getX() > game_->getWindowWidth()) tr->position_ = Vector2D(0, tr->position_.getY());
+		else if (tr->position_.getY() < 0) tr->position_ = Vector2D(tr->position_.getX(), game_->getWindowHeight());
+		else if (tr->position_.getY() > game_->getWindowHeight()) tr->position_ = Vector2D(tr->position_.getX(), 0);
 
 	}
 }
@@ -85,10 +92,17 @@ void AsteroidsSystem::recieve(const msg::Message& msg)
 			for (int i = 0; i < 2; i++) {
 				Vector2D v = tr->velocity_.rotate(i * 45);
 				Vector2D p = tr->position_ + v.normalize();
-				
-				Entity* e = mngr_->addEntity<AsteroidsPool>(p.getX(), p.getY(), game_->getRandGen()->nextInt(1, 2), v,proxGen);
+
+				Entity* e = mngr_->addEntity<AsteroidsPool>(p.getX(), p.getY(), game_->getRandGen()->nextInt(1, 2), v, proxGen);
 				if (e != nullptr)
 					e->addToGroup(ecs::_grp_Asteroid);
+			}
+			numAsteroid++;
+		}
+		else {
+			numAsteroid--;
+			if (numAsteroid == 0) { //se ha acabado el juego
+				mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->onAsteroidsExtenction();
 			}
 		}
 		game_->getAudioMngr()->playChannel(Resources::Explosion, 0);

@@ -18,6 +18,7 @@ void GameCtrlSystem::update(){
 		mngr_->getSystem<AsteroidsSystem>(ecs::_sys_Asteroids)->addAsteroids(10);
 		mngr_->getGameState()->setParado(false);
 		mngr_->getGameState()->setTerminado(false);
+		mngr_->getGameState()->setGanador(false);
 		game_->getAudioMngr()->resumeMusic();
 	}
 }
@@ -46,5 +47,7 @@ void GameCtrlSystem::onFighterDeath()
 
 void GameCtrlSystem::onAsteroidsExtenction()
 {
-
+	mngr_->getGameState()->setTerminado(true);
+	mngr_->getGameState()->setParado(true);
+	mngr_->getGameState()->setGanador(true);
 }

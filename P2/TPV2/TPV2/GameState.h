@@ -8,11 +8,13 @@ public:
 
 	void setParado(bool p) { parado = p; }
 	void setTerminado(bool t) { terminado = t; }
+	void setGanador(bool g) { winner_ = g; }
 
 	bool getParado() { return parado; }
 	bool getTerminado() { return terminado; }
+	bool getGanador() { return winner_; }
 private:
 	bool parado, terminado;
-	//GANADOR
+	bool winner_ = false;
 };
 

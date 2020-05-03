@@ -18,6 +18,6 @@ public:
 	virtual void recieve(const msg::Message& msg);
 
 private:
-	int windowWidth_, windowHeight_;
+	int windowWidth_, windowHeight_, numAsteroid;
 };
 

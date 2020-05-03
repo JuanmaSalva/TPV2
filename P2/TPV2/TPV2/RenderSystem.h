@@ -75,8 +75,16 @@ public:
 			msg.render(game_->getWindowWidth() / 2 - msg.getWidth() / 2, game_->getWindowHeight() - msg.getHeight() - 10);
 		}
 		else if (mngr_->getGameState()->getParado()){
-			Texture msgGO(game_->getRenderer(), "Game over", game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0xff0000ff) });
-			msgGO.render(game_->getWindowWidth() / 2 - msgGO.getWidth() / 2, game_->getWindowHeight() - msgGO.getHeight() - 100);
+				Texture msgGO(game_->getRenderer(), "Game over", game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0xff0000ff) });
+				msgGO.render(game_->getWindowWidth() / 2 - msgGO.getWidth() / 2, game_->getWindowHeight() - msgGO.getHeight() - 100);
+			if (mngr_->getGameState()->getGanador()) {
+				Texture msgGO(game_->getRenderer(), "¡Yo Win!", game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0xff0000ff) });
+				msgGO.render(game_->getWindowWidth() / 2 - msgGO.getWidth() / 2, game_->getWindowHeight() - msgGO.getHeight() - 75);
+			}
+			else {
+				Texture msgGO(game_->getRenderer(), "Yo Lose", game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0xff0000ff) });
+				msgGO.render(game_->getWindowWidth() / 2 - msgGO.getWidth() / 2, game_->getWindowHeight() - msgGO.getHeight() - 75);
+			}
 
 			Texture msg(game_->getRenderer(), "Press ENTER to play", game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0xff0000ff) });
 			msg.render(game_->getWindowWidth() / 2 - msg.getWidth() / 2, game_->getWindowHeight() - msg.getHeight() - 10);
