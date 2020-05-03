@@ -36,7 +36,6 @@ void BulletsSystem::recieve(const msg::Message& msg)
 	{
 	case msg::_BULLETASTEROID_COLLISION_: {
 		Entity* bullet = static_cast<const msg::BulletAsteroidCollisionMsg&>(msg).bullet;
-		Entity* asteroid = static_cast<const msg::BulletAsteroidCollisionMsg&>(msg).asteroid;
 		bullet->setActive(false);
 		mngr_->getHandler(ecs::_hdlr_GameState)->getComponent<Score>(ecs::Score)->points_++;
 		

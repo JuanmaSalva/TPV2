@@ -67,10 +67,30 @@ void AsteroidsSystem::recieve(const msg::Message& msg)
 	switch (msg.id)
 	{
 	case msg::_FIGHTERASTEROID_COLLISION_: {
-		for (auto& e : mngr_->getGroupEntities(ecs::_grp_Asteroid)) {
+		for (auto& e : mngr_->getGroupEntities(ecs::_grp_Asteroid)) { //desactiva todos los asteroides
 			if (!e->isActive()) return; //si no esta activa pasa a la siguiente
 			e->setActive(false); //desactiva el asteroide
 		}
+		break;
+	}
+	case msg::_BULLETASTEROID_COLLISION_: { //dividir en dos/desactivar entidad
+		Entity* asteroid = static_cast<const msg::BulletAsteroidCollisionMsg&>(msg).asteroid;
+		int gen = asteroid->getComponent<AsteroidLifeTime>(ecs::AsteroidLifeTime)->GetGen();
+
+		if (gen > 0) { //aparecen dos mas
+			Transform* tr = asteroid->getComponent<Transform>(ecs::Transform);
+			int proxGen = gen - 1;
+			for (int i = 0; i < 2; i++) {
+				Vector2D v = tr->velocity_.rotate(i * 45);
+				Vector2D p = tr->position_ + v.normalize();
+				
+				Entity* e = mngr_->addEntity<AsteroidsPool>(p.getX(), p.getY(), game_->getRandGen()->nextInt(1, 2), v,proxGen);
+				if (e != nullptr)
+					e->addToGroup(ecs::_grp_Asteroid);
+			}
+		}
+		asteroid->setActive(false);
+
 		break;
 	}
 	default:

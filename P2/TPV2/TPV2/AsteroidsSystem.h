@@ -12,7 +12,6 @@ public:
 	}
 
 	void addAsteroids(int n);
-	void onCollisionWithBullet(Entity* asteroid, Entity* bullet);
 
 	virtual void init() override;
 	virtual void update() override;
