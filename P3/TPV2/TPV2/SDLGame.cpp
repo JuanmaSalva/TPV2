@@ -64,7 +64,6 @@ void SDLGame::closeSDL() {
 }
 
 void SDLGame::initResources() {
-
 	networking_ = new Networking();
 
 	random_ = new SRandBasedGenerator();
