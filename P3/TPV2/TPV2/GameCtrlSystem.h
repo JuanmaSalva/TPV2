@@ -8,7 +8,7 @@
 class GameCtrlSystem: public System {
 public:
 	enum State : uint8_t {
-		READY, RUNNING, ROUNDOVER, GAMEOVER
+		READY, RUNNING, ROUNDOVER, GAMEOVER, WAITING
 	};
 
 	GameCtrlSystem();
@@ -22,6 +22,7 @@ public:
 		assert(fighterId >= 0 && fighterId <= 1);
 		return score[fighterId];
 	}
+	void setStateReady() { state_ = READY; }
 private:
 	void resetScore();
 	void startGame();

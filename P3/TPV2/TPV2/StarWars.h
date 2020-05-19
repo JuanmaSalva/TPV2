@@ -9,6 +9,7 @@
 #include "Manager.h"
 #include "RenderSystem.h"
 #include "SDLGame.h"
+#include "NetworkingSystem.h"
 
 class StarWars {
 
@@ -33,11 +34,11 @@ private:
 	GameCtrlSystem *gameCtrlSystem_;
 	BulletsSystem *bulletsSystem_;
 	CollisionSystem *collisionSystem_;
+	NetworkingSystem* networkingSystem_;
 
 	const static int _WINDOW_WIDTH_ = 640;
 	const static int _WINDOW_HEIGHT_ = 480;
 
 	char* host_;
 	int port_;
-
 };

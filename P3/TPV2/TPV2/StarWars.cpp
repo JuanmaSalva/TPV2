@@ -19,6 +19,11 @@ void StarWars::initGame() {
 
 	game_ = SDLGame::init("Star Wars", _WINDOW_WIDTH_, _WINDOW_HEIGHT_);
 
+	if (!game_->getNetworking()->client(host_, port_)) {
+		throw "Couldn't connect to server!";
+	}
+	std::cout << "Your ID is: " << (int)game_->getNetworking()->getClientId() << endl;
+
 	mngr_ = new Manager(game_);
 
 	BulletsPool::init(100);
@@ -28,7 +33,12 @@ void StarWars::initGame() {
 	bulletsSystem_ = mngr_->addSystem<BulletsSystem>();
 	collisionSystem_ = mngr_->addSystem<CollisionSystem>();
 	renderSystem_ = mngr_->addSystem<RenderSystem>();
+	networkingSystem_ = mngr_->addSystem<NetworkingSystem>();
 
+	if ((int)game_->getNetworking()->getClientId() == 1) {
+		mngr_->send<msg::Message>(msg::_SECOND_PLAYER_JOINED);
+		gameCtrlSystem_->setStateReady();
+	}
 }
 
 void StarWars::closeGame() {
@@ -54,12 +64,22 @@ void StarWars::start() {
 
 		mngr_->refresh();
 
-		gameCtrlSystem_->update();
-		fightersSystem_->update();
-		bulletsSystem_->update();
-		if (collisionSystem_ != nullptr)
-			collisionSystem_->update();
-		renderSystem_->update();
+		if ((int)game_->getNetworking()->getClientId() == 0) {
+			//std::cout << "Soy listo" << endl;
+			gameCtrlSystem_->update();
+			fightersSystem_->update();
+			bulletsSystem_->update();
+			networkingSystem_->update();
+			renderSystem_->update();
+			if (collisionSystem_ != nullptr)
+				collisionSystem_->update();
+		}
+		else {
+			//std::cout << "Soy tonto" <<endl;
+			networkingSystem_->update();
+			renderSystem_->update();
+		}
+
 
 		mngr_->flushMessages();
 

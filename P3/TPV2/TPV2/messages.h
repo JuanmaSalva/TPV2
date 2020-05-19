@@ -12,6 +12,7 @@ enum MsgId : uint8_t {
 	_CONNECTED, //
 	_CONNECTION_REFUSED, //
 	_CLIENT_DISCONNECTED, //
+	_SECOND_PLAYER_JOINED,
 
 	//
 	_last_MsgId_

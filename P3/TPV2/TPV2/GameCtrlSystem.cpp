@@ -12,12 +12,11 @@ using ecs::CmpId;
 
 GameCtrlSystem::GameCtrlSystem() :
 		System(ecs::_sys_GameCtrl) {
-	state_ = READY;
+	state_ = WAITING;
 	resetScore();
 }
 
 void GameCtrlSystem::init() {
-	state_ = READY;
 }
 
 void GameCtrlSystem::update() {
