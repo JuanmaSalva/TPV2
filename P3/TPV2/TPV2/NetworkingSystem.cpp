@@ -13,7 +13,6 @@ NetworkingSystem::~NetworkingSystem() {
 }
 
 void NetworkingSystem::recieve(const msg::Message &msg) {
-	std::cout << "NetwprkingSys mensaje" <<endl;
 	if (msg.senderClientId == mngr_->getClientId()) {
 		game_->getNetworking()->send(msg);
 	}
@@ -31,6 +30,13 @@ void NetworkingSystem::update() {
 			break;
 		case msg::_SECOND_PLAYER_JOINED:
 			mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->setStateReady();
+			break;
+		case msg::_GAME_STARTED:
+			mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->startGame();
+			break;
+		case msg::_ASK_GAME_TO_START:
+			mngr_->send<msg::Message>(msg::_GAME_STARTED);
+			mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->startGame();
 			break;
 		default:
 			assert(false);

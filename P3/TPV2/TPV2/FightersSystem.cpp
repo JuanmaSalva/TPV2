@@ -62,7 +62,8 @@ void FightersSystem::init() {
 	f1Tr->width_ = 50.0;
 	f1Tr->height_ = 50.0;
 	f1Tr->rotation_ = -90.0;
-	fighter1_->addComponent<CtrlKeys>(SDLK_a, SDLK_s, SDLK_w, SDLK_z, SDLK_x);
+	fighter1_->addComponent<CtrlKeys>(SDLK_LEFT, SDLK_RIGHT, SDLK_UP, SDLK_DOWN,
+		SDLK_SPACE); //se usan las mismas teclas en ambos cazas
 
 	fighter1_->addComponent<Image>(
 			game_->getTextureMngr()->getTexture(Resources::Fighter));
@@ -77,8 +78,8 @@ void FightersSystem::update() {
 	if (gameState != GameCtrlSystem::RUNNING)
 		return;
 
-	updateFighter(fighter0_);
-	updateFighter(fighter1_);
+	if(game_->getNetworking()->getClientId()==0) updateFighter(fighter0_);
+	else updateFighter(fighter1_);
 
 }
 

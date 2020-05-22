@@ -11,7 +11,7 @@
 using ecs::CmpId;
 
 GameCtrlSystem::GameCtrlSystem() :
-		System(ecs::_sys_GameCtrl) {
+	System(ecs::_sys_GameCtrl) {
 	state_ = WAITING;
 	resetScore();
 }
@@ -20,11 +20,14 @@ void GameCtrlSystem::init() {
 }
 
 void GameCtrlSystem::update() {
-
 	if (state_ != RUNNING) {
-		InputHandler *ih = game_->getInputHandler();
+		InputHandler* ih = game_->getInputHandler();
 		if (ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN)) {
-			startGame();
+			if (game_->getNetworking()->getClientId() == 1)mngr_->send<msg::Message>(msg::_ASK_GAME_TO_START); //pedir q empiece el juego
+			else {
+				mngr_->send<msg::Message>(msg::_GAME_STARTED);
+				startGame();
+			}
 		}
 	}
 }
@@ -35,6 +38,7 @@ void GameCtrlSystem::startGame() {
 	}
 	mngr_->getSystem<FightersSystem>(ecs::_sys_Fighters)->resetFighterPositions();
 	state_ = RUNNING;
+
 }
 
 void GameCtrlSystem::onFighterDeath(uint8_t fighterId) {

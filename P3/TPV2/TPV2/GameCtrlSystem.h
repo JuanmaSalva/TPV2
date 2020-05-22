@@ -23,9 +23,9 @@ public:
 		return score[fighterId];
 	}
 	void setStateReady() { state_ = READY; }
+	void startGame();
 private:
 	void resetScore();
-	void startGame();
 	void sendMyInfo();
 
 	uint8_t score[2];

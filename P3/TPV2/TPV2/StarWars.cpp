@@ -36,8 +36,8 @@ void StarWars::initGame() {
 	networkingSystem_ = mngr_->addSystem<NetworkingSystem>();
 
 	if ((int)game_->getNetworking()->getClientId() == 1) {
-		mngr_->send<msg::Message>(msg::_SECOND_PLAYER_JOINED);
 		gameCtrlSystem_->setStateReady();
+		mngr_->send<msg::Message>(msg::_SECOND_PLAYER_JOINED);
 	}
 }
 
@@ -65,7 +65,6 @@ void StarWars::start() {
 		mngr_->refresh();
 
 		if ((int)game_->getNetworking()->getClientId() == 0) {
-			//std::cout << "Soy listo" << endl;
 			gameCtrlSystem_->update();
 			fightersSystem_->update();
 			bulletsSystem_->update();
@@ -75,7 +74,8 @@ void StarWars::start() {
 				collisionSystem_->update();
 		}
 		else {
-			//std::cout << "Soy tonto" <<endl;
+			gameCtrlSystem_->update();
+			fightersSystem_->update();
 			networkingSystem_->update();
 			renderSystem_->update();
 		}
