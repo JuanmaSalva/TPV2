@@ -41,7 +41,14 @@ void NetworkingSystem::update() {
 			msg::BulletShotMsg* m = static_cast<msg::BulletShotMsg*>(msg); //crea el mensaje
 			mngr_->forwardMsg<msg::BulletShotMsg>(msg->senderClientId,
 				m->posX, m->posY, m->velX, m->velY); 
-			break;}
+			break;
+		}
+		case msg::_FIGHTER_INFO: {
+			msg::FighterInfo* m = static_cast<msg::FighterInfo*>(msg);
+			mngr_->forwardMsg<msg::FighterInfo>(msg->senderClientId,
+				m->posX, m->posY, m->rot);
+			break;
+		}
 
 		default:
 			assert(false);

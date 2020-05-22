@@ -16,6 +16,7 @@ namespace msg {
 		_ASK_GAME_TO_START,
 		_GAME_STARTED,
 		_BULLET_SHOT,
+		_FIGHTER_INFO,
 
 		//
 		_last_MsgId_
@@ -50,13 +51,17 @@ namespace msg {
 		uint32_t clientId;
 	};
 
-	struct BulletShotMsg :Message
-	{
+	struct BulletShotMsg :Message	{
 		BulletShotMsg(double pX, double pY, double vX, double vY):Message(sizeof(BulletShotMsg), _BULLET_SHOT), posX(pX),posY(pY), velX(vX), velY(vY) {
 		}
 		double posX, posY, velX, velY;
 	};
 
+	struct FighterInfo : Message {
+		FighterInfo(double pX, double pY, double r):Message(sizeof(FighterInfo), _FIGHTER_INFO), posX(pX), posY(pY), rot(r) {
+		}
+		double posX, posY, rot;
+	};
 
 #pragma pack(pop)
 
