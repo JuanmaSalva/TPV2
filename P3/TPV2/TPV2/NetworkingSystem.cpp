@@ -29,14 +29,13 @@ void NetworkingSystem::update() {
 					static_cast<msg::ClientDisconnectedMsg*>(msg)->clientId);
 			break;
 		case msg::_SECOND_PLAYER_JOINED:
-			mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->setStateReady();
+			mngr_->forwardMsg<msg::Message>(msg->senderClientId, msg::_SECOND_PLAYER_JOINED);
 			break;
 		case msg::_GAME_STARTED:
-			mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->startGame();
+			mngr_->forwardMsg<msg::Message>(msg->senderClientId, msg::_GAME_STARTED);
 			break;
 		case msg::_ASK_GAME_TO_START:
-			mngr_->send<msg::Message>(msg::_GAME_STARTED);
-			mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->startGame();
+			mngr_->forwardMsg<msg::Message>(msg->senderClientId, msg::_ASK_GAME_TO_START);
 			break;
 		default:
 			assert(false);

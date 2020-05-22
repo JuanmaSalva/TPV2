@@ -32,6 +32,25 @@ void GameCtrlSystem::update() {
 	}
 }
 
+void GameCtrlSystem::recieve(const msg::Message& msg)
+{
+	switch (msg.id)
+	{
+	case msg::_GAME_STARTED:
+		startGame();
+		break;
+	case msg::_SECOND_PLAYER_JOINED:
+		setStateReady();
+		break;
+	case msg::_ASK_GAME_TO_START:
+		mngr_->send<msg::Message>(msg::_GAME_STARTED);
+		startGame();
+		break;
+	default:
+		break;
+	}
+}
+
 void GameCtrlSystem::startGame() {
 	if (state_ == GAMEOVER) {
 		resetScore();

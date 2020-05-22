@@ -23,8 +23,9 @@ public:
 		return score[fighterId];
 	}
 	void setStateReady() { state_ = READY; }
-	void startGame();
+	virtual void recieve(const msg::Message& msg);
 private:
+	void startGame();
 	void resetScore();
 	void sendMyInfo();
 

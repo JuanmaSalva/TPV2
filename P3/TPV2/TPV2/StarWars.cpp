@@ -76,6 +76,7 @@ void StarWars::start() {
 		else {
 			gameCtrlSystem_->update();
 			fightersSystem_->update();
+			bulletsSystem_->update();
 			networkingSystem_->update();
 			renderSystem_->update();
 		}
