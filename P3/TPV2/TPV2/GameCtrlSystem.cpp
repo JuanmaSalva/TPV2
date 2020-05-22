@@ -7,6 +7,7 @@
 #include "FighterInfo.h"
 #include "FightersSystem.h"
 #include "Manager.h"
+#include "BulletsSystem.h"
 
 using ecs::CmpId;
 
@@ -46,6 +47,14 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 		mngr_->send<msg::Message>(msg::_GAME_STARTED);
 		startGame();
 		break;
+	case msg::_FIGHTER_COLLISION: {
+		if (game_->getNetworking()->getClientId() == 1) {
+			const msg::FighterCollision& m = static_cast<const msg::FighterCollision&>(msg);
+			onFighterDeath(m.fighterId);
+			mngr_->getSystem<BulletsSystem>(ecs::_sys_Bullets)->disableAll();
+		}
+		break; 
+	}
 	default:
 		break;
 	}

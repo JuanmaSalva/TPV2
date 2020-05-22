@@ -17,6 +17,7 @@ namespace msg {
 		_GAME_STARTED,
 		_BULLET_SHOT,
 		_FIGHTER_INFO,
+		_FIGHTER_COLLISION,
 
 		//
 		_last_MsgId_
@@ -61,6 +62,13 @@ namespace msg {
 		FighterInfo(double pX, double pY, double r):Message(sizeof(FighterInfo), _FIGHTER_INFO), posX(pX), posY(pY), rot(r) {
 		}
 		double posX, posY, rot;
+	};
+
+	struct FighterCollision : Message {
+
+		FighterCollision(int id) : Message(sizeof(FighterCollision), _FIGHTER_COLLISION), fighterId(id){
+		}
+		int fighterId;
 	};
 
 #pragma pack(pop)

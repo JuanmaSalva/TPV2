@@ -138,7 +138,7 @@ void FightersSystem::updateFighter(Entity* e) {
 				+ Vector2D(tr->width_ / 2, tr->height_ / 2)
 				+ Vector2D(0, -(tr->height_ / 2 + 5.0)).rotate(
 					tr->rotation_);
-			Vector2D d = Vector2D(0, -1).rotate(tr->rotation_) * 2;
+			Vector2D d = Vector2D(0, -1).rotate(tr->rotation_) * 2 + tr->velocity_;
 
 			mngr_->getSystem<BulletsSystem>(ecs::_sys_Bullets)->shoot(p, d, 5, 5);
 

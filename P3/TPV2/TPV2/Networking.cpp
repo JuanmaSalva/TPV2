@@ -175,7 +175,6 @@ void Networking::server(int port) {
 						}
 					}
 					else {
-						std::cout << "Ha llegado un mensaje" << std::endl;
 						for (uint32_t j = 0; j < MAX_CLIENTS; j++) {
 							if (i != j && clients[j] != nullptr)
 								send(*m, clients[j]);
