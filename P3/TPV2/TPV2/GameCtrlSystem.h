@@ -5,7 +5,7 @@
 #include "SDLGame.h"
 #include "Manager.h"
 
-class GameCtrlSystem: public System {
+class GameCtrlSystem : public System {
 public:
 	enum State : uint8_t {
 		READY, RUNNING, ROUNDOVER, GAMEOVER, WAITING
@@ -28,6 +28,7 @@ private:
 	void startGame();
 	void resetScore();
 	void sendMyInfo();
+	void onFightersCollide();
 
 	uint8_t score[2];
 	State state_;

@@ -55,6 +55,10 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 		}
 		break; 
 	}
+	case msg::_FIGHTERS_COLLIDE:
+		std::cout << "Fighter collide msg" << endl;
+		onFightersCollide();
+		break;
 	default:
 		break;
 	}
@@ -79,6 +83,11 @@ void GameCtrlSystem::onFighterDeath(uint8_t fighterId) {
 	if (score[id] == 3)
 		state_ = GAMEOVER;
 
+}
+
+void GameCtrlSystem::onFightersCollide()
+{
+	state_ = ROUNDOVER;
 }
 
 void GameCtrlSystem::resetScore() {

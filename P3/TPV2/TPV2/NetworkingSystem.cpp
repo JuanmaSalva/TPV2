@@ -55,6 +55,9 @@ void NetworkingSystem::update() {
 				m->fighterId);
 			break;
 		}
+		case msg::_FIGHTERS_COLLIDE:
+			mngr_->forwardMsg<msg::Message>(msg->senderClientId, msg::_FIGHTERS_COLLIDE);
+			break;
 
 		default:
 			assert(false);

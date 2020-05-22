@@ -18,6 +18,7 @@ namespace msg {
 		_BULLET_SHOT,
 		_FIGHTER_INFO,
 		_FIGHTER_COLLISION,
+		_FIGHTERS_COLLIDE,
 
 		//
 		_last_MsgId_

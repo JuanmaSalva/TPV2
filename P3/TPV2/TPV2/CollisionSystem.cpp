@@ -45,6 +45,16 @@ void CollisionSystem::update() {
 		}
 	}
 
+	auto fighters = mngr_->getGroupEntities(ecs::_grp_Fighters);
+	Transform* trF1 = fighters[0]->getComponent<Transform>(ecs::Transform);
+	Transform* trF2 = fighters[1]->getComponent<Transform>(ecs::Transform);
+	if (Collisions::collidesWithRotation(trF1->position_, trF1->width_,
+		trF1->height_, trF1->rotation_, trF2->position_, trF2->width_,
+		trF2->height_, trF2->rotation_)) { //colision entre cazas
+		mngr_->send<msg::Message>(msg::_FIGHTERS_COLLIDE);
+
+	}
+
 	if ( roundOver )
 		mngr_->getSystem<BulletsSystem>(ecs::_sys_Bullets)->disableAll();
 }
