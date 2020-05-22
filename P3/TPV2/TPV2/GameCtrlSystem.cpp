@@ -22,7 +22,7 @@ void GameCtrlSystem::init() {
 void GameCtrlSystem::update() {
 	if (state_ != RUNNING) {
 		InputHandler* ih = game_->getInputHandler();
-		if (ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN)) {
+		if (ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN) && state_ != WAITING) {
 			if (game_->getNetworking()->getClientId() == 1)mngr_->send<msg::Message>(msg::_ASK_GAME_TO_START); //pedir q empiece el juego
 			else {
 				mngr_->send<msg::Message>(msg::_GAME_STARTED);

@@ -5,34 +5,52 @@
 #include "Transform.h"
 
 BulletsSystem::BulletsSystem() :
-		System(ecs::_sys_Bullets) {
+	System(ecs::_sys_Bullets) {
 }
 
 void BulletsSystem::shoot(Vector2D pos, Vector2D vel, double w, double h) {
 
-	Entity *b = mngr_->addEntity<BulletsPool>(pos,vel,w,h);
+	Entity* b = mngr_->addEntity<BulletsPool>(pos, vel, w, h);
 	if (b != nullptr) {
 		b->addToGroup(ecs::_grp_Bullets);
 	}
 }
 
 void BulletsSystem::disableAll() {
-	for (auto &b : mngr_->getGroupEntities(ecs::_grp_Bullets))
+	for (auto& b : mngr_->getGroupEntities(ecs::_grp_Bullets))
 		b->setActive(false);
 }
 
+void BulletsSystem::recieve(const msg::Message& msg)
+{
+	switch (msg.id)
+	{
+	case msg::_BULLET_SHOT: {
+
+		if (game_->getNetworking()->getClientId() != msg.senderClientId) {
+			const msg::BulletShotMsg& m = static_cast<const msg::BulletShotMsg&>(msg);
+			shoot(Vector2D(m.posX, m.posY), Vector2D(m.velX, m.velY), 5, 5);
+		}
+		break;
+	}
+	default:
+		break;
+	}
+}
+
 void BulletsSystem::update() {
-	for (auto &e : mngr_->getGroupEntities(ecs::_grp_Bullets)) {
-		Transform *tr = e->getComponent<Transform>(ecs::Transform);
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Bullets)) {
+		Transform* tr = e->getComponent<Transform>(ecs::Transform);
 
 		Vector2D p = tr->position_ + tr->velocity_;
 
 		if ((p.getX() >= game_->getWindowWidth())
-				|| (p.getX() + tr->width_ <= 0)
-				|| (p.getY() >= game_->getWindowHeight())
-				|| (p.getY() + tr->height_ <= 0)) {
+			|| (p.getX() + tr->width_ <= 0)
+			|| (p.getY() >= game_->getWindowHeight())
+			|| (p.getY() + tr->height_ <= 0)) {
 			e->setActive(false);
-		} else {
+		}
+		else {
 			tr->position_ = p;
 		}
 	}

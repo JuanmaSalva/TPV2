@@ -37,6 +37,12 @@ void NetworkingSystem::update() {
 		case msg::_ASK_GAME_TO_START:
 			mngr_->forwardMsg<msg::Message>(msg->senderClientId, msg::_ASK_GAME_TO_START);
 			break;
+		case msg::_BULLET_SHOT: {
+			msg::BulletShotMsg* m = static_cast<msg::BulletShotMsg*>(msg); //crea el mensaje
+			mngr_->forwardMsg<msg::BulletShotMsg>(msg->senderClientId,
+				m->posX, m->posY, m->velX, m->velY); 
+			break;}
+
 		default:
 			assert(false);
 			break;

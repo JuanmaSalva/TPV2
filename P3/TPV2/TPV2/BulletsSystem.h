@@ -10,6 +10,7 @@ public:
 	void update() override;
 	void shoot(Vector2D pos, Vector2D vel, double w, double h);
 	void disableAll();
+	virtual void recieve(const msg::Message& msg);
 private:
 };
 

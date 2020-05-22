@@ -110,8 +110,9 @@ void FightersSystem::updateFighter(Entity *e) {
 							tr->rotation_);
 			Vector2D d = Vector2D(0, -1).rotate(tr->rotation_) * 2;
 
-			mngr_->getSystem<BulletsSystem>(ecs::_sys_Bullets)->shoot(p,d,2,5);
+			mngr_->getSystem<BulletsSystem>(ecs::_sys_Bullets)->shoot(p,d,5,5);
 
+			mngr_->send<msg::BulletShotMsg>(p.getX(), p.getY(), d.getX(), d.getY());
 		}
 
 	}

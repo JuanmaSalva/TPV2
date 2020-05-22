@@ -50,11 +50,11 @@ namespace msg {
 		uint32_t clientId;
 	};
 
-	struct BulletShot :Message
+	struct BulletShotMsg :Message
 	{
-		BulletShot(int pX, int pY, int vX, int vY):Message(sizeof(BulletShot), _BULLET_SHOT), posX(pX),posY(pY), velX(vX), velY(vY) {
+		BulletShotMsg(double pX, double pY, double vX, double vY):Message(sizeof(BulletShotMsg), _BULLET_SHOT), posX(pX),posY(pY), velX(vX), velY(vY) {
 		}
-		uint32_t posX, posY, velX, velY;
+		double posX, posY, velX, velY;
 	};
 
 
