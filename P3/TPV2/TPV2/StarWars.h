@@ -14,7 +14,7 @@
 class StarWars {
 
 public:
-	StarWars(char* host, int port);
+	StarWars(char* host, int port, char* name);
 	virtual ~StarWars();
 
 	// from SDLGame
@@ -40,5 +40,6 @@ private:
 	const static int _WINDOW_HEIGHT_ = 480;
 
 	char* host_;
+	char* name_;
 	int port_;
 };

@@ -53,12 +53,20 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 			onFighterDeath(m.fighterId);
 			mngr_->getSystem<BulletsSystem>(ecs::_sys_Bullets)->disableAll();
 		}
-		break; 
+		break;
 	}
 	case msg::_FIGHTERS_COLLIDE:
 		std::cout << "Fighter collide msg" << endl;
 		onFightersCollide();
 		break;
+	case msg::_NAME: {
+		const msg::NameMessage& m = static_cast<const msg::NameMessage&>(msg);
+		if (m.senderClientId != game_->getNetworking()->getClientId()) {
+			mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->setOtherName(m.name);
+			std::cout << "Hola don " << m.name << endl;
+		}
+		break;
+	}
 	default:
 		break;
 	}
@@ -87,7 +95,7 @@ void GameCtrlSystem::onFighterDeath(uint8_t fighterId) {
 			winner = true;
 		}
 	}
-		
+
 
 }
 

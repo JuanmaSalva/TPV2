@@ -26,6 +26,9 @@ public:
 	virtual void recieve(const msg::Message& msg);
 
 	bool getWinner() { return winner; };
+	void setOtherName(const char* n) { otherName_ = n; }
+	const char* getOtherName() { return otherName_; }
+
 private:
 	void startGame();
 	void resetScore();
@@ -36,5 +39,6 @@ private:
 	State state_;
 
 	bool winner = false;
+	const char* otherName_ = nullptr;
 };
 

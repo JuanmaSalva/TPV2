@@ -30,6 +30,7 @@ void NetworkingSystem::update() {
 			break;
 		case msg::_SECOND_PLAYER_JOINED:
 			mngr_->forwardMsg<msg::Message>(msg->senderClientId, msg::_SECOND_PLAYER_JOINED);
+			mngr_->send<msg::NameMessage>(mngr_->getName());
 			break;
 		case msg::_GAME_STARTED:
 			mngr_->forwardMsg<msg::Message>(msg->senderClientId, msg::_GAME_STARTED);
@@ -58,7 +59,11 @@ void NetworkingSystem::update() {
 		case msg::_FIGHTERS_COLLIDE:
 			mngr_->forwardMsg<msg::Message>(msg->senderClientId, msg::_FIGHTERS_COLLIDE);
 			break;
-
+		case msg::_NAME:{
+			msg::NameMessage* m = static_cast<msg::NameMessage*>(msg);
+			mngr_->forwardMsg<msg::NameMessage>(msg->senderClientId, m->name);
+			break;
+		}
 		default:
 			assert(false);
 			break;

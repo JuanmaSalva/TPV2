@@ -4,10 +4,11 @@
 #include "SDL_macros.h"
 using namespace std;
 
-StarWars::StarWars(char* host, int port) :
+StarWars::StarWars(char* host, int port, char* name) :
 	exit_(false),
 	host_(host),
-	port_(port) {
+	port_(port),
+	name_(name) {
 	initGame();
 }
 
@@ -24,7 +25,7 @@ void StarWars::initGame() {
 	}
 	std::cout << "Your ID is: " << (int)game_->getNetworking()->getClientId() << endl;
 
-	mngr_ = new Manager(game_);
+	mngr_ = new Manager(game_, name_);
 
 	BulletsPool::init(100);
 
@@ -38,6 +39,7 @@ void StarWars::initGame() {
 	if ((int)game_->getNetworking()->getClientId() == 1) {
 		gameCtrlSystem_->setStateReady();
 		mngr_->send<msg::Message>(msg::_SECOND_PLAYER_JOINED);
+		mngr_->send<msg::NameMessage>(mngr_->getName());
 	}
 }
 

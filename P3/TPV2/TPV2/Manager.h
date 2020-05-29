@@ -15,11 +15,11 @@ class Manager {
 	using EventType = std::function<void()>;
 
 public:
-	Manager(SDLGame *game) :
-			game_(game) {
+	Manager(SDLGame *game, char* name) :
+			game_(game), name_(name) {
 
 		msgs_ = new std::list<uptr_msg>();
-
+		std::cout << name << ": " << endl;
 		// needed only when using method flushMessages
 		// that uses the std::swap
 		// supportMsgs_ = new std::list<uptr_msg>();
@@ -129,6 +129,8 @@ public:
 		return game_->getNetworking()->getClientId();
 	}
 
+	char* getName() { return name_; }
+
 private:
 	SDLGame *game_;
 
@@ -141,4 +143,5 @@ private:
 	std::list<uptr_msg> *msgs_;
 	// std::list<uptr_msg> *supportMsgs_;
 
+	char* name_;
 };

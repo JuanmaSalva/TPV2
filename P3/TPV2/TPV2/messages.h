@@ -19,6 +19,7 @@ namespace msg {
 		_FIGHTER_INFO,
 		_FIGHTER_COLLISION,
 		_FIGHTERS_COLLIDE,
+		_NAME,
 
 		//
 		_last_MsgId_
@@ -70,6 +71,13 @@ namespace msg {
 		FighterCollision(int id) : Message(sizeof(FighterCollision), _FIGHTER_COLLISION), fighterId(id){
 		}
 		int fighterId;
+	};
+
+	struct NameMessage : Message {
+		NameMessage(char* n) :Message(sizeof(NameMessage), _NAME){
+			strcpy_s(name, n);
+		}
+		char name[11];
 	};
 
 #pragma pack(pop)
