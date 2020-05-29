@@ -17,7 +17,9 @@ public:
 		// text
 		PressEnter,
 		GameOver,
-		WaitingForPlayer
+		WaitingForPlayer,
+		YouLose, 
+		YouWin
 	};
 
 	enum AudioId : std::size_t {

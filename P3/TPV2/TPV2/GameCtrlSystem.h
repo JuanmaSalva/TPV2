@@ -24,6 +24,8 @@ public:
 	}
 	void setStateReady() { state_ = READY; }
 	virtual void recieve(const msg::Message& msg);
+
+	bool getWinner() { return winner; };
 private:
 	void startGame();
 	void resetScore();
@@ -32,5 +34,7 @@ private:
 
 	uint8_t score[2];
 	State state_;
+
+	bool winner = false;
 };
 

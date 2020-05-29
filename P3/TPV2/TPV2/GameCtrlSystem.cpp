@@ -81,7 +81,13 @@ void GameCtrlSystem::onFighterDeath(uint8_t fighterId) {
 	state_ = ROUNDOVER;
 	score[id]++;
 	if (score[id] == 3)
+	{
 		state_ = GAMEOVER;
+		if (game_->getNetworking()->getClientId() == (int)id) {
+			winner = true;
+		}
+	}
+		
 
 }
 
@@ -92,4 +98,5 @@ void GameCtrlSystem::onFightersCollide()
 
 void GameCtrlSystem::resetScore() {
 	score[0] = score[1] = 0;
+	winner = false;
 }
