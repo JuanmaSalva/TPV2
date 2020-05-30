@@ -8,6 +8,7 @@
 #include "FightersSystem.h"
 #include "Manager.h"
 #include "BulletsSystem.h"
+#include "RenderSystem.h"
 
 using ecs::CmpId;
 
@@ -62,8 +63,10 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 	case msg::_NAME: {
 		const msg::NameMessage& m = static_cast<const msg::NameMessage&>(msg);
 		if (m.senderClientId != game_->getNetworking()->getClientId()) {
-			mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->setOtherName(m.name);
+			mngr_->setOtherName((char*)m.name);
 			std::cout << "Hola don " << m.name << endl;
+
+			mngr_->getSystem<RenderSystem>(ecs::_sys_Render)->setOtherName(m.name);
 		}
 		break;
 	}

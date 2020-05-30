@@ -16,7 +16,7 @@ class Manager {
 
 public:
 	Manager(SDLGame *game, char* name) :
-			game_(game), name_(name) {
+			game_(game), myName_(name) {
 
 		msgs_ = new std::list<uptr_msg>();
 		std::cout << name << ": " << endl;
@@ -129,7 +129,10 @@ public:
 		return game_->getNetworking()->getClientId();
 	}
 
-	char* getName() { return name_; }
+	void setOtherName(char* name) { otherName_ = name; }
+
+	char* getName() { return myName_; }
+	char* getOtherName() { return otherName_; }
 
 private:
 	SDLGame *game_;
@@ -143,5 +146,6 @@ private:
 	std::list<uptr_msg> *msgs_;
 	// std::list<uptr_msg> *supportMsgs_;
 
-	char* name_;
+	char* myName_;
+	char* otherName_;
 };

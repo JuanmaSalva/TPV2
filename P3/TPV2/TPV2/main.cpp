@@ -35,9 +35,13 @@ int main(int argc, char** argv) {
 		server(atoi(argv[2])); // start in server mode
 		
 	}
-	else if (argc == 5 && strcmp(argv[1], "client") == 0) {
-		if (strlen(argv[4]) > 10) throw;
-		client(argv[2], atoi(argv[3]), argv[4]); // start in client mode
+	else if ((argc == 5 || argc == 4) && strcmp(argv[1], "client") == 0) {
+		if (argc == 4) { //si no pone un nombre
+			char name[] = "Anonymous";
+			client(argv[2], atoi(argv[3]),name); // start in client mode
+		}
+		else if (strlen(argv[4]) > 10) throw;
+		else  client(argv[2], atoi(argv[3]), argv[4]); // start in client mode
 	}
 	else {
 		cout << "Usage: " << endl;

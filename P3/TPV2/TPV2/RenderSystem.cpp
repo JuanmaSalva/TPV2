@@ -12,6 +12,23 @@
 
 RenderSystem::RenderSystem() :
 	System(ecs::_sys_Render) {
+
+}
+
+RenderSystem::~RenderSystem()
+{
+	delete myName_;
+	delete otherName_;
+}
+
+void RenderSystem::init()
+{
+	myName_ = new Texture(game_->getRenderer(),
+		mngr_->getName(),
+		game_->getFontMngr()->getFont(Resources::ARIAL24),
+		{ COLOR(0x111122ff) });
+
+	fondo_ = game_->getTextureMngr()->getTexture(Resources::WhiteRect);
 }
 
 void RenderSystem::update() {
@@ -26,6 +43,15 @@ void RenderSystem::update() {
 	drawScore();
 	drawNames();
 }
+
+void RenderSystem::setOtherName(const char* name)
+{
+	otherName_ = new Texture(game_->getRenderer(),
+		name,
+		game_->getFontMngr()->getFont(Resources::ARIAL24),
+		{ COLOR(0x111122ff) });
+}
+
 
 void RenderSystem::drawImage(Entity* e) {
 	Transform* tr = e->getComponent<Transform>(ecs::Transform);
@@ -82,49 +108,21 @@ void RenderSystem::drawScore() {
 
 void RenderSystem::drawNames()
 {
-	auto gameCtrl = mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl);
-	int yOffset = 20, xOffset = 20;
-
 	if (game_->getNetworking()->getClientId() == 0) {
-		Texture myName(game_->getRenderer(),
-			mngr_->getName(),
-			game_->getFontMngr()->getFont(Resources::ARIAL24),
-			{ COLOR(0x111122ff) });
-
-		const char* otherName = gameCtrl->getOtherName();
-		if (otherName != nullptr) {
-			Texture otherName(game_->getRenderer(),
-				otherName,
-				game_->getFontMngr()->getFont(Resources::ARIAL24),
-				{ COLOR(0x111122ff) });
-			otherName.render(game_->getWindowWidth() - otherName.getWidth() - xOffset, yOffset);
+		if (otherName_ != nullptr) {
+			otherName_->render(game_->getWindowWidth() - otherName_->getWidth() - xOffset_, yOffset_);			
 		}
 
-		Texture* fondo = game_->getTextureMngr()->getTexture(Resources::WhiteRect);
-
-		fondo->render(SDL_Rect{ xOffset, yOffset,myName.getWidth(),myName.getHeight() });
-		myName.render(xOffset, yOffset);
+		fondo_->render(SDL_Rect{ xOffset_, yOffset_,myName_->getWidth(),myName_->getHeight() });
+		myName_->render(xOffset_, yOffset_);
 	}
 	else {
-		Texture myName(game_->getRenderer(),
-			mngr_->getName(),
-			game_->getFontMngr()->getFont(Resources::ARIAL24),
-			{ COLOR(0x111122ff) });
-
-
-		const char* otherName = gameCtrl->getOtherName();
-		if (otherName != nullptr) {
-			Texture otherName(game_->getRenderer(),
-				otherName,
-				game_->getFontMngr()->getFont(Resources::ARIAL24),
-				{ COLOR(0x111122ff) });
-			otherName.render(xOffset, yOffset);
+		if (otherName_ != nullptr) {
+			otherName_->render(xOffset_, yOffset_);
 		}
 
-		Texture* fondo = game_->getTextureMngr()->getTexture(Resources::WhiteRect);
-		fondo->render(SDL_Rect{ game_->getWindowWidth() - myName.getWidth() - xOffset, yOffset,myName.getWidth(),myName.getHeight() });
-
-		myName.render(game_->getWindowWidth() - myName.getWidth() - xOffset, yOffset);
+		fondo_->render(SDL_Rect{ game_->getWindowWidth() - myName_->getWidth() - xOffset_, yOffset_,myName_->getWidth(),myName_->getHeight() });
+		myName_->render(game_->getWindowWidth() - myName_->getWidth() - xOffset_, yOffset_);
 	}
 
 }
