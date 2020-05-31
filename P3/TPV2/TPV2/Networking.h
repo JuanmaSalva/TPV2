@@ -31,6 +31,7 @@ public:
 	uint8_t getClientId() {
 		return clientId;
 	}
+	void setClientId(uint8_t id) { clientId = id; };
 
 private:
 	void error();

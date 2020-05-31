@@ -70,6 +70,11 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 		}
 		break;
 	}
+	case msg::_CLIENT_DISCONNECTED:
+		resetScore();
+		game_->getNetworking()->setClientId(0);
+		state_ = WAITING;
+		break;
 	default:
 		break;
 	}
@@ -98,8 +103,6 @@ void GameCtrlSystem::onFighterDeath(uint8_t fighterId) {
 			winner = true;
 		}
 	}
-
-
 }
 
 void GameCtrlSystem::onFightersCollide()

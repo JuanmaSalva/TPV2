@@ -33,6 +33,9 @@ void BulletsSystem::recieve(const msg::Message& msg)
 		}
 		break;
 	}
+	case msg::_CLIENT_DISCONNECTED:
+		disableAll();
+		break;
 	default:
 		break;
 	}

@@ -44,12 +44,30 @@ void RenderSystem::update() {
 	drawNames();
 }
 
+void RenderSystem::recieve(const msg::Message& msg)
+{
+	switch (msg.id)
+	{
+	case msg::_CLIENT_DISCONNECTED:
+		deleteOtherName();
+		break;
+	default:
+		break;
+	}
+}
+
 void RenderSystem::setOtherName(const char* name)
 {
 	otherName_ = new Texture(game_->getRenderer(),
 		name,
 		game_->getFontMngr()->getFont(Resources::ARIAL24),
 		{ COLOR(0x111122ff) });
+}
+
+void RenderSystem::deleteOtherName()
+{
+	delete otherName_;
+	otherName_ = nullptr;
 }
 
 

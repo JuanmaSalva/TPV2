@@ -173,6 +173,16 @@ void Networking::server(int port) {
 							if (clients[j] != nullptr)
 								send(m, clients[j]);
 						}
+
+						std::cout << MAX_CLIENTS << std::endl;
+
+						for (uint32_t j = i; j < MAX_CLIENTS-1; j++) {
+							clients[j] = clients[j + 1];
+							std::cout << "cliente movido: " << j << std::endl;
+						}
+						/*-for (int j = i; i < MAX_CLIENTS-1; j++) {
+						}*/
+						clients[MAX_CLIENTS - 1] = nullptr;
 					}
 					else {
 						for (uint32_t j = 0; j < MAX_CLIENTS; j++) {

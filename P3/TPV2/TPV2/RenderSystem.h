@@ -12,8 +12,11 @@ public:
 
 	void init() override;
 	void update() override;
+	virtual void recieve(const msg::Message& msg)override;
 
 	void setOtherName(const char* name);
+	void deleteOtherName();
+
 private:
 	void drawImage(Entity* e);
 	void drawCtrlMessages();

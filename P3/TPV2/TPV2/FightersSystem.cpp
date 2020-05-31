@@ -55,6 +55,9 @@ void FightersSystem::recieve(const msg::Message& msg)
 
 		break;
 	}
+	case msg::_CLIENT_DISCONNECTED:
+		resetFighterPositions();
+		break;
 	default:
 		break;
 	}
