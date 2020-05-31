@@ -14,6 +14,9 @@ public:
 	GameCtrlSystem();
 	void init() override;
 	void update() override;
+	virtual void recieve(const msg::Message& msg) override;
+
+
 	State getState() {
 		return state_;
 	}
@@ -23,7 +26,6 @@ public:
 		return score[fighterId];
 	}
 	void setStateReady() { state_ = READY; }
-	virtual void recieve(const msg::Message& msg);
 
 	bool getWinner() { return winner; };
 

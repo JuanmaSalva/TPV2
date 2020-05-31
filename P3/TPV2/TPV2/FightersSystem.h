@@ -13,8 +13,9 @@ public:
 	virtual ~FightersSystem();
 	void init() override;
 	void update() override;
+	virtual void recieve(const msg::Message& msg) override;
+
 	void resetFighterPositions();
-	virtual void recieve(const msg::Message& msg);
 private:
 	void updateFighter(Entity *e);
 	Entity *fighter0_;
