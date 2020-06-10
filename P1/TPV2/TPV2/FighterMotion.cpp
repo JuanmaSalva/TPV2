@@ -28,5 +28,6 @@ void FighterMotion::update()
 		tr_->setVel(tr_->getVel() * -1);
 	}
 
-	tr_->setVel(tr_->getVel() * drag_);
+
+	tr_->setVel(tr_->getVel() * drag_); 
 }
