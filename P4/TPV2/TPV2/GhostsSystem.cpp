@@ -11,10 +11,10 @@
 #include "SDLGame.h"
 
 GhostsSystem::GhostsSystem() :
-		System(ecs::_sys_Ghosts), //
-		lastTimeAdded_(0), //
-		maxGhosts_(10), //
-		numOfGhosts_(0) {
+	System(ecs::_sys_Ghosts), //
+	lastTimeAdded_(0), //
+	maxGhosts_(10), //
+	numOfGhosts_(0) {
 }
 
 
@@ -24,7 +24,7 @@ void GhostsSystem::init() {
 void GhostsSystem::update() {
 
 	auto gameState = mngr_->getHandler(ecs::_hdlr_GameStateEntity)->getComponent<GameState>(ecs::GameState);
-	if ( gameState->state_ != GameState::RUNNING)
+	if (gameState->state_ != GameState::RUNNING)
 		return;
 
 	// add 2 ghosts every 5sec
@@ -33,19 +33,19 @@ void GhostsSystem::update() {
 		addGhosts(2);
 	}
 
-	for (auto &e : mngr_->getGroupEntities(ecs::_grp_Ghost)) {
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Ghost)) {
 
 		if (!e->isActive())
 			return;
 
-		Transform *tr = e->getComponent<Transform>(ecs::Transform);
+		Transform* tr = e->getComponent<Transform>(ecs::Transform);
 
 		// with probability 5% change direction to follow pacman
-		RandomNumberGenerator *r = game_->getRandGen();
-		if ( r->nextInt(0, 100) < 2) {
+		RandomNumberGenerator* r = game_->getRandGen();
+		if (r->nextInt(0, 100) < 2) {
 			Vector2D pmanPositon = mngr_->getHandler(ecs::_hdlr_PacManEntity)->getComponent<
-					Transform>(ecs::Transform)->position_;
-			 tr->velocity_ = (pmanPositon - tr->position_).normalize() * (r->nextInt(1, 10) / 20.0);
+				Transform>(ecs::Transform)->position_;
+			tr->velocity_ = (pmanPositon - tr->position_).normalize() * (r->nextInt(1, 10) / 20.0);
 
 		}
 
@@ -56,16 +56,36 @@ void GhostsSystem::update() {
 		int y = tr->position_.getY();
 
 		if (x <= 0 || x + tr->width_ >= game_->getWindowWidth() || y <= 0
-				|| y + tr->height_ >= game_->getWindowHeight()) {
+			|| y + tr->height_ >= game_->getWindowHeight()) {
 			tr->velocity_ = tr->velocity_.rotate(180);
 		}
 
 	}
 }
 
+void GhostsSystem::recieve(const msg::Message& msg)
+{
+	switch (msg.id)
+	{
+	case msg::_COLLISION_PAC_MAN:
+		onCollisionWithPacMan();
+		break;
+	case msg::_ADD_GHOST: {
+		const msg::SingleIntMessage& m = static_cast<const msg::SingleIntMessage&>(msg);
+		addGhosts(m.num);
+		break;
+	}
+	case msg::_DISABLE_GHOST:
+		disableAll();
+		break;
+	default:
+		break;
+	}
+}
 
-void GhostsSystem::onCollisionWithPacMan(Entity *e) {
-	mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->onPacManDeath();
+
+void GhostsSystem::onCollisionWithPacMan() {
+	mngr_->send<msg::Message>(msg::_PAC_MAN_DEATH);
 }
 
 void GhostsSystem::addGhosts(std::size_t n) {
@@ -74,10 +94,10 @@ void GhostsSystem::addGhosts(std::size_t n) {
 	if (numOfGhosts_ >= maxGhosts_)
 		return;
 
-	RandomNumberGenerator *r = game_->getRandGen();
+	RandomNumberGenerator* r = game_->getRandGen();
 
 	Vector2D pmanPositon = mngr_->getHandler(ecs::_hdlr_PacManEntity)->getComponent<
-			Transform>(ecs::Transform)->position_;
+		Transform>(ecs::Transform)->position_;
 
 	// ghost width and height
 	int width = 30;
@@ -115,7 +135,7 @@ void GhostsSystem::addGhosts(std::size_t n) {
 		Vector2D v = (pmanPositon - p).normalize() * (r->nextInt(1, 10) / 20.0);
 
 		// add the entity
-		Entity *e = mngr_->addEntity<GhostsPool>(p, v, 30, 30);
+		Entity* e = mngr_->addEntity<GhostsPool>(p, v, 30, 30);
 		if (e != nullptr) {
 			e->addToGroup(ecs::_grp_Ghost);
 			numOfGhosts_++;
@@ -124,7 +144,7 @@ void GhostsSystem::addGhosts(std::size_t n) {
 }
 
 void GhostsSystem::disableAll() {
-	for( auto& e : mngr_->getGroupEntities(ecs::_grp_Ghost)) {
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Ghost)) {
 		e->setActive(false);
 	}
 	numOfGhosts_ = 0;
