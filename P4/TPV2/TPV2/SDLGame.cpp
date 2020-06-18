@@ -93,6 +93,5 @@ void SDLGame::closeResources() {
 	delete fonts_;
 	delete textures_;
 	delete random_;
-	delete audio_;
 }
 
