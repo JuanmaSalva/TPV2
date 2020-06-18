@@ -1,5 +1,19 @@
 #include "AudioSystem.h"
 
+void AudioSystem::init()
+{
+	audioManager_ = new SDLAudioManager();
+	audioManager_->init();
+
+	for (auto& sound : Resources::sounds_) {
+		audioManager_->loadSound(sound.id, sound.fileName);
+	}
+
+	for (auto& music : Resources::musics_) {
+		audioManager_->loadMusic(music.id, music.fileName);
+	}
+}
+
 void AudioSystem::recieve(const msg::Message& msg)
 {
 	switch (msg.id)
@@ -14,7 +28,8 @@ void AudioSystem::recieve(const msg::Message& msg)
 	}
 	case msg::_PLAY_CHANNEL: {
 		const msg::PlayChannel& m = static_cast<const msg::PlayChannel&>(msg);
-		audioManager_->playChannel(m.audioId, m.channel);
+		audioManager_->playChannel(m.audioId,0,m.channel);
+		
 		break;
 	}
 	default:

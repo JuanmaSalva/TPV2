@@ -3,7 +3,6 @@
 #include <SDL.h>
 #include "Resources.h"
 #include "TexturesManager.h"
-#include "AudioManager.h"
 #include "FontsManager.h"
 #include "RandomNumberGenerator.h"
 #include "InputHandler.h"
@@ -56,10 +55,6 @@ public:
 		return textures_;
 	}
 
-	inline AudioManager* getAudioMngr() const {
-		return audio_;
-	}
-
 	inline RandomNumberGenerator* getRandGen() const {
 		return random_;
 	}
@@ -93,7 +88,6 @@ protected:
 
 	FontsManager *fonts_;
 	TexturesManager *textures_;
-	AudioManager *audio_;
 	RandomNumberGenerator *random_;
 
 	SDL_Window *window_; // the window

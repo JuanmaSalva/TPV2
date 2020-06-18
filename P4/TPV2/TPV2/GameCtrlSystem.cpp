@@ -20,7 +20,6 @@ void GameCtrlSystem::init() {
 	gameState_ = e->addComponent<GameState>();
 	mngr_->setHandler(ecs::_hdlr_GameStateEntity, e);
 	mngr_->send <msg::PlayMusic>(Resources::PacMan_Intro);
-	//game_->getAudioMngr()->playMusic(Resources::PacMan_Intro);
 }
 
 void GameCtrlSystem::update() {
@@ -34,7 +33,7 @@ void GameCtrlSystem::update() {
 		switch ( gameState_->state_) {
 		case GameState::READY:
 			gameState_->state_ = GameState::RUNNING;
-			game_->getAudioMngr()->haltMusic();
+			mngr_->send<msg::Message>(msg::_HALT_MUSIC);
 			startGame();
 			break;
 		case GameState::OVER:
@@ -43,7 +42,6 @@ void GameCtrlSystem::update() {
 			gameState_->won_ = false;
 
 			mngr_->send<msg::PlayMusic>(Resources::PacMan_Intro);
-			//game_->getAudioMngr()->playMusic(Resources::PacMan_Intro);
 			break;
 		default:
 			assert(false); // should not be rechable
@@ -72,10 +70,8 @@ void GameCtrlSystem::onPacManDeath() {
 	gameState_->won_ = false;
 	mngr_->send<msg::Message>(msg::_DISABLE_GHOST);
 	mngr_->send<msg::Message>(msg::_DISABLE_CHERRIES);
-	//game_->getAudioMngr()->haltMusic();
 	mngr_->send<msg::Message>(msg::_HALT_MUSIC);
 	mngr_->send<msg::PlayChannel>(Resources::PacMan_Death, 0);
-	//game_->getAudioMngr()->playChannel(Resources::PacMan_Death,0);
 }
 
 void GameCtrlSystem::onNoMoreFood() {
@@ -83,10 +79,8 @@ void GameCtrlSystem::onNoMoreFood() {
 	gameState_->won_ = true;
 	mngr_->send<msg::Message>(msg::_DISABLE_GHOST);
 	mngr_->send<msg::Message>(msg::_DISABLE_CHERRIES);
-	//game_->getAudioMngr()->haltMusic();
 	mngr_->send<msg::Message>(msg::_HALT_MUSIC);
 	mngr_->send<msg::PlayChannel>(Resources::PacMan_Won, 0);
-	//game_->getAudioMngr()->playChannel(Resources::PacMan_Won,0);
 }
 
 void GameCtrlSystem::startGame() {

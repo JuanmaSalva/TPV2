@@ -74,9 +74,6 @@ void SDLGame::initResources() {
 	fonts_ = new SDLFontsManager();
 	fonts_->init();
 
-	audio_ = new SDLAudioManager();
-	audio_->init();
-
 	for (auto &image : Resources::images_) {
 		textures_->loadFromImg(image.id, renderer_, image.fileName);
 	}
@@ -88,14 +85,6 @@ void SDLGame::initResources() {
 	for (auto &txtmsg : Resources::messages_) {
 		textures_->loadFromText(txtmsg.id, renderer_, txtmsg.msg,
 				fonts_->getFont(txtmsg.fontId), txtmsg.color);
-	}
-
-	for (auto &sound : Resources::sounds_) {
-		audio_->loadSound(sound.id, sound.fileName);
-	}
-
-	for (auto &music : Resources::musics_) {
-		audio_->loadMusic(music.id, music.fileName);
 	}
 
 }
