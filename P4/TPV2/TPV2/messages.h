@@ -1,5 +1,6 @@
 #pragma once
 #include <ctime>
+#include "Resources.h"
 
 class Entity;
 
@@ -19,6 +20,10 @@ enum MsgId : msgType {
 	_DISABLE_CHERRIES,
 	_RESET_PACMAN_POS,
 	_ON_EAT_CHERRY,
+
+	_PLAY_CHANNEL,
+	_PLAY_MUSIC,
+	_HALT_MUSIC,
 
 	//
 	_last_MsgId_
@@ -47,6 +52,25 @@ struct OnEatCherryMessage: Message
 	}
 
 	Entity* entity;
+};
+
+struct PlayMusic: Message
+{
+	PlayMusic(Resources::AudioId m) :Message(_PLAY_MUSIC) { 
+		musicId = m; 
+	};
+
+	Resources::AudioId musicId;
+};
+
+struct PlayChannel : Message {
+	PlayChannel(Resources::AudioId a, int c):Message(_PLAY_CHANNEL) {
+		audioId = a;
+		channel = c;
+	}
+
+	Resources::AudioId audioId;
+	int channel;
 };
 
 }

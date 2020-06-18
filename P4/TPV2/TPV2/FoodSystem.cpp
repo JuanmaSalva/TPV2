@@ -47,7 +47,8 @@ void FoodSystem::onEat(Entity* e) {
 	auto gameState = mngr_->getHandler(ecs::_hdlr_GameStateEntity)->getComponent<GameState>(ecs::GameState);
 	gameState->score_++;
 
-	game_->getAudioMngr()->playChannel(Resources::PacMan_Eat, 0);
+	mngr_->send<msg::PlayChannel>(Resources::PacMan_Eat, 0);
+	//game_->getAudioMngr()->playChannel(Resources::PacMan_Eat, 0);
 
 	// disbale food
 	e->setActive(false);
