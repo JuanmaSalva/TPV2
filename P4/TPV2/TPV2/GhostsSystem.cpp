@@ -40,13 +40,12 @@ void GhostsSystem::update() {
 
 		Transform* tr = e->getComponent<Transform>(ecs::Transform);
 
-		// with probability 5% change direction to follow pacman
+		// with probability 2% change direction to follow pacman
 		RandomNumberGenerator* r = game_->getRandGen();
 		if (r->nextInt(0, 100) < 2) {
 			Vector2D pmanPositon = mngr_->getHandler(ecs::_hdlr_PacManEntity)->getComponent<
 				Transform>(ecs::Transform)->position_;
-			tr->velocity_ = (pmanPositon - tr->position_).normalize() * (r->nextInt(1, 10) / 20.0);
-
+			tr->velocity_ = (pmanPositon - tr->position_).normalize() * (tr->velocity_.magnitude()); //su direccion
 		}
 
 
@@ -59,7 +58,6 @@ void GhostsSystem::update() {
 			|| y + tr->height_ >= game_->getWindowHeight()) {
 			tr->velocity_ = tr->velocity_.rotate(180);
 		}
-
 	}
 }
 
@@ -78,6 +76,9 @@ void GhostsSystem::recieve(const msg::Message& msg)
 	case msg::_DISABLE_GHOST:
 		disableAll();
 		break;
+	case msg::_EATEN_WRONG_FOOD:
+		speedUpGhosts();
+		break;
 	default:
 		break;
 	}
@@ -87,6 +88,7 @@ void GhostsSystem::recieve(const msg::Message& msg)
 void GhostsSystem::onCollisionWithPacMan() {
 	mngr_->send<msg::Message>(msg::_PAC_MAN_DEATH);
 }
+
 
 void GhostsSystem::addGhosts(std::size_t n) {
 
@@ -104,7 +106,6 @@ void GhostsSystem::addGhosts(std::size_t n) {
 	int height = 30;
 
 	for (auto i(0u); i < n; i++) {
-
 		// select corner
 		int c = r->nextInt(0, 4);
 
@@ -148,4 +149,12 @@ void GhostsSystem::disableAll() {
 		e->setActive(false);
 	}
 	numOfGhosts_ = 0;
+}
+
+void GhostsSystem::speedUpGhosts()
+{
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Ghost)) {
+		Transform* tr = e->getComponent<Transform>(ecs::Transform);
+		tr->velocity_ = tr->velocity_ * 1.5;;
+	}
 }

@@ -23,7 +23,6 @@ void GameCtrlSystem::init() {
 }
 
 void GameCtrlSystem::update() {
-
 	if ( gameState_->state_ == GameState::RUNNING )
 		return;
 
@@ -85,7 +84,9 @@ void GameCtrlSystem::onNoMoreFood() {
 
 void GameCtrlSystem::startGame() {
 	mngr_->send<msg::Message>(msg::_GAME_START);
-	mngr_->send<msg::SingleIntMessage>(10, msg::_ADD_FOOD);
+	mngr_->send<msg::AddFoodMSG>(0,1); //cerecas
+	mngr_->send<msg::AddFoodMSG>(1, 1); //fresas
+	mngr_->send<msg::AddFoodMSG>(2, 1); //peras
 	mngr_->send<msg::SingleIntMessage>(2, msg::_ADD_GHOST);
 	mngr_->send<msg::Message>(msg::_RESET_PACMAN_POS);
 }

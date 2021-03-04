@@ -26,7 +26,7 @@ struct AnimatedImageComponent: Component {
 	}
 
 	void addFrame(Texture* tex, SDL_Rect clip) {
-		sprites_.push_back( { tex, clip});
+		sprites_.push_back({tex, clip});
 	}
 
 	void reset() {

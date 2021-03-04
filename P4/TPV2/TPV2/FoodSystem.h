@@ -12,7 +12,7 @@ public:
 private:
 	int numOfFoodPieces_;
 
-	void addFood(std::size_t n);
-	void onEat(Entity *e);
+	void addFood(std::size_t n, int foodType);
+	void onEat(Entity *e, int foodType);
 	void disableAll();
 };

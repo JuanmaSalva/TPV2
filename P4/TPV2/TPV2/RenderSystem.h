@@ -2,8 +2,6 @@
 #include "GameState.h"
 #include "System.h"
 
-
-
 class RenderSystem: public System {
 public:
 	RenderSystem();
@@ -16,4 +14,3 @@ private:
 	void drawPacMan(GameState* gs);
 	void drawState(GameState* gs);
 };
-

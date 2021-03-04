@@ -19,7 +19,8 @@ enum MsgId : msgType {
 	_DISABLE_GHOST,
 	_DISABLE_CHERRIES,
 	_RESET_PACMAN_POS,
-	_ON_EAT_CHERRY,
+	_ON_EAT_FOOD,
+	_EATEN_WRONG_FOOD,
 
 	_PLAY_CHANNEL,
 	_PLAY_MUSIC,
@@ -45,13 +46,15 @@ struct SingleIntMessage : Message
 	int num;
 };
 
-struct OnEatCherryMessage: Message
+struct OnEatFood: Message
 {
-	OnEatCherryMessage(Entity* e) : Message(msg::_ON_EAT_CHERRY) {
+	OnEatFood(Entity* e, int food) : Message(msg::_ON_EAT_FOOD) {
 		entity = e;
+		foodType = food;
 	}
 
 	Entity* entity;
+	int foodType;
 };
 
 struct PlayMusic: Message
@@ -71,6 +74,16 @@ struct PlayChannel : Message {
 
 	Resources::AudioId audioId;
 	int channel;
+};
+
+
+struct AddFoodMSG : Message {
+	AddFoodMSG(int food, int n) : Message(_ADD_FOOD) {
+		foodType = food;
+		num = n;
+	}
+	int foodType;
+	int num;
 };
 
 }

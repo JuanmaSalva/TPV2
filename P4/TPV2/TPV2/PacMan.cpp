@@ -55,7 +55,7 @@ void PacMan::start() {
 
 	while (!exit_) {
 		Uint32 startTime = game_->getTime();
-		SDL_SetRenderDrawColor(game_->getRenderer(), COLOR(0x000000FF));
+		SDL_SetRenderDrawColor(game_->getRenderer(), COLOR(0x000000FF)); //el fondo
 		SDL_RenderClear(game_->getRenderer());
 
 		ih->update();

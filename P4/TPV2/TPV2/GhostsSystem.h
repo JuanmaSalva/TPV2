@@ -18,5 +18,6 @@ private:
 	void onCollisionWithPacMan();
 	void addGhosts(std::size_t n);
 	void disableAll();
+	void speedUpGhosts();
 };
 

@@ -25,16 +25,16 @@ void FoodSystem::recieve(const msg::Message& msg)
 	switch (msg.id)
 	{
 	case msg::_ADD_FOOD: {
-		const msg::SingleIntMessage& m = static_cast<const msg::SingleIntMessage&>(msg);
-		addFood(m.num);
+		const msg::AddFoodMSG& m = static_cast<const msg::AddFoodMSG&>(msg);
+		addFood(m.num, m.foodType);
 		break;
 	}
 	case msg::_DISABLE_CHERRIES:
 		disableAll();
 		break;
-	case msg::_ON_EAT_CHERRY: {
-		const msg::OnEatCherryMessage& m = static_cast<const msg::OnEatCherryMessage&>(msg);
-		onEat(m.entity);
+	case msg::_ON_EAT_FOOD: {
+		const msg::OnEatFood& m = static_cast<const msg::OnEatFood&>(msg);
+		onEat(m.entity, m.foodType);
 		break;
 	}
 	default:
@@ -42,10 +42,16 @@ void FoodSystem::recieve(const msg::Message& msg)
 	}
 }
 
-void FoodSystem::onEat(Entity* e) {
+void FoodSystem::onEat(Entity* e, int foodType) {
 	// update score
 	auto gameState = mngr_->getHandler(ecs::_hdlr_GameStateEntity)->getComponent<GameState>(ecs::GameState);
 	gameState->score_++;
+
+	if ((foodType == 1 && mngr_->getGroupEntities(ecs::_grp_Cherry).size() > 0) ||  //aun quedan cerezas
+		(foodType == 2 && (mngr_->getGroupEntities(ecs::_grp_Cherry).size() > 0 ||
+		mngr_->getGroupEntities(ecs::_grp_Strawberry).size() > 0))) { //aun quedan peras
+		mngr_->send<msg::Message>(msg::_EATEN_WRONG_FOOD);
+	}
 
 	mngr_->send<msg::PlayChannel>(Resources::PacMan_Eat, 0);
 	//game_->getAudioMngr()->playChannel(Resources::PacMan_Eat, 0);
@@ -58,9 +64,7 @@ void FoodSystem::onEat(Entity* e) {
 		mngr_->send<msg::Message>(msg::_NO_MORE_FOOD);
 }
 
-void FoodSystem::addFood(std::size_t n) {
-
-
+void FoodSystem::addFood(std::size_t n, int foodType) {
 	RandomNumberGenerator* r = game_->getRandGen();
 
 	// ghost width and height
@@ -74,16 +78,44 @@ void FoodSystem::addFood(std::size_t n) {
 		Vector2D p(x, y);
 		// add the entity
 		Entity* e = mngr_->addEntity<FoodPool>(p, 30, 30);
+
 		if (e != nullptr) {
-			e->addToGroup(ecs::_grp_Food);
+
+			auto animatedImage = e->addComponent<AnimatedImageComponent>();
+			animatedImage->reset();
+			animatedImage->setFrameTime(100);
+			Texture* spritesTex =
+				SDLGame::instance()->getTextureMngr()->getTexture(
+					Resources::PacManSprites);
+
+			if (foodType == 0) {
+				animatedImage->addFrame(spritesTex, { 128 * 4, 128, 128, 128 });
+				e->addToGroup(ecs::_grp_Cherry);
+			}
+			else if (foodType == 1) {
+				animatedImage->addFrame(spritesTex, { 768, 128, 128, 128 });
+				e->addToGroup(ecs::_grp_Strawberry);
+			}
+			else if (foodType == 2) {
+				animatedImage->addFrame(spritesTex, { 896, 128, 128, 128 });
+				e->addToGroup(ecs::_grp_Pear);
+			}
+
 			numOfFoodPieces_++;
 		}
 	}
 }
 
 void FoodSystem::disableAll() {
-	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Food)) {
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Cherry)) {
 		e->setActive(false);
 	}
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Strawberry)) {
+		e->setActive(false);
+	}
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Pear)) {
+		e->setActive(false);
+	}
+
 	numOfFoodPieces_ = 0;
 }

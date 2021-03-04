@@ -23,8 +23,7 @@ void RenderSystem::drawAnimated(Entity *e) {
 	AnimatedImageComponent *img = e->getComponent<AnimatedImageComponent>(
 			ecs::AnimatedImageComponent);
 	const auto &sprite = img->getSprite(game_->getTime());
-	SDL_Rect dest =
-	RECT(tr->position_.getX(), tr->position_.getY(), tr->width_,
+	SDL_Rect dest =	RECT(tr->position_.getX(), tr->position_.getY(), tr->width_,
 			tr->height_);
 	sprite.first->render(dest, tr->rotation_, sprite.second);
 }
@@ -46,7 +45,13 @@ void RenderSystem::drawFood(GameState *gs) {
 	if (gs->state_ != GameState::RUNNING)
 		return;
 
-	for (auto &e : mngr_->getGroupEntities(ecs::_grp_Food)) {
+	for (auto &e : mngr_->getGroupEntities(ecs::_grp_Cherry)) {
+		drawAnimated(e);
+	}
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Strawberry)) {
+		drawAnimated(e);
+	}
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Pear)) {
 		drawAnimated(e);
 	}
 }

@@ -22,7 +22,9 @@ enum CmpId : CmpIdType {
 enum GrpId : GrpIdType {
 	_grp_Star,
 	_grp_Ghost,
-	_grp_Food,
+	_grp_Cherry,
+	_grp_Strawberry,
+	_grp_Pear,
 	//
 	// don't touch the rest of this enum, it is to identify the max
 	// number of groups
